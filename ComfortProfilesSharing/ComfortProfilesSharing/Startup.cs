@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using ComfortProfilesSharing.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ComfortProfilesSharing.Interfaces;
+using ComfortProfilesSharing.Repositories;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace ComfortProfilesSharing
 {
@@ -39,7 +42,12 @@ namespace ComfortProfilesSharing
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddTransient<IStaticInfoRepository, StaticInfoRepository>();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "TestApi", Version = "v1" });
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -65,6 +73,17 @@ namespace ComfortProfilesSharing
             app.UseAuthentication();
 
             app.UseMvc();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
         }
     }
 }
