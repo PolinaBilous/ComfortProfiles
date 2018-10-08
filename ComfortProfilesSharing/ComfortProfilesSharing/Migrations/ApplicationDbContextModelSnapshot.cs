@@ -93,13 +93,15 @@ namespace ComfortProfilesSharing.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<Guid?>("CoffeeDeviceId");
+                    b.Property<Guid>("CoffeeDeviceId");
 
-                    b.Property<Guid?>("CoffeeTypeId");
+                    b.Property<int>("CoffeeTypeId");
+
+                    b.Property<Guid?>("CoffeeTypeId1");
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("HowOftenId");
+                    b.Property<int>("HowOftenId");
 
                     b.Property<bool?>("IsRepeatable");
 
@@ -107,7 +109,7 @@ namespace ComfortProfilesSharing.Migrations
 
                     b.HasIndex("CoffeeDeviceId");
 
-                    b.HasIndex("CoffeeTypeId");
+                    b.HasIndex("CoffeeTypeId1");
 
                     b.HasIndex("HowOftenId");
 
@@ -126,14 +128,14 @@ namespace ComfortProfilesSharing.Migrations
                     b.ToTable("CoffeeTypes");
 
                     b.HasData(
-                        new { Id = new Guid("09a223f8-7cc2-43cf-b004-83cbc1f79668"), Name = "Americano" },
-                        new { Id = new Guid("5dbf3b8f-bc7d-48f6-8844-54ac0b36f153"), Name = "Latte" },
-                        new { Id = new Guid("90759e7e-50c8-4a4a-9a98-c9a7723236f7"), Name = "Cappuccino" },
-                        new { Id = new Guid("6337dcba-3cb1-45c6-93b4-e424811b95d4"), Name = "Espresso" },
-                        new { Id = new Guid("47100ce9-2204-458d-83d2-d303027b1d5f"), Name = "Macchiato" },
-                        new { Id = new Guid("2fc3daab-d1ff-4ca2-b0e8-391bf27edb55"), Name = "Mochaccino" },
-                        new { Id = new Guid("f336a11f-86ca-40e2-8fa2-cd8807710e89"), Name = "Flat White" },
-                        new { Id = new Guid("9f70ebef-e2e2-4354-bd70-a721238c3e42"), Name = "Vienna" }
+                        new { Id = new Guid("399b3b9b-4ab3-42c6-834b-fd2b0ea1e544"), Name = "Americano" },
+                        new { Id = new Guid("3abc087c-f595-4c5b-9ffa-96a433ad1705"), Name = "Latte" },
+                        new { Id = new Guid("5a4d242e-d537-4e4e-a10b-018d661bd920"), Name = "Cappuccino" },
+                        new { Id = new Guid("c9f19dec-40d7-4ef8-ba6c-937744aaeded"), Name = "Espresso" },
+                        new { Id = new Guid("1f41d24d-62da-4aa1-9f53-955be17c8c03"), Name = "Macchiato" },
+                        new { Id = new Guid("a4401dbd-0ab2-464b-bdcb-89b2e802c709"), Name = "Mochaccino" },
+                        new { Id = new Guid("3e191a13-cbe1-4d60-9a00-ebb6edec525a"), Name = "Flat White" },
+                        new { Id = new Guid("f4d2266a-553f-4112-a769-8ba5ae10fad5"), Name = "Vienna" }
                     );
                 });
 
@@ -158,7 +160,9 @@ namespace ComfortProfilesSharing.Migrations
                         new { Id = 6, Explanation = "Every Thursday" },
                         new { Id = 7, Explanation = "Every Friday" },
                         new { Id = 8, Explanation = "Every Saturday" },
-                        new { Id = 9, Explanation = "Every Sunday" }
+                        new { Id = 9, Explanation = "Every Sunday" },
+                        new { Id = 10, Explanation = "Every Weekday" },
+                        new { Id = 11, Explanation = "Every Weekend" }
                     );
                 });
 
@@ -327,7 +331,7 @@ namespace ComfortProfilesSharing.Migrations
 
                     b.Property<bool?>("IsRepeatable");
 
-                    b.Property<Guid?>("TeapotId");
+                    b.Property<Guid>("TeapotId");
 
                     b.Property<int>("Temperature");
 
@@ -561,15 +565,17 @@ namespace ComfortProfilesSharing.Migrations
                 {
                     b.HasOne("ComfortProfilesSharing.Models.CoffeeDevice", "CoffeeDevice")
                         .WithMany("CoffeeLogs")
-                        .HasForeignKey("CoffeeDeviceId");
+                        .HasForeignKey("CoffeeDeviceId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ComfortProfilesSharing.Models.CoffeeType", "CoffeeType")
                         .WithMany("CoffeLogs")
-                        .HasForeignKey("CoffeeTypeId");
+                        .HasForeignKey("CoffeeTypeId1");
 
                     b.HasOne("ComfortProfilesSharing.Models.HowOften", "HowOften")
                         .WithMany("CoffeeLogs")
-                        .HasForeignKey("HowOftenId");
+                        .HasForeignKey("HowOftenId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ComfortProfilesSharing.Models.IlluminationLog", b =>
@@ -632,7 +638,8 @@ namespace ComfortProfilesSharing.Migrations
 
                     b.HasOne("ComfortProfilesSharing.Models.Teapot", "Teapot")
                         .WithMany("TeapotLogs")
-                        .HasForeignKey("TeapotId");
+                        .HasForeignKey("TeapotId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

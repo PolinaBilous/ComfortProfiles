@@ -43,6 +43,7 @@ namespace ComfortProfilesSharing
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddTransient<IStaticInfoRepository, StaticInfoRepository>();
+            services.AddTransient<ICoffeeRepository, CoffeeRepository>();
 
             services.AddSwaggerGen(c =>
             {

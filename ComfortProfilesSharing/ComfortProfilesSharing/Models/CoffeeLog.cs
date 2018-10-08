@@ -7,7 +7,7 @@ namespace ComfortProfilesSharing.Models
 {
     public class CoffeeLog
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public Guid CoffeeDeviceId { get; set; }
         public CoffeeDevice CoffeeDevice { get; set; }

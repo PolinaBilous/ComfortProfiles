@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ComfortProfilesSharing.Migrations
 {
-    public partial class firstmigration : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -354,11 +354,12 @@ namespace ComfortProfilesSharing.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    CoffeeDeviceId = table.Column<Guid>(nullable: true),
-                    CoffeeTypeId = table.Column<Guid>(nullable: true),
+                    CoffeeDeviceId = table.Column<Guid>(nullable: false),
+                    CoffeeTypeId = table.Column<int>(nullable: false),
+                    CoffeeTypeId1 = table.Column<Guid>(nullable: true),
                     Date = table.Column<DateTime>(nullable: false),
                     IsRepeatable = table.Column<bool>(nullable: true),
-                    HowOftenId = table.Column<int>(nullable: true)
+                    HowOftenId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -368,10 +369,10 @@ namespace ComfortProfilesSharing.Migrations
                         column: x => x.CoffeeDeviceId,
                         principalTable: "CoffeDevices",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CoffeeLogs_CoffeeTypes_CoffeeTypeId",
-                        column: x => x.CoffeeTypeId,
+                        name: "FK_CoffeeLogs_CoffeeTypes_CoffeeTypeId1",
+                        column: x => x.CoffeeTypeId1,
                         principalTable: "CoffeeTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -380,7 +381,7 @@ namespace ComfortProfilesSharing.Migrations
                         column: x => x.HowOftenId,
                         principalTable: "HowOftens",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -446,7 +447,7 @@ namespace ComfortProfilesSharing.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    TeapotId = table.Column<Guid>(nullable: true),
+                    TeapotId = table.Column<Guid>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Temperature = table.Column<int>(nullable: false),
                     IsRepeatable = table.Column<bool>(nullable: true),
@@ -467,7 +468,7 @@ namespace ComfortProfilesSharing.Migrations
                         column: x => x.TeapotId,
                         principalTable: "Teapots",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -485,14 +486,14 @@ namespace ComfortProfilesSharing.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("09a223f8-7cc2-43cf-b004-83cbc1f79668"), "Americano" },
-                    { new Guid("5dbf3b8f-bc7d-48f6-8844-54ac0b36f153"), "Latte" },
-                    { new Guid("90759e7e-50c8-4a4a-9a98-c9a7723236f7"), "Cappuccino" },
-                    { new Guid("6337dcba-3cb1-45c6-93b4-e424811b95d4"), "Espresso" },
-                    { new Guid("47100ce9-2204-458d-83d2-d303027b1d5f"), "Macchiato" },
-                    { new Guid("2fc3daab-d1ff-4ca2-b0e8-391bf27edb55"), "Mochaccino" },
-                    { new Guid("f336a11f-86ca-40e2-8fa2-cd8807710e89"), "Flat White" },
-                    { new Guid("9f70ebef-e2e2-4354-bd70-a721238c3e42"), "Vienna" }
+                    { new Guid("399b3b9b-4ab3-42c6-834b-fd2b0ea1e544"), "Americano" },
+                    { new Guid("3abc087c-f595-4c5b-9ffa-96a433ad1705"), "Latte" },
+                    { new Guid("5a4d242e-d537-4e4e-a10b-018d661bd920"), "Cappuccino" },
+                    { new Guid("c9f19dec-40d7-4ef8-ba6c-937744aaeded"), "Espresso" },
+                    { new Guid("1f41d24d-62da-4aa1-9f53-955be17c8c03"), "Macchiato" },
+                    { new Guid("a4401dbd-0ab2-464b-bdcb-89b2e802c709"), "Mochaccino" },
+                    { new Guid("3e191a13-cbe1-4d60-9a00-ebb6edec525a"), "Flat White" },
+                    { new Guid("f4d2266a-553f-4112-a769-8ba5ae10fad5"), "Vienna" }
                 });
 
             migrationBuilder.InsertData(
@@ -500,15 +501,17 @@ namespace ComfortProfilesSharing.Migrations
                 columns: new[] { "Id", "Explanation" },
                 values: new object[,]
                 {
+                    { 11, "Every Weekend" },
+                    { 10, "Every Weekday" },
                     { 9, "Every Sunday" },
                     { 8, "Every Saturday" },
                     { 7, "Every Friday" },
-                    { 6, "Every Thursday" },
-                    { 3, "Every Monday" },
                     { 4, "Every Tuesday" },
+                    { 5, "Every Wednesday" },
+                    { 3, "Every Monday" },
                     { 2, "Every Day" },
                     { 1, "Never" },
-                    { 5, "Every Wednesday" }
+                    { 6, "Every Thursday" }
                 });
 
             migrationBuilder.InsertData(
@@ -602,9 +605,9 @@ namespace ComfortProfilesSharing.Migrations
                 column: "CoffeeDeviceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CoffeeLogs_CoffeeTypeId",
+                name: "IX_CoffeeLogs_CoffeeTypeId1",
                 table: "CoffeeLogs",
-                column: "CoffeeTypeId");
+                column: "CoffeeTypeId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CoffeeLogs_HowOftenId",

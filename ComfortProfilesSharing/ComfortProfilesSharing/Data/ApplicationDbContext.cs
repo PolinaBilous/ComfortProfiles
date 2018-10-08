@@ -74,7 +74,9 @@ namespace ComfortProfilesSharing.Data
                     new HowOften() { Id = 6, Explanation = "Every Thursday" },
                     new HowOften() { Id = 7, Explanation = "Every Friday" },
                     new HowOften() { Id = 8, Explanation = "Every Saturday" },
-                    new HowOften() { Id = 9, Explanation = "Every Sunday" }
+                    new HowOften() { Id = 9, Explanation = "Every Sunday" },
+                    new HowOften() { Id = 10, Explanation = "Every Weekday" },
+                    new HowOften() { Id = 11, Explanation = "Every Weekend" }
                 );
             builder.Entity<ChairType>().HasData(
                     new ChairType() { Id = 1, Name = "Type1" },

@@ -9,11 +9,16 @@ namespace ComfortProfilesSharing.Interfaces
     public interface ICoffeeRepository
     {
         // check coffee device state
-        void AddCoffeeDevice(CoffeeDevice coffeeDevice);
+        // return coffee device state in controller
+        bool AddCoffeeDevice(CoffeeDevice coffeeDevice);
         // update coffee device state
+        // return coffee device state in controller
         void MakeCupOfCoffee(CoffeeLog coffeeLog);
         CoffeeDevice GetCoffeeDeviceByUserId(string appUserId);
         // check coffee device state
-        bool IsCupOfCoffeeNeeded(string appUserId, DateTime dateTime);
+        // return coffee device state in controller
+        bool MakeCupOfCoffeeIfNeeded(string appUserId, DateTime dateTime);
+        List<HowOften> GetHowOftens();
+        List<CoffeeType> GetCoffeeTypes();
     }
 }
