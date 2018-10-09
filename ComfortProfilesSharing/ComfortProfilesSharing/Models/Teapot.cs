@@ -17,6 +17,8 @@ namespace ComfortProfilesSharing.Models
         public int CurrentTemperature { get; set; }
         public int CurrentWaterAmount { get; set; }
 
+        public int ComfortTemperature { get; set; }
+
         public List<TeapotLog> TeapotLogs { get; set; }
     }
 }

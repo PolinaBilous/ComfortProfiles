@@ -68,8 +68,6 @@ namespace ComfortProfilesSharing.Controllers
             return new JsonResult(_staticInfoRepository.GetWaterTypes().Select(item => new { item.Id, item.Name }));
         }
 
-
-
         private StaticInfo ConvertToStaticInfo(RequestStaticInfo requestStaticInfo)
         {
             return new StaticInfo()

@@ -283,7 +283,8 @@ namespace ComfortProfilesSharing.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     AppUserId = table.Column<string>(nullable: true),
                     CurrentTemperature = table.Column<int>(nullable: false),
-                    CurrentWaterAmount = table.Column<int>(nullable: false)
+                    CurrentWaterAmount = table.Column<int>(nullable: false),
+                    ComfortTemperature = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -355,8 +356,7 @@ namespace ComfortProfilesSharing.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CoffeeDeviceId = table.Column<Guid>(nullable: false),
-                    CoffeeTypeId = table.Column<int>(nullable: false),
-                    CoffeeTypeId1 = table.Column<Guid>(nullable: true),
+                    CoffeeTypeId = table.Column<Guid>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     IsRepeatable = table.Column<bool>(nullable: true),
                     HowOftenId = table.Column<int>(nullable: false)
@@ -371,11 +371,11 @@ namespace ComfortProfilesSharing.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CoffeeLogs_CoffeeTypes_CoffeeTypeId1",
-                        column: x => x.CoffeeTypeId1,
+                        name: "FK_CoffeeLogs_CoffeeTypes_CoffeeTypeId",
+                        column: x => x.CoffeeTypeId,
                         principalTable: "CoffeeTypes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_CoffeeLogs_HowOftens_HowOftenId",
                         column: x => x.HowOftenId,
@@ -451,18 +451,17 @@ namespace ComfortProfilesSharing.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     Temperature = table.Column<int>(nullable: false),
                     IsRepeatable = table.Column<bool>(nullable: true),
-                    HowOftenId = table.Column<Guid>(nullable: false),
-                    HowOftenId1 = table.Column<int>(nullable: true)
+                    HowOftenId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TeapotLogs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TeapotLogs_HowOftens_HowOftenId1",
-                        column: x => x.HowOftenId1,
+                        name: "FK_TeapotLogs_HowOftens_HowOftenId",
+                        column: x => x.HowOftenId,
                         principalTable: "HowOftens",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_TeapotLogs_Teapots_TeapotId",
                         column: x => x.TeapotId,
@@ -486,14 +485,14 @@ namespace ComfortProfilesSharing.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("399b3b9b-4ab3-42c6-834b-fd2b0ea1e544"), "Americano" },
-                    { new Guid("3abc087c-f595-4c5b-9ffa-96a433ad1705"), "Latte" },
-                    { new Guid("5a4d242e-d537-4e4e-a10b-018d661bd920"), "Cappuccino" },
-                    { new Guid("c9f19dec-40d7-4ef8-ba6c-937744aaeded"), "Espresso" },
-                    { new Guid("1f41d24d-62da-4aa1-9f53-955be17c8c03"), "Macchiato" },
-                    { new Guid("a4401dbd-0ab2-464b-bdcb-89b2e802c709"), "Mochaccino" },
-                    { new Guid("3e191a13-cbe1-4d60-9a00-ebb6edec525a"), "Flat White" },
-                    { new Guid("f4d2266a-553f-4112-a769-8ba5ae10fad5"), "Vienna" }
+                    { new Guid("2079ba33-eeeb-4fef-abab-da81154076cf"), "Americano" },
+                    { new Guid("afe1bff2-7390-4f05-9279-b8283b6ca530"), "Latte" },
+                    { new Guid("fba08b33-808c-4f56-97c4-f4552c6ab7c9"), "Cappuccino" },
+                    { new Guid("0af416be-452b-43b8-a6b1-c49badeb1fd5"), "Espresso" },
+                    { new Guid("142564a2-0315-40a0-ac04-0a8e55069f06"), "Macchiato" },
+                    { new Guid("426d4e64-84a1-4fd2-bb7a-a4e466e57582"), "Mochaccino" },
+                    { new Guid("f5f9bfa0-1aa9-4f28-80ea-f810520970b4"), "Flat White" },
+                    { new Guid("e32e46fd-ce70-4bd2-bee7-c261afdc8eee"), "Vienna" }
                 });
 
             migrationBuilder.InsertData(
@@ -605,9 +604,9 @@ namespace ComfortProfilesSharing.Migrations
                 column: "CoffeeDeviceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CoffeeLogs_CoffeeTypeId1",
+                name: "IX_CoffeeLogs_CoffeeTypeId",
                 table: "CoffeeLogs",
-                column: "CoffeeTypeId1");
+                column: "CoffeeTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CoffeeLogs_HowOftenId",
@@ -657,9 +656,9 @@ namespace ComfortProfilesSharing.Migrations
                 column: "WaterTypeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TeapotLogs_HowOftenId1",
+                name: "IX_TeapotLogs_HowOftenId",
                 table: "TeapotLogs",
-                column: "HowOftenId1");
+                column: "HowOftenId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TeapotLogs_TeapotId",

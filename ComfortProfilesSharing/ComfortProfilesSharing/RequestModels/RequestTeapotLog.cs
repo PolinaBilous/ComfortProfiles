@@ -8,8 +8,7 @@ namespace ComfortProfilesSharing.RequestModels
     public class RequestTeapotLog
     {
         public int Temperature { get; set; }
-        public bool? IsRepeatable { get; set; }
 
-        public Guid HowOftenId { get; set; }
+        public int HowOftenId { get; set; }
     }
 }

@@ -44,6 +44,7 @@ namespace ComfortProfilesSharing
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddTransient<IStaticInfoRepository, StaticInfoRepository>();
             services.AddTransient<ICoffeeRepository, CoffeeRepository>();
+            services.AddTransient<ITeapotRepository, TeapotRepository>();
 
             services.AddSwaggerGen(c =>
             {

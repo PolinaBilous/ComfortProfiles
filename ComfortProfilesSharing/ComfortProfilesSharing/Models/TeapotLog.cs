@@ -17,7 +17,7 @@ namespace ComfortProfilesSharing.Models
         public int Temperature { get; set; }
         public bool? IsRepeatable { get; set; }
 
-        public Guid HowOftenId { get; set; }
+        public int HowOftenId { get; set; }
         public HowOften HowOften { get; set; }
     }
 }

@@ -61,7 +61,8 @@ namespace ComfortProfilesSharing.Repositories
 
             if (currentCoffeeLog != null)
             {
-                coffeeDevice = MinusCoffeeCosts(coffeeDevice, currentCoffeeLog);                
+                coffeeDevice = MinusCoffeeCosts(coffeeDevice, currentCoffeeLog);
+                return true;
             }
 
             _dbContext.SaveChanges();
@@ -79,7 +80,7 @@ namespace ComfortProfilesSharing.Repositories
         private CoffeeDevice MinusCoffeeCosts(CoffeeDevice coffeeDevice, CoffeeLog coffeeLog)
         {
             coffeeDevice.CurrentWaterAmount -= 10;
-            coffeeDevice.CurrentWaterAmount -= 5;
+            coffeeDevice.CurrentCoffeeAmount -= 5;
             List<string> coffeeTypesWithMilk = new List<string>() { "Latte", "Cappuccino", "Mochaccino", "Macchiato", "Flat White" };
             if (coffeeTypesWithMilk.Contains(_dbContext.CoffeeTypes.FirstOrDefault(ct => ct.Id == coffeeLog.CoffeeTypeId).Name))
             {
