@@ -55,9 +55,17 @@ namespace ComfortProfilesSharing.Repositories
                     .ThenInclude(cl => cl.HowOften)
                 .FirstOrDefault(cd => cd.AppUserId == appUserId);
 
+            CoffeeLog currentCoffeeLog = coffeeDevice.CoffeeLogs.FirstOrDefault(cl => cl.IsRepeatable != true && cl.Date == dateTime);
+
+            if (currentCoffeeLog != null)
+            {
+                MakeCupOfCoffee(currentCoffeeLog);
+                return true;
+            }
+
             List<CoffeeLog> repeatableCoffeLogs = coffeeDevice.CoffeeLogs.Where(cl => cl.IsRepeatable == true).ToList();
 
-            CoffeeLog currentCoffeeLog = IsCupOfCoffeeNeeded(repeatableCoffeLogs, dateTime);
+            currentCoffeeLog = IsCupOfCoffeeNeeded(repeatableCoffeLogs, dateTime);
 
             if (currentCoffeeLog != null)
             {
@@ -72,8 +80,11 @@ namespace ComfortProfilesSharing.Repositories
         public void MakeCupOfCoffee(CoffeeLog coffeeLog)
         {
             _dbContext.CoffeeLogs.Add(coffeeLog);
-            CoffeeDevice coffeeDevice = _dbContext.CoffeDevices.FirstOrDefault(cd => cd.Id == coffeeLog.CoffeeDeviceId);
-            coffeeDevice = MinusCoffeeCosts(coffeeDevice, coffeeLog);
+            if (coffeeLog.Date == DateTime.Now)
+            {
+                CoffeeDevice coffeeDevice = _dbContext.CoffeDevices.FirstOrDefault(cd => cd.Id == coffeeLog.CoffeeDeviceId);
+                coffeeDevice = MinusCoffeeCosts(coffeeDevice, coffeeLog);
+            }
             _dbContext.SaveChanges();
         }
 

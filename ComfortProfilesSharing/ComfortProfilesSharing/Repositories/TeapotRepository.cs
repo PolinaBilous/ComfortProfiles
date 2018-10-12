@@ -44,8 +44,11 @@ namespace ComfortProfilesSharing.Repositories
         public void BoilWater(TeapotLog teapotLog)
         {
             _dbContext.TeapotLogs.Add(teapotLog);
-            Teapot teapot = _dbContext.Teapots.FirstOrDefault(t => t.Id == teapotLog.TeapotId);
-            teapot = UpdateTeapotWhenBoil(teapot, teapotLog);
+            if (teapotLog.Date == DateTime.Now)
+            {
+                Teapot teapot = _dbContext.Teapots.FirstOrDefault(t => t.Id == teapotLog.TeapotId);
+                teapot = UpdateTeapotWhenBoil(teapot, teapotLog);
+            }
             _dbContext.SaveChanges();
         }
 
@@ -56,9 +59,17 @@ namespace ComfortProfilesSharing.Repositories
                     .ThenInclude(tl => tl.HowOften)
                 .FirstOrDefault(t => t.AppUserId == appUserId);
 
-            List<TeapotLog> repeatableTeapotLogs = _dbContext.TeapotLogs.Where(tl => tl.IsRepeatable == true).ToList();
+            TeapotLog currentTeapotLog = teapot.TeapotLogs.FirstOrDefault(tl => tl.IsRepeatable != true && tl.Date == dateTime);
 
-            TeapotLog currentTeapotLog = IsBoilWaterNeeded(repeatableTeapotLogs, dateTime);
+            if (currentTeapotLog != null)
+            {
+                BoilWater(currentTeapotLog);
+                return true;
+            }
+
+            List<TeapotLog> repeatableTeapotLogs = teapot.TeapotLogs.Where(tl => tl.IsRepeatable == true).ToList();
+
+            currentTeapotLog = IsBoilWaterNeeded(repeatableTeapotLogs, dateTime);
 
             if (currentTeapotLog != null)
             {

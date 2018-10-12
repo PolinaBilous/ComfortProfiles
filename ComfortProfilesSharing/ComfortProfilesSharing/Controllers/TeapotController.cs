@@ -130,7 +130,7 @@ namespace ComfortProfilesSharing.Controllers
                 Id = Guid.NewGuid(),
                 HowOftenId = requestTeapotLog.HowOftenId,
                 IsRepeatable = requestTeapotLog.HowOftenId == 1 ? false : true,
-                Date = DateTime.Now,
+                Date = requestTeapotLog.DateTime,
                 TeapotId = _teapotRepository.GetTeapotByUserId(this.User.FindFirstValue(ClaimTypes.NameIdentifier)).Id,
                 Temperature = requestTeapotLog.Temperature
             };

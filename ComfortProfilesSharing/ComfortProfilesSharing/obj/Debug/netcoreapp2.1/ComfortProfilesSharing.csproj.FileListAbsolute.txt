@@ -68,3 +68,38 @@ E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesShar
 E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.pdb
 E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.csproj.CopyComplete
 E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.deps.json
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.runtimeconfig.json
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.runtimeconfig.dev.json
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.dll
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.pdb
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.Views.dll
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.Views.pdb
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.csprojAssemblyReference.cache
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.csproj.CoreCompileInputs.cache
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.RazorAssemblyInfo.cache
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.RazorAssemblyInfo.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.AssemblyInfoInputs.cache
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.AssemblyInfo.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.TagHelpers.input.cache
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.TagHelpers.output.cache
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.RazorCoreGenerate.cache
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\About.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\Contact.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_Layout.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_LoginPartial.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImports.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewStart.g.cshtml.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.RazorTargetAssemblyInfo.cache
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.RazorTargetAssemblyInfo.cs
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.Views.pdb
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.dll
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.pdb
+D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.csproj.CopyComplete

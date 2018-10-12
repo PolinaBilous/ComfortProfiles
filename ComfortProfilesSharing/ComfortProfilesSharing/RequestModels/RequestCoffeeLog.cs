@@ -8,6 +8,7 @@ namespace ComfortProfilesSharing.RequestModels
     public class RequestCoffeeLog
     {
         public Guid CoffeeTypeId { get; set; }
+        public DateTime DateTime { get; set; }
         public int HowOftenId { get; set; }
     }
 }

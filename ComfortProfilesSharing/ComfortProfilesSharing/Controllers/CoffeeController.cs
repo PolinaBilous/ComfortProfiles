@@ -153,7 +153,7 @@ namespace ComfortProfilesSharing.Controllers
                 Id = Guid.NewGuid(),
                 CoffeeDeviceId = _coffeeRepository.GetCoffeeDeviceByUserId(this.User.FindFirstValue(ClaimTypes.NameIdentifier)).Id,
                 CoffeeTypeId = requestCoffeeLog.CoffeeTypeId,
-                Date = DateTime.Now,
+                Date = requestCoffeeLog.DateTime,
                 HowOftenId = requestCoffeeLog.HowOftenId,
                 IsRepeatable = requestCoffeeLog.HowOftenId == 1 ? false : true
             };
