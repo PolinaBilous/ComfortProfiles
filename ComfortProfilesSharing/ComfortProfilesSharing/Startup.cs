@@ -45,6 +45,7 @@ namespace ComfortProfilesSharing
             services.AddTransient<IStaticInfoRepository, StaticInfoRepository>();
             services.AddTransient<ICoffeeRepository, CoffeeRepository>();
             services.AddTransient<ITeapotRepository, TeapotRepository>();
+            services.AddTransient<IRoomRepository, RoomRepository>();
 
             services.AddSwaggerGen(c =>
             {

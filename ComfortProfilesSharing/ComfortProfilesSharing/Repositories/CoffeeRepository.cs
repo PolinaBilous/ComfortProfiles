@@ -55,7 +55,7 @@ namespace ComfortProfilesSharing.Repositories
                     .ThenInclude(cl => cl.HowOften)
                 .FirstOrDefault(cd => cd.AppUserId == appUserId);
 
-            CoffeeLog currentCoffeeLog = coffeeDevice.CoffeeLogs.FirstOrDefault(cl => cl.IsRepeatable != true && cl.Date == dateTime);
+            CoffeeLog currentCoffeeLog = coffeeDevice.CoffeeLogs.FirstOrDefault(cl => cl.IsRepeatable != true && IsDateTimesEquals(cl.Date ,dateTime));
 
             if (currentCoffeeLog != null)
             {
@@ -80,7 +80,7 @@ namespace ComfortProfilesSharing.Repositories
         public void MakeCupOfCoffee(CoffeeLog coffeeLog)
         {
             _dbContext.CoffeeLogs.Add(coffeeLog);
-            if (coffeeLog.Date == DateTime.Now)
+            if (IsDateTimesEquals(DateTime.Now, coffeeLog.Date))
             {
                 CoffeeDevice coffeeDevice = _dbContext.CoffeDevices.FirstOrDefault(cd => cd.Id == coffeeLog.CoffeeDeviceId);
                 coffeeDevice = MinusCoffeeCosts(coffeeDevice, coffeeLog);
@@ -108,6 +108,10 @@ namespace ComfortProfilesSharing.Repositories
 
             foreach(CoffeeLog coffeeLog in coffeeLogs)
             {
+                if(IsDateTimesEquals(dateTime, coffeeLog.Date) && _dbContext.CoffeeLogs.FirstOrDefault(cl => cl.CoffeeDeviceId == coffeeLog.CoffeeTypeId && coffeeLog.Date == cl.Date) == null)
+                {
+                    result = coffeeLog;
+                }
                 if (coffeeLog.HowOften.Id == 2 && IsTimesEquals(dateTime, coffeeLog.Date))
                 {
                     result = coffeeLog;
@@ -131,6 +135,11 @@ namespace ComfortProfilesSharing.Repositories
         private bool IsTimesEquals(DateTime t1, DateTime t2)
         {
             return t1.Hour == t2.Hour && t1.Minute == t2.Minute;
+        }
+
+        private bool IsDateTimesEquals(DateTime t1, DateTime t2)
+        {
+            return t1.Date == t2.Date && t1.Hour == t2.Hour && t1.Minute == t2.Minute;
         }
 
         private bool IsDayOfWeekAndTimeEquals(DateTime t1, DateTime t2)

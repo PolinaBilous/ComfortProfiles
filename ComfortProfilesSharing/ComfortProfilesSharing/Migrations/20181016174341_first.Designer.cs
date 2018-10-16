@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ComfortProfilesSharing.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181009193038_first")]
+    [Migration("20181016174341_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.1-rtm-30846")
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -51,11 +51,11 @@ namespace ComfortProfilesSharing.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("HowOftenId");
+                    b.Property<int>("HowOftenId");
 
                     b.Property<bool?>("IsRepeatable");
 
-                    b.Property<Guid?>("RoomId");
+                    b.Property<Guid>("RoomId");
 
                     b.Property<int>("Temperature");
 
@@ -128,14 +128,14 @@ namespace ComfortProfilesSharing.Migrations
                     b.ToTable("CoffeeTypes");
 
                     b.HasData(
-                        new { Id = new Guid("2079ba33-eeeb-4fef-abab-da81154076cf"), Name = "Americano" },
-                        new { Id = new Guid("afe1bff2-7390-4f05-9279-b8283b6ca530"), Name = "Latte" },
-                        new { Id = new Guid("fba08b33-808c-4f56-97c4-f4552c6ab7c9"), Name = "Cappuccino" },
-                        new { Id = new Guid("0af416be-452b-43b8-a6b1-c49badeb1fd5"), Name = "Espresso" },
-                        new { Id = new Guid("142564a2-0315-40a0-ac04-0a8e55069f06"), Name = "Macchiato" },
-                        new { Id = new Guid("426d4e64-84a1-4fd2-bb7a-a4e466e57582"), Name = "Mochaccino" },
-                        new { Id = new Guid("f5f9bfa0-1aa9-4f28-80ea-f810520970b4"), Name = "Flat White" },
-                        new { Id = new Guid("e32e46fd-ce70-4bd2-bee7-c261afdc8eee"), Name = "Vienna" }
+                        new { Id = new Guid("68137d4a-c9bd-4d78-aa89-ea47b1825bec"), Name = "Americano" },
+                        new { Id = new Guid("bce70ff0-e4b2-4b55-8368-cb2c30b46566"), Name = "Latte" },
+                        new { Id = new Guid("01abd810-da57-4a6d-993e-ae049a6f7339"), Name = "Cappuccino" },
+                        new { Id = new Guid("224c23b1-e962-4b3d-832c-27da8f1c2321"), Name = "Espresso" },
+                        new { Id = new Guid("673761f4-70b0-4f5a-b627-5ca0b460f61a"), Name = "Macchiato" },
+                        new { Id = new Guid("4172ded0-d90c-4a99-b349-81777f2cebe7"), Name = "Mochaccino" },
+                        new { Id = new Guid("5ebcadce-f468-4a60-94bf-9ce9d8f38549"), Name = "Flat White" },
+                        new { Id = new Guid("9e2126b4-449f-45da-a5d9-f75266de0e70"), Name = "Vienna" }
                     );
                 });
 
@@ -219,6 +219,14 @@ namespace ComfortProfilesSharing.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("AppUserId");
+
+                    b.Property<int>("CurrentAirHumidity");
+
+                    b.Property<bool>("CurrentIsLight");
+
+                    b.Property<int>("CurrentLightIntensity");
+
+                    b.Property<int>("CurrentTemperature");
 
                     b.Property<string>("Name");
 
@@ -547,11 +555,13 @@ namespace ComfortProfilesSharing.Migrations
                 {
                     b.HasOne("ComfortProfilesSharing.Models.HowOften", "HowOften")
                         .WithMany("ClimatLogs")
-                        .HasForeignKey("HowOftenId");
+                        .HasForeignKey("HowOftenId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ComfortProfilesSharing.Models.Room", "Room")
                         .WithMany("ClimatLogs")
-                        .HasForeignKey("RoomId");
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ComfortProfilesSharing.Models.CoffeeDevice", b =>

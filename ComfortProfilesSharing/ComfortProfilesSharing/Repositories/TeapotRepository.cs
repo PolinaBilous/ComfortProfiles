@@ -44,7 +44,7 @@ namespace ComfortProfilesSharing.Repositories
         public void BoilWater(TeapotLog teapotLog)
         {
             _dbContext.TeapotLogs.Add(teapotLog);
-            if (teapotLog.Date == DateTime.Now)
+            if (IsDateTimesEquals(DateTime.Now, teapotLog.Date))
             {
                 Teapot teapot = _dbContext.Teapots.FirstOrDefault(t => t.Id == teapotLog.TeapotId);
                 teapot = UpdateTeapotWhenBoil(teapot, teapotLog);
@@ -59,7 +59,7 @@ namespace ComfortProfilesSharing.Repositories
                     .ThenInclude(tl => tl.HowOften)
                 .FirstOrDefault(t => t.AppUserId == appUserId);
 
-            TeapotLog currentTeapotLog = teapot.TeapotLogs.FirstOrDefault(tl => tl.IsRepeatable != true && tl.Date == dateTime);
+            TeapotLog currentTeapotLog = teapot.TeapotLogs.FirstOrDefault(tl => tl.IsRepeatable != true && IsDateTimesEquals(tl.Date, dateTime));
 
             if (currentTeapotLog != null)
             {
@@ -69,7 +69,7 @@ namespace ComfortProfilesSharing.Repositories
 
             List<TeapotLog> repeatableTeapotLogs = teapot.TeapotLogs.Where(tl => tl.IsRepeatable == true).ToList();
 
-            currentTeapotLog = IsBoilWaterNeeded(repeatableTeapotLogs, dateTime);
+            currentTeapotLog = CheckIfBoilWaterNeeded(repeatableTeapotLogs, dateTime);
 
             if (currentTeapotLog != null)
             {
@@ -87,13 +87,17 @@ namespace ComfortProfilesSharing.Repositories
             return teapot;
         }
 
-        private TeapotLog IsBoilWaterNeeded(List<TeapotLog> teapotLogs, DateTime dateTime)
+        private TeapotLog CheckIfBoilWaterNeeded(List<TeapotLog> teapotLogs, DateTime dateTime)
         {
             TeapotLog result = null;
             List<int> dayOfWeeksId = new List<int>() { 3, 4, 5, 6, 7, 8, 9 };
 
             foreach (TeapotLog teapotLog in teapotLogs)
             {
+                if (IsDateTimesEquals(dateTime, teapotLog.Date) && _dbContext.TeapotLogs.FirstOrDefault(tl => tl.TeapotId == teapotLog.TeapotId && IsDateTimesEquals(teapotLog.Date , tl.Date)) == null)
+                {
+                    result = teapotLog;
+                }
                 if (teapotLog.HowOften.Id == 2 && IsTimesEquals(dateTime, teapotLog.Date))
                 {
                     result = teapotLog;
@@ -118,6 +122,11 @@ namespace ComfortProfilesSharing.Repositories
         private bool IsTimesEquals(DateTime t1, DateTime t2)
         {
             return t1.Hour == t2.Hour && t1.Minute == t2.Minute;
+        }
+
+        private bool IsDateTimesEquals(DateTime t1, DateTime t2)
+        {
+            return t1.Date == t2.Date && t1.Hour == t2.Hour && t1.Minute == t2.Minute;
         }
 
         private bool IsDayOfWeekAndTimeEquals(DateTime t1, DateTime t2)

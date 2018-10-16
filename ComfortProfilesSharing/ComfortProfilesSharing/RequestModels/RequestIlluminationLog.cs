@@ -3,22 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ComfortProfilesSharing.Models
+namespace ComfortProfilesSharing.RequestModels
 {
-    public class IlluminationLog
+    public class RequestIlluminationLog
     {
-        public Guid Id { get; set; }
-
         public Guid RoomId { get; set; }
-        public Room Room { get; set; }
 
         public bool IsLight { get; set; }
         public int LightIntensity { get; set; }
 
         public DateTime Date { get; set; }
-
-        public bool? IsRepeatable { get; set; }
+        
         public int HowOftenId { get; set; }
-        public HowOften HowOften { get; set; }
     }
 }

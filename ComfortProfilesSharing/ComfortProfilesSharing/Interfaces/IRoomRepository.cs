@@ -14,6 +14,8 @@ namespace ComfortProfilesSharing.Interfaces
         bool ChangeClimatIfNeeded(string appUserId, DateTime dateTime, Guid roomId);
         bool ChangeIlluminationIfNeeded(string appUserId, DateTime dateTime, Guid roomId);
         List<HowOften> GetHowOftens();
-        List<Room> GetUserRooms(string appUserId); 
+        List<Room> GetUserRooms(string appUserId);
+        bool RefreshRoomState(Guid roomId, int temperature, int airHumidity, int lightIntensity);
+        Room GetRoomById(Guid roomId);
     }
 }

@@ -263,7 +263,11 @@ namespace ComfortProfilesSharing.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     AppUserId = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    URL = table.Column<string>(nullable: true)
+                    URL = table.Column<string>(nullable: true),
+                    CurrentTemperature = table.Column<int>(nullable: false),
+                    CurrentAirHumidity = table.Column<int>(nullable: false),
+                    CurrentIsLight = table.Column<bool>(nullable: false),
+                    CurrentLightIntensity = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -389,12 +393,12 @@ namespace ComfortProfilesSharing.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    RoomId = table.Column<Guid>(nullable: true),
+                    RoomId = table.Column<Guid>(nullable: false),
                     Temperature = table.Column<int>(nullable: false),
                     AirHumidity = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     IsRepeatable = table.Column<bool>(nullable: true),
-                    HowOftenId = table.Column<int>(nullable: true)
+                    HowOftenId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -404,13 +408,13 @@ namespace ComfortProfilesSharing.Migrations
                         column: x => x.HowOftenId,
                         principalTable: "HowOftens",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ClimatLogs_Rooms_RoomId",
                         column: x => x.RoomId,
                         principalTable: "Rooms",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -485,14 +489,14 @@ namespace ComfortProfilesSharing.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("2079ba33-eeeb-4fef-abab-da81154076cf"), "Americano" },
-                    { new Guid("afe1bff2-7390-4f05-9279-b8283b6ca530"), "Latte" },
-                    { new Guid("fba08b33-808c-4f56-97c4-f4552c6ab7c9"), "Cappuccino" },
-                    { new Guid("0af416be-452b-43b8-a6b1-c49badeb1fd5"), "Espresso" },
-                    { new Guid("142564a2-0315-40a0-ac04-0a8e55069f06"), "Macchiato" },
-                    { new Guid("426d4e64-84a1-4fd2-bb7a-a4e466e57582"), "Mochaccino" },
-                    { new Guid("f5f9bfa0-1aa9-4f28-80ea-f810520970b4"), "Flat White" },
-                    { new Guid("e32e46fd-ce70-4bd2-bee7-c261afdc8eee"), "Vienna" }
+                    { new Guid("68137d4a-c9bd-4d78-aa89-ea47b1825bec"), "Americano" },
+                    { new Guid("bce70ff0-e4b2-4b55-8368-cb2c30b46566"), "Latte" },
+                    { new Guid("01abd810-da57-4a6d-993e-ae049a6f7339"), "Cappuccino" },
+                    { new Guid("224c23b1-e962-4b3d-832c-27da8f1c2321"), "Espresso" },
+                    { new Guid("673761f4-70b0-4f5a-b627-5ca0b460f61a"), "Macchiato" },
+                    { new Guid("4172ded0-d90c-4a99-b349-81777f2cebe7"), "Mochaccino" },
+                    { new Guid("5ebcadce-f468-4a60-94bf-9ce9d8f38549"), "Flat White" },
+                    { new Guid("9e2126b4-449f-45da-a5d9-f75266de0e70"), "Vienna" }
                 });
 
             migrationBuilder.InsertData(
