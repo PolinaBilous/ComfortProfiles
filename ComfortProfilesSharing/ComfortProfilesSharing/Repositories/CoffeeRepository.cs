@@ -132,6 +132,38 @@ namespace ComfortProfilesSharing.Repositories
             return result;
         }
 
+
+        public List<CoffeeType> GetFavouriteCoffeeTypes(string appUserId)
+        {
+            List<CoffeeType> coffeeTypes = new List<CoffeeType>();
+
+            CoffeeDevice coffeeDevice = _dbContext.CoffeDevices
+                .Include(cd => cd.CoffeeLogs)
+                    .ThenInclude(cl => cl.CoffeeType)
+                .FirstOrDefault(cd => cd.AppUserId == appUserId);
+
+            if (coffeeDevice != null && coffeeDevice.CoffeeLogs != null)
+            {
+                coffeeTypes.Add(coffeeDevice.CoffeeLogs.GroupBy(cl => cl.CoffeeType).OrderByDescending(cl => cl.Count()).FirstOrDefault().Key);
+                coffeeTypes.Add(coffeeDevice.CoffeeLogs.GroupBy(cl => cl.CoffeeType).OrderByDescending(cl => cl.Count()).Skip(1).Take(1).FirstOrDefault().Key);
+                coffeeTypes.Add(coffeeDevice.CoffeeLogs.GroupBy(cl => cl.CoffeeType).OrderByDescending(cl => cl.Count()).Skip(2).Take(1).FirstOrDefault().Key);
+            }
+
+            return coffeeTypes;
+        }
+
+        public List<CoffeeLog> GetPreferableCoffeeTimes(string appUserId)
+        {
+            List<CoffeeLog> result = new List<CoffeeLog>();
+
+            CoffeeDevice coffeeDevice = _dbContext.CoffeDevices.FirstOrDefault(cd => cd.AppUserId == appUserId);
+
+            if (coffeeDevice != null && _dbContext.CoffeeLogs.Where(cl => cl.CoffeeDeviceId == coffeeDevice.Id && cl.IsRepeatable == true).FirstOrDefault() != null)
+                result = _dbContext.CoffeeLogs.Where(cl => cl.CoffeeDeviceId == coffeeDevice.Id && cl.IsRepeatable == true).ToList();
+
+            return result;
+        }
+
         private bool IsTimesEquals(DateTime t1, DateTime t2)
         {
             return t1.Hour == t2.Hour && t1.Minute == t2.Minute;

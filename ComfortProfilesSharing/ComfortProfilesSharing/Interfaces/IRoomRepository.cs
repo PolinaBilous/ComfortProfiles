@@ -1,4 +1,5 @@
 ﻿using ComfortProfilesSharing.Models;
+using ComfortProfilesSharing.RequestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace ComfortProfilesSharing.Interfaces
         List<Room> GetUserRooms(string appUserId);
         bool RefreshRoomState(Guid roomId, int temperature, int airHumidity, int lightIntensity);
         Room GetRoomById(Guid roomId);
+        List<PreferableRoomIndicators> GetPreferableRoomsIndicators(string appUserId);
     }
 }

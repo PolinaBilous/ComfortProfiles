@@ -81,6 +81,17 @@ namespace ComfortProfilesSharing.Repositories
             return false;
         }
 
+        public List<TeapotLog> GetPreferableTeaTimes(string appUserId)
+        {
+            List<TeapotLog> result = new List<TeapotLog>();
+            Teapot teapot = _dbContext.Teapots.FirstOrDefault(t => t.AppUserId == appUserId);
+
+            if (teapot != null && _dbContext.TeapotLogs.Where(tl => tl.TeapotId == teapot.Id && tl.IsRepeatable == true).FirstOrDefault() != null)
+                result = _dbContext.TeapotLogs.Where(tl => tl.TeapotId == teapot.Id && tl.IsRepeatable == true).ToList();
+
+            return result;
+        }
+
         private Teapot UpdateTeapotWhenBoil(Teapot teapot, TeapotLog teapotLog)
         {
             teapot.CurrentTemperature = teapotLog.Temperature;
@@ -128,6 +139,8 @@ namespace ComfortProfilesSharing.Repositories
         {
             return t1.Date == t2.Date && t1.Hour == t2.Hour && t1.Minute == t2.Minute;
         }
+
+
 
         private bool IsDayOfWeekAndTimeEquals(DateTime t1, DateTime t2)
         {

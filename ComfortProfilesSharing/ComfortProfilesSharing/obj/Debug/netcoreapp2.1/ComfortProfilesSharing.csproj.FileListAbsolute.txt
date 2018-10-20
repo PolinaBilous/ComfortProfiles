@@ -67,7 +67,6 @@ E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesShar
 E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.dll
 E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.pdb
 E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.csproj.CopyComplete
-E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.deps.json
 D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.runtimeconfig.json
 D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\bin\Debug\netcoreapp2.1\ComfortProfilesSharing.runtimeconfig.dev.json
@@ -103,3 +102,4 @@ D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debu
 D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.dll
 D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.pdb
 D:\GitHub\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\ComfortProfilesSharing.csproj.CopyComplete
+E:\Uni\Course Project\ComfortProfiles\ComfortProfilesSharing\ComfortProfilesSharing\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

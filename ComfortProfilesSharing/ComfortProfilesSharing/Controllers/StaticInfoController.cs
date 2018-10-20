@@ -9,6 +9,7 @@ using ComfortProfilesSharing.Models;
 using ComfortProfilesSharing.Repositories;
 using ComfortProfilesSharing.RequestModels;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,7 @@ namespace ComfortProfilesSharing.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [EnableCors("AllowAllOrigins")]
     public class StaticInfoController : ControllerBase
     {
         private readonly IStaticInfoRepository _staticInfoRepository;

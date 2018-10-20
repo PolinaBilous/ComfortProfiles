@@ -46,6 +46,16 @@ namespace ComfortProfilesSharing
             services.AddTransient<ICoffeeRepository, CoffeeRepository>();
             services.AddTransient<ITeapotRepository, TeapotRepository>();
             services.AddTransient<IRoomRepository, RoomRepository>();
+            services.AddTransient<IComfortProfileRepository, ComfortProfileRepository>();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                    });
+            });
 
             services.AddSwaggerGen(c =>
             {

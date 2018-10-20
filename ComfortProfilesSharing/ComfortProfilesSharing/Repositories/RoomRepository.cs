@@ -1,6 +1,7 @@
 ﻿using ComfortProfilesSharing.Data;
 using ComfortProfilesSharing.Interfaces;
 using ComfortProfilesSharing.Models;
+using ComfortProfilesSharing.RequestModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -154,6 +155,47 @@ namespace ComfortProfilesSharing.Repositories
             room.CurrentIsLight = illuminationLog.IsLight;
 
             _dbContext.SaveChanges();
+        }
+
+        public List<PreferableRoomIndicators> GetPreferableRoomsIndicators(string appUserId)
+        {
+            List<PreferableRoomIndicators> result = new List<PreferableRoomIndicators>();
+
+            if (_dbContext.Rooms.Where(r => r.AppUserId == appUserId) == null)
+                return result;
+
+            List<Room> rooms = _dbContext.Rooms.Where(r => r.AppUserId == appUserId)
+                .Include(r => r.ClimatLogs)
+                    .ThenInclude(cl => cl.HowOften)
+                .Include(r => r.IlluminationLogs)
+                    .ThenInclude(il => il.HowOften).ToList();
+
+            foreach (Room room in rooms)
+            {
+                int? preferableRoomTemperature = null;
+                int? preferableRoomAirHumidity = null;
+                int? preferableLightIntencity = null;
+                if (room.ClimatLogs.FirstOrDefault() != null)
+                {
+                    preferableRoomTemperature = room.ClimatLogs.OrderByDescending(cl => cl.Temperature).First().Temperature;
+                    preferableRoomAirHumidity = room.ClimatLogs.OrderByDescending(cl => cl.AirHumidity).First().AirHumidity;
+
+                }
+                if (room.IlluminationLogs.FirstOrDefault() != null)
+                {
+                    preferableLightIntencity = room.IlluminationLogs.OrderByDescending(il => il.LightIntensity).First().LightIntensity;
+                }
+
+                result.Add(new PreferableRoomIndicators()
+                {
+                    RoomId = room.Id,
+                    PreferableAirHumidity = preferableRoomAirHumidity,
+                    PreferableLightIntencity = preferableLightIntencity,
+                    PreferableTemperature = preferableRoomTemperature
+                });
+            }
+
+            return result;
         }
 
         private ClimatLog CheckIfClimatChangesNeeded(List<ClimatLog> climatLogs, DateTime dateTime)

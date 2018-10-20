@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ComfortProfilesSharing.Interfaces;
 using ComfortProfilesSharing.Models;
 using ComfortProfilesSharing.RequestModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace ComfortProfilesSharing.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [EnableCors("AllowAllOrigins")]
     public class CoffeeController : ControllerBase
     {
         private readonly ICoffeeRepository _coffeeRepository;

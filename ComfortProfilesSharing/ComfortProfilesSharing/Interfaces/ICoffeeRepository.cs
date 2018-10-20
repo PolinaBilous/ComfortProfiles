@@ -20,5 +20,7 @@ namespace ComfortProfilesSharing.Interfaces
         bool MakeCupOfCoffeeIfNeeded(string appUserId, DateTime dateTime);
         List<HowOften> GetHowOftens();
         List<CoffeeType> GetCoffeeTypes();
+        List<CoffeeType> GetFavouriteCoffeeTypes(string appUserId);
+        List<CoffeeLog> GetPreferableCoffeeTimes(string appUserId);
     }
 }
