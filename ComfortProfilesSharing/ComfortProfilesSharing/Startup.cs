@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using ComfortProfilesSharing.Interfaces;
 using ComfortProfilesSharing.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ComfortProfilesSharing
 {
@@ -47,13 +49,16 @@ namespace ComfortProfilesSharing
             services.AddTransient<ITeapotRepository, TeapotRepository>();
             services.AddTransient<IRoomRepository, RoomRepository>();
             services.AddTransient<IComfortProfileRepository, ComfortProfileRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+
+            services.AddCors();
 
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAllOrigins",
                     builder =>
                     {
-                        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                        builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
                     });
             });
 
@@ -62,7 +67,7 @@ namespace ComfortProfilesSharing
                 c.SwaggerDoc("v1", new Info { Title = "TestApi", Version = "v1" });
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,6 +91,8 @@ namespace ComfortProfilesSharing
             app.UseAuthentication();
 
             app.UseMvc();
+
+            app.UseCors("AllowAllOrigins");
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

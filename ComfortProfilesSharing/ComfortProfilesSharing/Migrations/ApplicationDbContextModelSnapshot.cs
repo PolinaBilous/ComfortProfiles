@@ -19,6 +19,22 @@ namespace ComfortProfilesSharing.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ComfortProfilesSharing.Models.AppUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Password");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppUsers");
+                });
+
             modelBuilder.Entity("ComfortProfilesSharing.Models.ChairType", b =>
                 {
                     b.Property<int>("Id")
@@ -126,14 +142,14 @@ namespace ComfortProfilesSharing.Migrations
                     b.ToTable("CoffeeTypes");
 
                     b.HasData(
-                        new { Id = new Guid("68137d4a-c9bd-4d78-aa89-ea47b1825bec"), Name = "Americano" },
-                        new { Id = new Guid("bce70ff0-e4b2-4b55-8368-cb2c30b46566"), Name = "Latte" },
-                        new { Id = new Guid("01abd810-da57-4a6d-993e-ae049a6f7339"), Name = "Cappuccino" },
-                        new { Id = new Guid("224c23b1-e962-4b3d-832c-27da8f1c2321"), Name = "Espresso" },
-                        new { Id = new Guid("673761f4-70b0-4f5a-b627-5ca0b460f61a"), Name = "Macchiato" },
-                        new { Id = new Guid("4172ded0-d90c-4a99-b349-81777f2cebe7"), Name = "Mochaccino" },
-                        new { Id = new Guid("5ebcadce-f468-4a60-94bf-9ce9d8f38549"), Name = "Flat White" },
-                        new { Id = new Guid("9e2126b4-449f-45da-a5d9-f75266de0e70"), Name = "Vienna" }
+                        new { Id = new Guid("ed0c5443-df60-42db-82a0-3a0d61d13051"), Name = "Americano" },
+                        new { Id = new Guid("377126ea-6497-4451-9efd-3520d81f23e0"), Name = "Latte" },
+                        new { Id = new Guid("2b249754-8876-4339-a6b8-213c1788b8ca"), Name = "Cappuccino" },
+                        new { Id = new Guid("714717b9-f3fe-49a2-98f2-cd3194b668bc"), Name = "Espresso" },
+                        new { Id = new Guid("3de38b46-4a9e-489f-9dfa-f6fcc45af7bc"), Name = "Macchiato" },
+                        new { Id = new Guid("074c7f0d-2e6c-4aa4-ae47-eeb11c82fc87"), Name = "Mochaccino" },
+                        new { Id = new Guid("37c4d568-a2e7-4281-88cb-00db855cfd02"), Name = "Flat White" },
+                        new { Id = new Guid("96c22fe9-b353-41cc-9c44-18c0b3e926be"), Name = "Vienna" }
                     );
                 });
 
@@ -171,7 +187,7 @@ namespace ComfortProfilesSharing.Migrations
 
                     b.Property<DateTime>("Date");
 
-                    b.Property<int?>("HowOftenId");
+                    b.Property<int>("HowOftenId");
 
                     b.Property<bool>("IsLight");
 
@@ -179,7 +195,7 @@ namespace ComfortProfilesSharing.Migrations
 
                     b.Property<int>("LightIntensity");
 
-                    b.Property<Guid?>("RoomId");
+                    b.Property<Guid>("RoomId");
 
                     b.HasKey("Id");
 
@@ -422,9 +438,6 @@ namespace ComfortProfilesSharing.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
                     b.Property<string>("Email")
                         .HasMaxLength(256);
 
@@ -464,8 +477,6 @@ namespace ComfortProfilesSharing.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -538,17 +549,6 @@ namespace ComfortProfilesSharing.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ComfortProfilesSharing.Models.AppUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<string>("FirstName");
-
-                    b.ToTable("AppUser");
-
-                    b.HasDiscriminator().HasValue("AppUser");
-                });
-
             modelBuilder.Entity("ComfortProfilesSharing.Models.ClimatLog", b =>
                 {
                     b.HasOne("ComfortProfilesSharing.Models.HowOften", "HowOften")
@@ -591,11 +591,13 @@ namespace ComfortProfilesSharing.Migrations
                 {
                     b.HasOne("ComfortProfilesSharing.Models.HowOften", "HowOften")
                         .WithMany("IlluminationLogs")
-                        .HasForeignKey("HowOftenId");
+                        .HasForeignKey("HowOftenId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ComfortProfilesSharing.Models.Room", "Room")
                         .WithMany("IlluminationLogs")
-                        .HasForeignKey("RoomId");
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ComfortProfilesSharing.Models.Room", b =>

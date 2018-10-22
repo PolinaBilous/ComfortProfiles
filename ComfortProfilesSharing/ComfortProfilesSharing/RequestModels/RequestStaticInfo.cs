@@ -7,6 +7,8 @@ namespace ComfortProfilesSharing.RequestModels
 {
     public class RequestStaticInfo
     {
+        public string UserId;
+
         public int ShoeSize { get; set; }
         public int ClothingSize { get; set; }
         public string Allergens { get; set; }

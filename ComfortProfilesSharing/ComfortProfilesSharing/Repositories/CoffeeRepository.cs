@@ -59,7 +59,7 @@ namespace ComfortProfilesSharing.Repositories
 
             if (currentCoffeeLog != null)
             {
-                MakeCupOfCoffee(currentCoffeeLog);
+                MinusCoffeeCosts(coffeeDevice, currentCoffeeLog);
                 return true;
             }
 

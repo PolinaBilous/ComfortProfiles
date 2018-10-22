@@ -40,9 +40,9 @@ namespace ComfortProfilesSharing.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetStaticInfoForCurrentUser()
+        public JsonResult GetStaticInfoForCurrentUser(string userId)
         {
-            StaticInfo staticInfo = _staticInfoRepository.GetStaticInfoByUserId(this.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            StaticInfo staticInfo = _staticInfoRepository.GetStaticInfoByUserId(userId);
             return new JsonResult(ConvertToRequestStaticInfo(staticInfo));
         }
 
@@ -75,7 +75,7 @@ namespace ComfortProfilesSharing.Controllers
             return new StaticInfo()
             {
                 Id = Guid.NewGuid(),
-                AppUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier),
+                AppUserId = requestStaticInfo.UserId,
                 Allergens = requestStaticInfo.Allergens,
                 ChairTypeId = requestStaticInfo.ChairTypeId,
                 ClothingSize = requestStaticInfo.ClothingSize,
@@ -94,6 +94,7 @@ namespace ComfortProfilesSharing.Controllers
         {
             return new RequestStaticInfo()
             {
+                UserId = staticInfo.AppUserId,
                 Allergens = staticInfo.Allergens,
                 ChairTypeId = staticInfo.ChairTypeId,
                 ClothingSize = staticInfo.ClothingSize,

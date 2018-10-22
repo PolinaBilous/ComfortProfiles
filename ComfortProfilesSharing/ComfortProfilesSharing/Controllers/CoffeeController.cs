@@ -37,13 +37,13 @@ namespace ComfortProfilesSharing.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddCoffeeDevice()
+        public JsonResult AddCoffeeDevice(string appUserId)
         {
             Random random = new Random();
             CoffeeDevice coffeeDevice = new CoffeeDevice()
             {
                 Id = Guid.NewGuid(),
-                AppUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier),
+                AppUserId = appUserId,
                 CurrentCoffeeAmount = random.Next(0, 100),
                 CurrentMilkAmount = random.Next(0, 100),
                 CurrentWaterAmount = random.Next(0, 100)
@@ -53,35 +53,35 @@ namespace ComfortProfilesSharing.Controllers
 
             if (isAdded)
             {
-                return new JsonResult(new { message = "ok", coffeDeviceState = GetCurrentUserCoffeeDeviceState() });
+                return new JsonResult(new { message = "ok", coffeDeviceState = GetCurrentUserCoffeeDeviceState(appUserId) });
             }
             else
             {
-                return new JsonResult(new { message = "error" });
+                return new JsonResult(new { message = "error", coffeDeviceState = GetCurrentUserCoffeeDeviceState(appUserId) });
             }
         }
 
         [HttpGet]
-        public JsonResult GetCoffeeDeviceState()
+        public JsonResult GetCoffeeDeviceState(string appUserId)
         {
-            return new JsonResult(GetCurrentUserCoffeeDeviceState());
+            return new JsonResult(GetCurrentUserCoffeeDeviceState(appUserId));
         }
 
         [HttpPost]
         public JsonResult MakeCupOfCoffee(RequestCoffeeLog requestCoffeeLog)
-        {
-            CoffeeDeviceState coffeeDeviceState = GetCurrentUserCoffeeDeviceState();
+        {            
+            CoffeeDeviceState coffeeDeviceState = GetCurrentUserCoffeeDeviceState(requestCoffeeLog.AppUserId);
             if (coffeeDeviceState != null)
             {
                 if (IsResourcesAmountEnough(coffeeDeviceState))
                 {
                     CoffeeLog coffeeLog = RequestCoffeeLogToCoffeeLog(requestCoffeeLog);
                     _coffeeRepository.MakeCupOfCoffee(coffeeLog);
-                    return new JsonResult(new { message = "ok", coffeDeviceState = GetCurrentUserCoffeeDeviceState() });
+                    return new JsonResult(new { message = "ok", coffeDeviceState = GetCurrentUserCoffeeDeviceState(requestCoffeeLog.AppUserId) });
                 }
                 else
                 {
-                    return new JsonResult(new { message = "error", coffeDeviceState = GetCurrentUserCoffeeDeviceState() });
+                    return new JsonResult(new { message = "error", coffeDeviceState = GetCurrentUserCoffeeDeviceState(requestCoffeeLog.AppUserId) });
                 }
             }
             else
@@ -94,26 +94,26 @@ namespace ComfortProfilesSharing.Controllers
         }
 
         [HttpPost]
-        public JsonResult MakeCupOfCoffeeIfNeeded()
+        public JsonResult MakeCupOfCoffeeIfNeeded(string appUserId)
         {
-            CoffeeDeviceState coffeeDeviceState = GetCurrentUserCoffeeDeviceState();
+            CoffeeDeviceState coffeeDeviceState = GetCurrentUserCoffeeDeviceState(appUserId);
             if (coffeeDeviceState != null)
             {
                 if (IsResourcesAmountEnough(coffeeDeviceState))
                 {
-                    bool isCoffeeDone = _coffeeRepository.MakeCupOfCoffeeIfNeeded(this.User.FindFirstValue(ClaimTypes.NameIdentifier), DateTime.Now);
+                    bool isCoffeeDone = _coffeeRepository.MakeCupOfCoffeeIfNeeded(appUserId, DateTime.Now);
                     if (isCoffeeDone)
                     {
-                        return new JsonResult(new { message = "ok", coffeDeviceState = GetCurrentUserCoffeeDeviceState() });
+                        return new JsonResult(new { message = "ok", coffeDeviceState = GetCurrentUserCoffeeDeviceState(appUserId) });
                     }
                     else
                     {
-                        return new JsonResult(new { message = "isn't needed", coffeDeviceState = GetCurrentUserCoffeeDeviceState() });
+                        return new JsonResult(new { message = "isn't needed", coffeDeviceState = GetCurrentUserCoffeeDeviceState(appUserId) });
                     }
                 }
                 else
                 {
-                    return new JsonResult(new { message = "error", coffeDeviceState = GetCurrentUserCoffeeDeviceState() });
+                    return new JsonResult(new { message = "error", coffeDeviceState = GetCurrentUserCoffeeDeviceState(appUserId) });
                 }
             }
             else
@@ -125,9 +125,9 @@ namespace ComfortProfilesSharing.Controllers
             }
         }
 
-        private CoffeeDeviceState GetCurrentUserCoffeeDeviceState()
+        private CoffeeDeviceState GetCurrentUserCoffeeDeviceState(string appUserId)
         {
-            CoffeeDevice coffeeDevice = _coffeeRepository.GetCoffeeDeviceByUserId(this.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            CoffeeDevice coffeeDevice = _coffeeRepository.GetCoffeeDeviceByUserId(appUserId);
             if (coffeeDevice != null)
             {
                 return CoffeDeviceToCoffeeSeviceState(coffeeDevice);
@@ -153,7 +153,7 @@ namespace ComfortProfilesSharing.Controllers
             return new CoffeeLog()
             {
                 Id = Guid.NewGuid(),
-                CoffeeDeviceId = _coffeeRepository.GetCoffeeDeviceByUserId(this.User.FindFirstValue(ClaimTypes.NameIdentifier)).Id,
+                CoffeeDeviceId = _coffeeRepository.GetCoffeeDeviceByUserId(requestCoffeeLog.AppUserId).Id,
                 CoffeeTypeId = requestCoffeeLog.CoffeeTypeId,
                 Date = requestCoffeeLog.DateTime,
                 HowOftenId = requestCoffeeLog.HowOftenId,

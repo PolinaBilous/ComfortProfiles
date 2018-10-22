@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace ComfortProfilesSharing.Models
 {
-    public class AppUser : IdentityUser
+    public class AppUser
     {
-        public string FirstName { get; set; }
+        public string Id { get; set; }
+
+        public string Email { get; set; }
+        public string Name { get; set; }
+        public string Password { get; set; }
 
         public List<Room> Rooms { get; set; }
         public CoffeeDevice CoffeDevice { get; set; }

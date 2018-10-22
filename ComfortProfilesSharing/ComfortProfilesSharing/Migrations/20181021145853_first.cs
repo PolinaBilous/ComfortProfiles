@@ -9,6 +9,20 @@ namespace ComfortProfilesSharing.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "AppUsers",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -40,9 +54,7 @@ namespace ComfortProfilesSharing.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    Discriminator = table.Column<string>(nullable: false),
-                    FirstName = table.Column<string>(nullable: true)
+                    AccessFailedCount = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -127,6 +139,72 @@ namespace ComfortProfilesSharing.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_WaterTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CoffeDevices",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: true),
+                    CurrentWaterAmount = table.Column<int>(nullable: false),
+                    CurrentMilkAmount = table.Column<int>(nullable: false),
+                    CurrentCoffeeAmount = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CoffeDevices", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CoffeDevices_AppUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AppUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Rooms",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    URL = table.Column<string>(nullable: true),
+                    CurrentTemperature = table.Column<int>(nullable: false),
+                    CurrentAirHumidity = table.Column<int>(nullable: false),
+                    CurrentIsLight = table.Column<bool>(nullable: false),
+                    CurrentLightIntensity = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rooms", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Rooms_AppUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AppUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Teapots",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: true),
+                    CurrentTemperature = table.Column<int>(nullable: false),
+                    CurrentWaterAmount = table.Column<int>(nullable: false),
+                    ComfortTemperature = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teapots", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Teapots_AppUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AppUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -236,72 +314,6 @@ namespace ComfortProfilesSharing.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CoffeDevices",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    AppUserId = table.Column<string>(nullable: true),
-                    CurrentWaterAmount = table.Column<int>(nullable: false),
-                    CurrentMilkAmount = table.Column<int>(nullable: false),
-                    CurrentCoffeeAmount = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CoffeDevices", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_CoffeDevices_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Rooms",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    AppUserId = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    URL = table.Column<string>(nullable: true),
-                    CurrentTemperature = table.Column<int>(nullable: false),
-                    CurrentAirHumidity = table.Column<int>(nullable: false),
-                    CurrentIsLight = table.Column<bool>(nullable: false),
-                    CurrentLightIntensity = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rooms", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Rooms_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Teapots",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    AppUserId = table.Column<string>(nullable: true),
-                    CurrentTemperature = table.Column<int>(nullable: false),
-                    CurrentWaterAmount = table.Column<int>(nullable: false),
-                    ComfortTemperature = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Teapots", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Teapots_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "StaticInfos",
                 columns: table => new
                 {
@@ -323,9 +335,9 @@ namespace ComfortProfilesSharing.Migrations
                 {
                     table.PrimaryKey("PK_StaticInfos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_StaticInfos_AspNetUsers_AppUserId",
+                        name: "FK_StaticInfos_AppUsers_AppUserId",
                         column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "AppUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
@@ -422,12 +434,12 @@ namespace ComfortProfilesSharing.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    RoomId = table.Column<Guid>(nullable: true),
+                    RoomId = table.Column<Guid>(nullable: false),
                     IsLight = table.Column<bool>(nullable: false),
                     LightIntensity = table.Column<int>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     IsRepeatable = table.Column<bool>(nullable: true),
-                    HowOftenId = table.Column<int>(nullable: true)
+                    HowOftenId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -437,13 +449,13 @@ namespace ComfortProfilesSharing.Migrations
                         column: x => x.HowOftenId,
                         principalTable: "HowOftens",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_IlluminationLogs_Rooms_RoomId",
                         column: x => x.RoomId,
                         principalTable: "Rooms",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -489,14 +501,14 @@ namespace ComfortProfilesSharing.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("68137d4a-c9bd-4d78-aa89-ea47b1825bec"), "Americano" },
-                    { new Guid("bce70ff0-e4b2-4b55-8368-cb2c30b46566"), "Latte" },
-                    { new Guid("01abd810-da57-4a6d-993e-ae049a6f7339"), "Cappuccino" },
-                    { new Guid("224c23b1-e962-4b3d-832c-27da8f1c2321"), "Espresso" },
-                    { new Guid("673761f4-70b0-4f5a-b627-5ca0b460f61a"), "Macchiato" },
-                    { new Guid("4172ded0-d90c-4a99-b349-81777f2cebe7"), "Mochaccino" },
-                    { new Guid("5ebcadce-f468-4a60-94bf-9ce9d8f38549"), "Flat White" },
-                    { new Guid("9e2126b4-449f-45da-a5d9-f75266de0e70"), "Vienna" }
+                    { new Guid("ed0c5443-df60-42db-82a0-3a0d61d13051"), "Americano" },
+                    { new Guid("377126ea-6497-4451-9efd-3520d81f23e0"), "Latte" },
+                    { new Guid("2b249754-8876-4339-a6b8-213c1788b8ca"), "Cappuccino" },
+                    { new Guid("714717b9-f3fe-49a2-98f2-cd3194b668bc"), "Espresso" },
+                    { new Guid("3de38b46-4a9e-489f-9dfa-f6fcc45af7bc"), "Macchiato" },
+                    { new Guid("074c7f0d-2e6c-4aa4-ae47-eeb11c82fc87"), "Mochaccino" },
+                    { new Guid("37c4d568-a2e7-4281-88cb-00db855cfd02"), "Flat White" },
+                    { new Guid("96c22fe9-b353-41cc-9c44-18c0b3e926be"), "Vienna" }
                 });
 
             migrationBuilder.InsertData(
@@ -713,6 +725,9 @@ namespace ComfortProfilesSharing.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
                 name: "CoffeDevices");
 
             migrationBuilder.DropTable(
@@ -740,7 +755,7 @@ namespace ComfortProfilesSharing.Migrations
                 name: "Teapots");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "AppUsers");
         }
     }
 }
