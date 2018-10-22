@@ -53,12 +53,13 @@ namespace ComfortProfilesSharing.Repositories
                 .Include(r => r.ClimatLogs)
                     .ThenInclude(cl => cl.HowOften)
                 .FirstOrDefault(t => t.AppUserId == appUserId);
+            
 
             ClimatLog climatLog = room.ClimatLogs.FirstOrDefault(cl => cl.IsRepeatable != true && IsDateTimesEquals(cl.Date, dateTime));
 
             if (climatLog != null)
             {
-                ChangeClimat(climatLog);
+                UpdateRoomClimatState(climatLog);
                 return true;
             }
 

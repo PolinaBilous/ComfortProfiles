@@ -30,13 +30,13 @@ namespace ComfortProfilesSharing.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddRoom(string name)
+        public JsonResult AddRoom(string name, string appUserId)
         {
             Random random = new Random();
             Room room = new Room()
             {
                 Id = Guid.NewGuid(),
-                AppUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier),
+                AppUserId = appUserId,
                 Name = name, CurrentAirHumidity = random.Next(0, 100),
                 CurrentTemperature = random.Next(20, 30),
                 CurrentIsLight = random.Next(0, 1) == 0 ? false : true
@@ -52,9 +52,9 @@ namespace ComfortProfilesSharing.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetUserRooms()
+        public JsonResult GetUserRooms(string appUserId)
         {
-            List<Room> rooms = _roomRepository.GetUserRooms(this.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            List<Room> rooms = _roomRepository.GetUserRooms(appUserId);
             return new JsonResult(rooms.Select(r => new { r.Id, r.Name, r.CurrentAirHumidity, r.CurrentIsLight, r.CurrentLightIntensity, r.CurrentTemperature }));
         }
 
@@ -117,7 +117,7 @@ namespace ComfortProfilesSharing.Controllers
             Room room = _roomRepository.GetRoomById(roomId);
             if (room != null)
             {
-                bool isClimatChangesNeeded = _roomRepository.ChangeClimatIfNeeded(this.User.FindFirstValue(ClaimTypes.NameIdentifier), DateTime.Now, roomId);
+                bool isClimatChangesNeeded = _roomRepository.ChangeClimatIfNeeded(room.AppUserId, DateTime.Now, roomId);
                 if (isClimatChangesNeeded)
                 {
                     return new JsonResult(new { message = "ok", coffeDeviceState = RoomStateById(roomId) });
@@ -142,7 +142,7 @@ namespace ComfortProfilesSharing.Controllers
             Room room = _roomRepository.GetRoomById(roomId);
             if (room != null)
             {
-                bool isClimatChangesNeeded = _roomRepository.ChangeClimatIfNeeded(this.User.FindFirstValue(ClaimTypes.NameIdentifier), DateTime.Now, roomId);
+                bool isClimatChangesNeeded = _roomRepository.ChangeClimatIfNeeded(room.AppUserId, DateTime.Now, roomId);
                 if (isClimatChangesNeeded)
                 {
                     return new JsonResult(new { message = "ok", coffeDeviceState = RoomStateById(roomId) });

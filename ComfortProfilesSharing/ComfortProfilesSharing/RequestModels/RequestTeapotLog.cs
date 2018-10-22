@@ -7,6 +7,8 @@ namespace ComfortProfilesSharing.RequestModels
 {
     public class RequestTeapotLog
     {
+        public string appUserId { get; set; }
+
         public int Temperature { get; set; }
         public DateTime DateTime { get; set; }
         public int HowOftenId { get; set; }

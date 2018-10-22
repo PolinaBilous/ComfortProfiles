@@ -15,12 +15,19 @@ import { HowOften } from "./how-often.model";
 import { CoffeeDeviceResponse } from "./coffee-device-response.model";
 import { CoffeeDeviceState } from "./coffee-device-state.model";
 import { CoffeeLog } from "./coffee-log.model";
+import { TeapotResponse } from "./teapot-response.model";
+import { TeapotState } from "./teapot-state.model";
+import { TeapotLog } from "./teapot-log.service";
+import { RoomResponse } from "./room-response.model";
+import { RoomState } from "./room-state.model";
+import { ClimatLog } from "./climat-log.model";
+import { IlluminationLog } from "./illumination-log.model";
 
 @Injectable()
 export class Service {
     constructor(private http: HttpClient) { }
     //public appUserId: string = "08a48980-e4a9-4830-92b2-3f691c86f4c1";
-    public appUserId: string = "9ae8b797-0961-464b-b20b-ea239e7b14cf";
+    public appUserId: string = "d98d361d-525a-4387-a615-c221db741ebe";
     httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
@@ -53,6 +60,10 @@ export class Service {
 
     getHowOftens() : Observable<HowOften[]> {
         return this.http.get<HowOften[]>(environment.apiUrl + "/api/Coffee/GetHowOftens");
+    }
+
+    getUserRooms() : Observable<RoomState[]>{
+        return this.http.get<RoomState[]>(environment.apiUrl + "/api/Room/GetUserRooms?appUserId=" + this.appUserId);
     }
 
     addStaticInfo(staticInfo : StaticInfo) : Observable<Object> {
@@ -107,6 +118,29 @@ export class Service {
         }));
     }
 
+    addTeapot(comfortTemperature : number) : Observable<TeapotResponse> {
+        let request : string = environment.apiUrl + "/api/Teapot/AddTeapot?comfortTemperature= " + comfortTemperature + "&appUserId=" + this.appUserId;
+        return this.http.post(request, null, this.httpOptions).pipe(map(response => {
+            let teapotResponse: TeapotResponse = new TeapotResponse();
+
+            teapotResponse.message = JSON.parse(JSON.stringify(response)).message;
+            teapotResponse.teapotState = JSON.parse(JSON.stringify(response)).teapotState;
+
+            return teapotResponse;
+        }));
+    }
+
+    addRoom(name : string) : Observable<RoomResponse> {
+        let request : string = environment.apiUrl + "/api/Room/AddRoom?name=" + name + "&appUserId=" + this.appUserId;
+        return this.http.post(request, null, this.httpOptions).pipe(map(response => {
+            let roomResponse: RoomResponse = new RoomResponse();
+
+            roomResponse.message = JSON.parse(JSON.stringify(response)).message;
+            roomResponse.roomState = JSON.parse(JSON.stringify(response)).roomState;
+
+            return roomResponse;
+        }));
+    }
     makeCupOfCoffeeIfNeeded() : Observable<CoffeeDeviceResponse>{
         let request : string = environment.apiUrl + "/api/Coffee/MakeCupOfCoffeeIfNeeded?appUserId=" + this.appUserId;
         return this.http.post(request, null, this.httpOptions).pipe(map(response => {
@@ -119,8 +153,24 @@ export class Service {
         }));
     }
 
+    boilWaterIfNeeded() : Observable<TeapotResponse>{
+        let request : string = environment.apiUrl + "/api/Teapot/BoilWaterIfNeeded?appUserId=" + this.appUserId;
+        return this.http.post(request, null, this.httpOptions).pipe(map(response => {
+            let teapotResponse: TeapotResponse = new TeapotResponse();
+
+            teapotResponse.message = JSON.parse(JSON.stringify(response)).message;
+            teapotResponse.teapotState = JSON.parse(JSON.stringify(response)).teapotState;
+
+            return teapotResponse;
+        }));
+    }
+
     getCoffeeDeviceState() : Observable<CoffeeDeviceState>{
         return this.http.get<CoffeeDeviceState>(environment.apiUrl + "/api/Coffee/GetCoffeeDeviceState?appUserId=" + this.appUserId);
+    }
+
+    getTeapotState() : Observable<TeapotState> {
+        return this.http.get<TeapotState>(environment.apiUrl + "/api/Teapot/GetTeapotState?appUserId=" + this.appUserId);
     }
 
     makeCupOfCoffee(coffeeLog : CoffeeLog) : Observable<CoffeeDeviceResponse> {
@@ -132,6 +182,34 @@ export class Service {
             coffeDeviceResponse.coffeDeviceState = JSON.parse(JSON.stringify(response)).coffeDeviceState;
 
             return coffeDeviceResponse;
+        }));
+    }
+
+    changeClimat(climatLog : ClimatLog) : Observable<RoomResponse> {
+        return this.http.post<RoomResponse>(environment.apiUrl + "/api/Room/ChangeClimat", climatLog, this.httpOptions);
+    }
+
+    changeIllumination(illuminationLog : IlluminationLog) : Observable<RoomResponse> {
+        return this.http.post<RoomResponse>(environment.apiUrl + "/api/Room/ChangeIllumination", illuminationLog, this.httpOptions);
+    }
+
+    changeClimatIfNeeded(roomId : string): Observable<RoomResponse> {
+        return this.http.post<RoomResponse>(environment.apiUrl + "/api/Room/ChangeClimatIfNeeded?roomId=" + roomId, null, this.httpOptions);
+    }
+
+    changeIlluminationIfNeeded(roomId : string): Observable<RoomResponse> {
+        return this.http.post<RoomResponse>(environment.apiUrl + "/api/Room/ChangeIlluminationIfNeeded?roomId=" + roomId, null, this.httpOptions);
+    }
+
+    boilWater(teapotLog : TeapotLog) : Observable<TeapotResponse>{
+        teapotLog.appUserId = this.appUserId;
+        return this.http.post(environment.apiUrl + "/api/Teapot/BoilWater", teapotLog, this.httpOptions).pipe(map(response => {
+            let teapotResponse: TeapotResponse = new TeapotResponse();
+
+            teapotResponse.message = JSON.parse(JSON.stringify(response)).message;
+            teapotResponse.teapotState = JSON.parse(JSON.stringify(response)).teapotState;
+
+            return teapotResponse;
         }));
     }
 

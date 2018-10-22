@@ -31,13 +31,13 @@ namespace ComfortProfilesSharing.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddTeapot(int comfortTemperature)
+        public JsonResult AddTeapot(int comfortTemperature, string appUserId)
         {
             Random random = new Random();
             Teapot teapot = new Teapot()
             {
                 Id = Guid.NewGuid(),
-                AppUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier),
+                AppUserId = appUserId,
                 ComfortTemperature = comfortTemperature,
                 CurrentTemperature = comfortTemperature,
                 CurrentWaterAmount = random.Next(0, 100)
@@ -47,7 +47,7 @@ namespace ComfortProfilesSharing.Controllers
 
             if (isAdded)
             {
-                return new JsonResult(new { message = "ok", coffeDeviceState = GetCurrentUserTeapotState() });
+                return new JsonResult(new { message = "ok", teapotState = GetCurrentUserTeapotState(appUserId) });
             }
             else
             {
@@ -56,44 +56,44 @@ namespace ComfortProfilesSharing.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetTeapotState()
+        public JsonResult GetTeapotState(string appUserId)
         {
-            return new JsonResult(GetCurrentUserTeapotState());
+            return new JsonResult(GetCurrentUserTeapotState(appUserId));
         }
 
         [HttpPost]
         public JsonResult BoilWater(RequestTeapotLog requestTeapotLog)
         {
-            object teapotState = GetCurrentUserTeapotState();
+            object teapotState = GetCurrentUserTeapotState(requestTeapotLog.appUserId);
             if (teapotState != null)
             {
                 TeapotLog teapotLog = RequestTeapotLogToTeapotLog(requestTeapotLog);
                 _teapotRepository.BoilWater(teapotLog);
-                return new JsonResult(new { message = "ok", coffeDeviceState = GetCurrentUserTeapotState() });
+                return new JsonResult(new { message = "ok", teapotState = GetCurrentUserTeapotState(requestTeapotLog.appUserId) });
             }
             else
             {
                 return new JsonResult(new
                 {
-                    message = "error",
+                    message = "error", teapotState = GetCurrentUserTeapotState(requestTeapotLog.appUserId)
                 });
             }
         }
 
         [HttpPost]
-        public JsonResult BoilWaterIfNeeded()
+        public JsonResult BoilWaterIfNeeded(string appUserId)
         {
-            object teapotState = GetCurrentUserTeapotState();
+            object teapotState = GetCurrentUserTeapotState(appUserId);
             if (teapotState != null)
             {
-                bool IsWaterBoiled = _teapotRepository.IsBoilWaterNeeded(this.User.FindFirstValue(ClaimTypes.NameIdentifier), DateTime.Now);
+                bool IsWaterBoiled = _teapotRepository.IsBoilWaterNeeded(appUserId, DateTime.Now);
                 if (IsWaterBoiled)
                 {
-                    return new JsonResult(new { message = "ok", coffeDeviceState = GetCurrentUserTeapotState() });
+                    return new JsonResult(new { message = "ok", teapotState = GetCurrentUserTeapotState(appUserId) });
                 }
                 else
                 {
-                    return new JsonResult(new { message = "isn't needed", coffeDeviceState = GetCurrentUserTeapotState() });
+                    return new JsonResult(new { message = "isn't needed", teapotState = GetCurrentUserTeapotState(appUserId) });
                 }
             }
             else
@@ -105,9 +105,9 @@ namespace ComfortProfilesSharing.Controllers
             }
         }
 
-        private object GetCurrentUserTeapotState()
+        private object GetCurrentUserTeapotState(string appUserId)
         {
-            Teapot teapot = _teapotRepository.GetTeapotByUserId(this.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Teapot teapot = _teapotRepository.GetTeapotByUserId(appUserId);
             if (teapot != null)
             {
                 return TeapotToTeapotState(teapot);
@@ -133,7 +133,7 @@ namespace ComfortProfilesSharing.Controllers
                 HowOftenId = requestTeapotLog.HowOftenId,
                 IsRepeatable = requestTeapotLog.HowOftenId == 1 ? false : true,
                 Date = requestTeapotLog.DateTime,
-                TeapotId = _teapotRepository.GetTeapotByUserId(this.User.FindFirstValue(ClaimTypes.NameIdentifier)).Id,
+                TeapotId = _teapotRepository.GetTeapotByUserId(requestTeapotLog.appUserId).Id,
                 Temperature = requestTeapotLog.Temperature
             };
         }

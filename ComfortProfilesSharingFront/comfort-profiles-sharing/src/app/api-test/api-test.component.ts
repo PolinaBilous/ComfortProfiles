@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/logic/service.service';
 import { StaticInfo } from 'src/logic/static-info.model';
 import { CoffeeLog } from 'src/logic/coffee-log.model';
+import { TeapotLog } from 'src/logic/teapot-log.service';
+import { ClimatLog } from 'src/logic/climat-log.model';
+import { IlluminationLog } from 'src/logic/illumination-log.model';
 
 @Component({
   selector: 'app-api-test',
@@ -45,6 +48,10 @@ export class ApiTestComponent implements OnInit {
 
   makeCupOfCoffeeIfNeededTest(){
     this.service.makeCupOfCoffeeIfNeeded().subscribe(res => console.log(res));
+  }
+
+  boilWaterIfNeededTest(){
+    this.service.boilWaterIfNeeded().subscribe(res => console.log(res));
   }
 
   addStaticInfoTest() {
@@ -93,8 +100,24 @@ export class ApiTestComponent implements OnInit {
     this.service.addCoffeDevice().subscribe(res => console.log(res));
   }
 
+  addTeapotTest() {
+    this.service.addTeapot(50).subscribe(res => console.log(res));
+  }
+
+  addRoomTest(){
+    this.service.addRoom("test").subscribe(res => console.log(res));
+  }
+
   getCoffeDeviceStateTest(){
     this.service.getCoffeeDeviceState().subscribe(res => console.log(res));
+  }
+
+  getUserRoomsTest(){
+    this.service.getUserRooms().subscribe(res => console.log(res));
+  }
+
+  getTeapotStateTest(){
+    this.service.getTeapotState().subscribe(res => console.log(res));
   }
 
   makeCupOfCoffeeTest(){
@@ -104,5 +127,44 @@ export class ApiTestComponent implements OnInit {
     coffeeLog.DateTime = "2018-10-21T21:42:32.445Z";
 
     this.service.makeCupOfCoffee(coffeeLog).subscribe(res => console.log(res));
+  }
+
+  boilWaterTest() {
+    let teapotLog : TeapotLog = new TeapotLog();
+    teapotLog.temperature = 30;
+    teapotLog.howOftenId = 1;
+    teapotLog.dateTime = "2018-10-22T21:20:32.445Z";
+
+    this.service.boilWater(teapotLog).subscribe(res => console.log(res));
+  }
+
+  changeClimatTest() {
+    let climatLog : ClimatLog = new ClimatLog();
+    climatLog.howOftenId = 1;
+    climatLog.airHumidity = 80;
+    climatLog.temperature = 30;
+    climatLog.roomId = "9fe36315-aaba-41cf-bb2a-fbdddec8ead7";
+    climatLog.date = "2018-10-22T22:12:32.445Z";
+
+    this.service.changeClimat(climatLog).subscribe(res => console.log(res));
+  }
+
+  changeClimatIfNeededTest() {
+    this.service.changeClimatIfNeeded("9fe36315-aaba-41cf-bb2a-fbdddec8ead7").subscribe(res => console.log(res));
+  }
+
+  changeIlluminationTest() {
+    let illuminationLog: IlluminationLog = new IlluminationLog();
+    illuminationLog.howOftenId = 1;
+    illuminationLog.lightIntensity = 30;
+    illuminationLog.isLight = true;
+    illuminationLog.date = "2018-10-22T22:12:32.445Z";
+    illuminationLog.roomId = "9fe36315-aaba-41cf-bb2a-fbdddec8ead7";
+
+    this.service.changeIllumination(illuminationLog).subscribe(res => console.log(res));
+  }
+
+  changeIlluminationIfNeededTest() {
+    this.service.changeIlluminationIfNeeded("9fe36315-aaba-41cf-bb2a-fbdddec8ead7").subscribe(res => console.log(res));
   }
 }

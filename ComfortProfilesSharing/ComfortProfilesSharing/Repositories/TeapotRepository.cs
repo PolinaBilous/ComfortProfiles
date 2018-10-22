@@ -63,7 +63,7 @@ namespace ComfortProfilesSharing.Repositories
 
             if (currentTeapotLog != null)
             {
-                BoilWater(currentTeapotLog);
+                UpdateTeapotWhenBoil(teapot, currentTeapotLog);
                 return true;
             }
 
