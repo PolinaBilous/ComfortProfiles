@@ -1,0 +1,147 @@
+.left {
+    background-image: url("/assets/sign-up.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 35%;
+    float: left;
+}
+
+.sign-in-pic {
+    position: related;
+    height: 100%;
+    width: 100%;
+}
+
+.left-header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 41px;
+    text-align: center;
+    margin-top: 25%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+#main-logo {
+    text-align: center;
+    margin-top: 30%;
+}
+
+.in{
+    border: 1px solid  rgba(13, 226, 13, 0.1);
+    border-radius: 15px;
+    padding-left: 3%;
+    padding-right: 3%;
+    background-color: rgba(206, 201, 172, 0.7);
+    color: white;
+}
+.comfort {
+    color: white;
+}
+.logo-container {
+    font-size: 40px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#question {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: right;
+    width: 13%;
+    font-weight: 200;
+    padding: 4px;
+}
+
+#sign-up {
+    float: right;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid lightgrey;
+    font-weight: 500;
+    padding: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: rgb(150, 146, 146);
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.password {
+    margin-bottom: 10%;
+}
+
+#sign-in {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid rgb(238, 238, 14);
+    font-weight: 500;
+    background-color: rgb(248, 248, 4);
+    color: white;
+    border-color: rgb(248, 248, 4);
+    padding: 13px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 25px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 12em;
+    transition: 0.5s;
+    letter-spacing: 2px;
+}
+
+#sign-in:hover{
+    transition: 0.5s;
+	-webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#sign-up:hover{
+    background-color: rgb(248, 248, 4);
+    color: white;
+    border-color: rgb(248, 248, 4);
+    -webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+
+.content {
+    margin-left: 50%;
+    width: 500px;
+}
+
+nav {
+    padding: 1%;
+}
+
+.main-header{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 22%;
+    font-size: 30px;
+    margin-bottom: 0;
+    color: rgb(95, 93, 93);
+}
+
+.sub-header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    color: rgb(95, 93, 93);
+}
+
+.email,  .password, .name {
+    width: 100%;
+    margin-top: 2%;
+}
+
+.agree {
+    font-size: 12px;
+    text-align: center;
+    color: rgb(116, 109, 109);
+    margin-top: 5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

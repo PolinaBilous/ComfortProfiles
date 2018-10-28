@@ -1,0 +1,117 @@
+#main-picture{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: -10000;
+}
+nav {
+    position: relative;
+    padding: 1%;
+}
+
+.in{
+    border: 1px solid  rgb(238, 238, 14);
+    border-radius: 7px;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+    background-color: rgb(238, 238, 14);
+    color: white;
+}
+.comfort {
+    color: rgb(238, 238, 14);
+}
+.logo-container {
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+#main-logo {
+    margin-left: 5%;
+}
+
+#sign-in, #sign-up, #mobile, #about, #features, #places{
+    margin-left: 3%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#sign-in:hover {
+    color: rgb(238, 238, 14);
+}
+#sign-up:hover {
+    color: rgb(238, 238, 14);
+}
+#mobile:hover {
+    color: rgb(238, 238, 14);
+} 
+#about:hover {
+    color: rgb(238, 238, 14);
+}
+#features:hover{
+    color: rgb(238, 238, 14);
+}
+#places:hover {
+    color: rgb(238, 238, 14);
+}
+
+#sign-up {
+    float: right;
+    margin-right: 5%;
+    padding-top: 0.5em;
+}
+
+#sign-in {
+    float: right;
+    padding-top: 0.5em;
+}
+
+#main-title {
+    font-size: 45px;
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    margin-top: 7%;
+    margin-bottom: 20px !important;
+}
+
+#sub-title{
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    margin-top: 0;
+    font-weight: 200;
+}
+
+#get-started {
+    color: white;
+    font-size: 13px;
+    border: 1px solid rgb(226, 226, 45);
+    background-color: rgb(226, 226, 45);
+    border-radius: 40px;
+    font-family: MaisonNeue, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    padding: 1.5%;
+    padding-left: 3%;
+    padding-right: 3%;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#get-started:hover {
+    border: 1px solid rgb(238, 238, 14);
+    background-color: rgb(238, 238, 14);
+}
+
+
+.get-started-container {
+    text-align: center;
+    margin-top: 10%;
+}
