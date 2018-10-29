@@ -27,7 +27,7 @@ import { IlluminationLog } from "./illumination-log.model";
 export class Service {
     constructor(private http: HttpClient) { }
     //public appUserId: string = "08a48980-e4a9-4830-92b2-3f691c86f4c1";
-    public appUserId: string = "d98d361d-525a-4387-a615-c221db741ebe";
+    public appUserId: string = "";
     httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',

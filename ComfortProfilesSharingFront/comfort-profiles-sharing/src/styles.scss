@@ -55,3 +55,8 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($candy-app-theme);
+
+/deep/ .mat-step-header .mat-step-icon {
+  background-color: red;
+  color: red;
+}

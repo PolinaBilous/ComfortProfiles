@@ -17,12 +17,12 @@
       <p class="main-header">Sign in to InComfort.</p>
       <p class="sub-header">Enter your details below.</p>
       <mat-form-field class="email">
-        <input matInput id="email" placeholder="Email address">
+        <input matInput id="email" [(ngModel)]="email" placeholder="Email address">
       </mat-form-field><br>
       <mat-form-field class="password">
-        <input matInput id="password" placeholder="Password">
+        <input matInput id="password" [(ngModel)]="password" placeholder="Password">
       </mat-form-field><br>
-      <a id="sign-in">SIGN IN</a>
+      <a id="sign-in" (click)="signInHandler()">SIGN IN</a>
       <p class="agree">Thank you for being with us today! 
           Always great to have you here.</p>
     </div>

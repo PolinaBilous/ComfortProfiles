@@ -17,15 +17,15 @@
         <p class="main-header">Get started absolutely free.</p>
         <p class="sub-header">Free forever. No credit card needed.</p>
         <mat-form-field class="email">
-          <input matInput id="email" placeholder="Email address">
+          <input matInput id="email" [(ngModel)]="email" placeholder="Email address">
         </mat-form-field><br>
         <mat-form-field class="name">
-            <input matInput id="name" placeholder="Name">
+            <input matInput id="name" [(ngModel)]="name" placeholder="Name">
           </mat-form-field><br>
         <mat-form-field class="password">
-          <input matInput id="password" placeholder="Password">
+          <input matInput id="password" [(ngModel)]="password" placeholder="Password">
         </mat-form-field><br>
-        <a id="sign-in">CONTINUE</a>
+        <a id="sign-in" (click)="signUpHandler()">CONTINUE</a>
         <p class="agree">By clicking "Continue" I agree to InComfort's Terms of Service and Privacy Policy.</p>
       </div>
     </div>

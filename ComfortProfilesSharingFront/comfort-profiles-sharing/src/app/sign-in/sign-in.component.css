@@ -107,7 +107,7 @@
 }
 
 .content {
-    margin-left: 55%;
+    margin-left: 50%;
     width: 500px;
 }
 
@@ -117,7 +117,7 @@ nav {
 
 .main-header{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 7em;
+    margin-top: 5em;
     font-size: 30px;
     margin-bottom: 0;
     color: rgb(95, 93, 93);

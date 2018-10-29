@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; 
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { StaticInfoComponent } from './static-info/static-info.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ApiTestComponent,
     SignInComponent,
     HomeComponent,
-    SignUpComponent
+    SignUpComponent,
+    StaticInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatStepperModule,
+    MatSelectModule
   ],
   exports: [
   ],
