@@ -16,15 +16,15 @@
           <mat-step [stepControl]="firstFormGroup">
               <ng-template matStepLabel>Shoe size and clothing size</ng-template>
               <mat-form-field class="shoe-size">
-                  <mat-select placeholder="Shoe size">
-                      <mat-option *ngFor="let number of numbers" [value]="this.number">
+                  <mat-select [(ngModel)]="this.currentShoeSize" placeholder="Shoe size">
+                      <mat-option *ngFor="let number of numbers" [value]="number">
                         {{number}}
                       </mat-option>
                     </mat-select>
               </mat-form-field>
               <mat-form-field class="clothing-size">
-                  <mat-select placeholder="Clothing size">
-                      <mat-option *ngFor="let number of numbers" [value]="this.number">
+                  <mat-select [(ngModel)]="this.currentClothingSize" placeholder="Clothing size">
+                      <mat-option *ngFor="let number of numbers" [value]="number">
                         {{number}}
                       </mat-option>
                     </mat-select>
@@ -33,15 +33,15 @@
           <mat-step [stepControl]="secondFormGroup">
               <ng-template matStepLabel>Chair type and table type</ng-template>
               <mat-form-field class="chair-type">
-                  <mat-select placeholder="Chair type">
-                      <mat-option *ngFor="let chairType of chairTypes" [value]="this.chairType.id">
+                  <mat-select [(ngModel)]="this.currentChairType" placeholder="Chair type">
+                      <mat-option *ngFor="let chairType of chairTypes" [value]="chairType.id">
                         {{chairType.name}}
                       </mat-option>
                     </mat-select>
               </mat-form-field>
               <mat-form-field class="table-type">
-                  <mat-select placeholder="Table type">
-                      <mat-option *ngFor="let tableType of tableTypes" [value]="this.tableType.id">
+                  <mat-select [(ngModel)]="this.currentTableType" placeholder="Table type">
+                      <mat-option *ngFor="let tableType of tableTypes" [value]="tableType.id">
                         {{tableType.name}}
                       </mat-option>
                     </mat-select>
@@ -50,13 +50,13 @@
           <mat-step>
               <ng-template matStepLabel>Coffee and tea preferences</ng-template>
               <mat-form-field class="coffee-pref">
-                <textarea matInput cdkTextareaAutosize
+                <textarea matInput [(ngModel)]="this.currentCoffee" cdkTextareaAutosize
                 #autosize="cdkTextareaAutosize"
                 cdkAutosizeMinRows="2"
                 cdkAutosizeMaxRows="2" placeholder="Your favourite kinds of coffee..."></textarea>
               </mat-form-field>
               <mat-form-field class="tea-pref">
-                <textarea matInput cdkTextareaAutosize
+                <textarea matInput [(ngModel)]="this.currentTea" cdkTextareaAutosize
                 #autosize="cdkTextareaAutosize"
                 cdkAutosizeMinRows="2"
                 cdkAutosizeMaxRows="2" placeholder="Your favourite kinds of tea..."></textarea>
@@ -65,13 +65,13 @@
           <mat-step>
               <ng-template matStepLabel>Allergens and fruit preferences</ng-template>
               <mat-form-field class="allergens">
-                <textarea matInput cdkTextareaAutosize
+                <textarea matInput [(ngModel)]="this.currentAllergens" cdkTextareaAutosize
                 #autosize="cdkTextareaAutosize"
                 cdkAutosizeMinRows="2"
                 cdkAutosizeMaxRows="2" placeholder="Allergens..."></textarea>
               </mat-form-field>
               <mat-form-field class="fruits">
-                <textarea matInput cdkTextareaAutosize
+                <textarea matInput [(ngModel)]="this.currentFruits" cdkTextareaAutosize
                 #autosize="cdkTextareaAutosize"
                 cdkAutosizeMinRows="2"
                 cdkAutosizeMaxRows="2" placeholder="Your favourite fruits..."></textarea>
@@ -80,8 +80,8 @@
           <mat-step>
               <ng-template matStepLabel>Musical preferences</ng-template>
               <mat-form-field class="musical-pref">
-                  <mat-select placeholder="Favourite music genres" multiple>
-                      <mat-option *ngFor="let music of musicGenres" [value]="this.music">
+                  <mat-select [(ngModel)]="this.currentMusic" placeholder="Favourite music genres" multiple>
+                      <mat-option *ngFor="let music of musicGenres" [value]="music">
                         {{music}}
                       </mat-option>
                     </mat-select>
@@ -90,15 +90,15 @@
           <mat-step>
               <ng-template matStepLabel>Mattress type and water type</ng-template>
               <mat-form-field class="mattress-type">
-                  <mat-select placeholder="Mattress type">
-                      <mat-option *ngFor="let mattressType of mattressTypes" [value]="this.mattressType.id">
+                  <mat-select [(ngModel)]="this.currentMattress" placeholder="Mattress type">
+                      <mat-option *ngFor="let mattressType of mattressTypes" [value]="mattressType.id">
                         {{mattressType.name}}
                       </mat-option>
                     </mat-select>
               </mat-form-field>
               <mat-form-field class="water-type">
-                  <mat-select placeholder="Water type">
-                      <mat-option *ngFor="let waterType of waterTypes" [value]="this.waterType.id">
+                  <mat-select [(ngModel)]="this.currentWater" placeholder="Water type">
+                      <mat-option *ngFor="let waterType of waterTypes" [value]="waterType.id">
                         {{waterType.name}}
                       </mat-option>
                     </mat-select>
@@ -108,21 +108,21 @@
               <ng-template matStepLabel>Mattress type and water type</ng-template>
               <mat-form-field class="mattress-type">
                   <mat-select placeholder="Mattress type">
-                      <mat-option *ngFor="let mattressType of mattressTypes" [value]="this.mattressType.id">
+                      <mat-option *ngFor="let mattressType of mattressTypes" [value]="mattressType.id">
                         {{mattressType.name}}
                       </mat-option>
                     </mat-select>
               </mat-form-field>
               <mat-form-field class="water-type">
                   <mat-select placeholder="Water type">
-                      <mat-option *ngFor="let waterType of waterTypes" [value]="this.waterType.id">
+                      <mat-option *ngFor="let waterType of waterTypes" [value]="waterType.id">
                         {{waterType.name}}
                       </mat-option>
                     </mat-select>
               </mat-form-field>
           </mat-step>
         </mat-vertical-stepper>   
-        <p id="continue">CONTINUE</p>   
+        <p id="continue" (click)="onContinue()">CONTINUE</p>   
     </div>
   </div>
 </div>

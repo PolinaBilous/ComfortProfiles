@@ -81,21 +81,25 @@ namespace ComfortProfilesSharing.Data
             builder.Entity<ChairType>().HasData(
                     new ChairType() { Id = 1, Name = "Type1" },
                     new ChairType() { Id = 2, Name = "Type2" },
-                    new ChairType() { Id = 3, Name = "Type3" }
+                    new ChairType() { Id = 3, Name = "Type3" },
+                    new ChairType() { Id = 4, Name = "Not Selected"}
                 );
             builder.Entity<TableType>().HasData(
                     new TableType() { Id = 1, Name = "Type1" },
                     new TableType() { Id = 2, Name = "Type2" },
-                    new TableType() { Id = 3, Name = "Type3" }
+                    new TableType() { Id = 3, Name = "Type3" },
+                    new TableType() { Id = 4, Name = "Not Selected" }
                 );
             builder.Entity<WaterType>().HasData(
                     new WaterType() { Id = 1, Name = "Carbonated"},
-                    new WaterType() { Id = 2, Name = "Not carbonated" }
+                    new WaterType() { Id = 2, Name = "Not carbonated" },
+                    new WaterType() { Id = 4, Name = "Not Selected" }
                 );
             builder.Entity<MattressType>().HasData(
                     new MattressType() { Id = 1, Name = "Type1" },
                     new MattressType() { Id = 2, Name = "Type2" },
-                    new MattressType() { Id = 3, Name = "Type3" }
+                    new MattressType() { Id = 3, Name = "Type3" },
+                    new MattressType() { Id = 4, Name = "Not Selected" }
                 );
         }
     }

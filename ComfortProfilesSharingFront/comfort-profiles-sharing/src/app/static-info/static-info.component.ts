@@ -5,6 +5,8 @@ import { TableType } from 'src/logic/table-type.model';
 import { MattressType } from 'src/logic/mattress-type.model';
 import { WaterType } from 'src/logic/water-type.model';
 import * as $ from 'jquery';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StaticInfo } from 'src/logic/static-info.model';
 
 @Component({
   selector: 'app-static-info',
@@ -21,8 +23,25 @@ export class StaticInfoComponent implements OnInit {
                             "New Age", "Opera", "Pop (Popular music)", "R&B / Soul", "Reggae", "Rock", "Singer / Songwriter (inc. Folk)", "World Music / Beats"];
   mattressTypes : MattressType[] = [];
   waterTypes : WaterType[] = [];
+  appUserId = "";
 
-  constructor(private service: Service) { 
+  currentShoeSize : any;
+  currentClothingSize : any;
+  currentChairType : any;
+  currentTableType : any;
+  currentCoffee : any;
+  currentTea : any;
+  currentAllergens : any;
+  currentFruits : any;
+  currentMusic : any;
+  currentMattress : any;
+  currentWater : any;
+
+  constructor(private service: Service, private activeRoute: ActivatedRoute, private router: Router) { 
+    this.activeRoute.queryParams.subscribe(params => {
+        this.appUserId = this.activeRoute.snapshot.params.id;
+    });
+
     for (let i = 30; i <= 50; i++){
       this.numbers.push(i);
     }
@@ -48,8 +67,41 @@ export class StaticInfoComponent implements OnInit {
       $(".mat-vertical-stepper-header.mat-step-header").css("padding", "18px");
       $(".mat-vertical-stepper-header.mat-step-header").css("padding-left", "0px");
       $(".mat-vertical-content-container.mat-stepper-vertical-line").css("margin-left", "12px")
+      $("#cdk-step-label-1-6").hide()
       $("#cdk-step-label-0-6").hide()
     });
   }
 
+  onContinue(){
+    let staticInfo: StaticInfo = new StaticInfo();
+    if (this.currentShoeSize !== undefined)
+      staticInfo.ShoeSize = this.currentShoeSize;
+    if (this.currentClothingSize !== undefined)
+      staticInfo.ClothingSize = this.currentClothingSize;
+    if (this.currentChairType !== undefined)
+      staticInfo.ChairTypeId = this.currentChairType;
+    if (this.currentTableType !== undefined)
+      staticInfo.TableTypeId = this.currentTableType;
+    if (this.currentCoffee !== undefined)
+      staticInfo.KindOfCoffee = this.currentCoffee;
+    if (this.currentTea !== undefined)
+      staticInfo.KindOfTea = this.currentTea;
+    if (this.currentAllergens !== undefined)
+      staticInfo.Allergens = this.currentAllergens;
+    if (this.currentFruits !== undefined)
+      staticInfo.FruitPreferences = this.currentFruits;
+    if (this.currentMusic !== undefined)
+      staticInfo.MusicalPreferences = "Favourite music genres:" + this.currentMusic.join(',');
+    if (this.currentWater !== undefined)
+      staticInfo.WaterTypeId = this.currentWater;
+    if (this.currentMattress !== undefined)
+      staticInfo.MattressTypeId = this.currentMattress;
+    staticInfo.UserId = this.appUserId;
+
+    console.log(staticInfo.WaterTypeId);
+
+    this.service.addStaticInfo(staticInfo).subscribe(result => {
+      this.router.navigate(['/add-rooms', this.appUserId]);
+    });
+  }
 }

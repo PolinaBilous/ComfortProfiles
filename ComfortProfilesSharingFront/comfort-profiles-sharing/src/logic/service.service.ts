@@ -67,12 +67,10 @@ export class Service {
     }
 
     addStaticInfo(staticInfo : StaticInfo) : Observable<Object> {
-        staticInfo.UserId = this.appUserId;
         return this.http.post(environment.apiUrl + "api/StaticInfo/AddStaticInfo", staticInfo, this.httpOptions).pipe(map(response => response));
     } 
 
     updateStaticInfo(staticInfo : StaticInfo) : Observable<Object> {
-        staticInfo.UserId = this.appUserId;
         return this.http.post(environment.apiUrl + "api/StaticInfo/UpdateStaticInfo", staticInfo, this.httpOptions).pipe(map(response => response));
     } 
 
@@ -130,8 +128,8 @@ export class Service {
         }));
     }
 
-    addRoom(name : string) : Observable<RoomResponse> {
-        let request : string = environment.apiUrl + "/api/Room/AddRoom?name=" + name + "&appUserId=" + this.appUserId;
+    addRoom(name : string, appUserId : string) : Observable<RoomResponse> {
+        let request : string = environment.apiUrl + "/api/Room/AddRoom?name=" + name + "&appUserId=" + appUserId;
         return this.http.post(request, null, this.httpOptions).pipe(map(response => {
             let roomResponse: RoomResponse = new RoomResponse();
 

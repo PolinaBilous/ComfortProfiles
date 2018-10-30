@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ComfortProfilesSharing.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181021145853_first")]
+    [Migration("20181030200301_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,7 +54,8 @@ namespace ComfortProfilesSharing.Migrations
                     b.HasData(
                         new { Id = 1, Name = "Type1" },
                         new { Id = 2, Name = "Type2" },
-                        new { Id = 3, Name = "Type3" }
+                        new { Id = 3, Name = "Type3" },
+                        new { Id = 4, Name = "Not Selected" }
                     );
                 });
 
@@ -144,14 +145,14 @@ namespace ComfortProfilesSharing.Migrations
                     b.ToTable("CoffeeTypes");
 
                     b.HasData(
-                        new { Id = new Guid("ed0c5443-df60-42db-82a0-3a0d61d13051"), Name = "Americano" },
-                        new { Id = new Guid("377126ea-6497-4451-9efd-3520d81f23e0"), Name = "Latte" },
-                        new { Id = new Guid("2b249754-8876-4339-a6b8-213c1788b8ca"), Name = "Cappuccino" },
-                        new { Id = new Guid("714717b9-f3fe-49a2-98f2-cd3194b668bc"), Name = "Espresso" },
-                        new { Id = new Guid("3de38b46-4a9e-489f-9dfa-f6fcc45af7bc"), Name = "Macchiato" },
-                        new { Id = new Guid("074c7f0d-2e6c-4aa4-ae47-eeb11c82fc87"), Name = "Mochaccino" },
-                        new { Id = new Guid("37c4d568-a2e7-4281-88cb-00db855cfd02"), Name = "Flat White" },
-                        new { Id = new Guid("96c22fe9-b353-41cc-9c44-18c0b3e926be"), Name = "Vienna" }
+                        new { Id = new Guid("8abe1178-fee2-49a6-952a-1d8d338bbb49"), Name = "Americano" },
+                        new { Id = new Guid("e872aef3-36b7-48dd-8871-19289e69b145"), Name = "Latte" },
+                        new { Id = new Guid("cfc7d85e-3515-4939-b9c3-d47eba7cb5b5"), Name = "Cappuccino" },
+                        new { Id = new Guid("94a7a25c-4be6-4182-8485-c4279a97cb53"), Name = "Espresso" },
+                        new { Id = new Guid("beb2a177-dea9-455a-884e-83f19d8d05c7"), Name = "Macchiato" },
+                        new { Id = new Guid("97529393-b5fa-44c0-a588-7815973634e3"), Name = "Mochaccino" },
+                        new { Id = new Guid("b8898be2-8bad-4afd-99b2-a928b4619b3f"), Name = "Flat White" },
+                        new { Id = new Guid("76913715-09ec-42f7-b53a-4e97dc59e255"), Name = "Vienna" }
                     );
                 });
 
@@ -225,7 +226,8 @@ namespace ComfortProfilesSharing.Migrations
                     b.HasData(
                         new { Id = 1, Name = "Type1" },
                         new { Id = 2, Name = "Type2" },
-                        new { Id = 3, Name = "Type3" }
+                        new { Id = 3, Name = "Type3" },
+                        new { Id = 4, Name = "Not Selected" }
                     );
                 });
 
@@ -318,7 +320,8 @@ namespace ComfortProfilesSharing.Migrations
                     b.HasData(
                         new { Id = 1, Name = "Type1" },
                         new { Id = 2, Name = "Type2" },
-                        new { Id = 3, Name = "Type3" }
+                        new { Id = 3, Name = "Type3" },
+                        new { Id = 4, Name = "Not Selected" }
                     );
                 });
 
@@ -382,7 +385,8 @@ namespace ComfortProfilesSharing.Migrations
 
                     b.HasData(
                         new { Id = 1, Name = "Carbonated" },
-                        new { Id = 2, Name = "Not carbonated" }
+                        new { Id = 2, Name = "Not carbonated" },
+                        new { Id = 4, Name = "Not Selected" }
                     );
                 });
 

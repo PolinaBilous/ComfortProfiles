@@ -17,6 +17,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { StaticInfoComponent } from './static-info/static-info.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
+import {Router, ActivatedRoute} from "@angular/router";
+import { AddRoomsComponent, LoadingDialog } from './add-rooms/add-rooms.component';
+import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material';
+import {MatProgressSpinnerModule, MatProgressSpinner} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,9 @@ import {MatSelectModule} from '@angular/material/select';
     SignInComponent,
     HomeComponent,
     SignUpComponent,
-    StaticInfoComponent
+    StaticInfoComponent,
+    AddRoomsComponent, 
+    LoadingDialog
   ],
   imports: [
     BrowserModule,
@@ -37,11 +43,14 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     FormsModule,
     MatStepperModule,
-    MatSelectModule
+    MatSelectModule, 
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   exports: [
   ],
   providers: [Service],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoadingDialog]
 })
 export class AppModule { }

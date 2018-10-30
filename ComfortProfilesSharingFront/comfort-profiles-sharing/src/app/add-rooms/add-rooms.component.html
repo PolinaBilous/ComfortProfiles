@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="left">
+    <p id="main-logo">
+      <span class="logo-container">
+        <span class="in">In</span>
+        <span class="comfort">Comfort</span>
+      </span>
+    </p>
+    <p class="left-header">Thank you for choosing us. We will make you travels as comfortable as possible.</p>
+  </div>
+  <div class="right">
+    <div class="content">
+      <p class="main-header">Add your flat's/house's rooms</p>
+      <p class="sub-header">You can add up to five rooms now. And one leads to another :)</p>
+        <mat-vertical-stepper [linear]="isLinear" #stepper>
+          <mat-step [stepControl]="firstFormGroup">
+              <ng-template matStepLabel>Add your first room (f.e. Beedroom)</ng-template>
+              <mat-form-field class="room">
+                <input matInput id="firstRoom" [(ngModel)]="firstRoom" placeholder="First room name...">
+              </mat-form-field>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+              <ng-template matStepLabel>Add your second room (f.e. Kitchen)</ng-template>
+              <mat-form-field class="room">
+                <input matInput id="secondRoom" [(ngModel)]="secondRoom" placeholder="Second room name...">
+              </mat-form-field>
+          </mat-step>
+          <mat-step>
+              <ng-template matStepLabel>Add your third room (f.e. Living room)</ng-template>
+              <mat-form-field class="room">
+                <input matInput id="thirdRoom" [(ngModel)]="thirdRoom" placeholder="Third room name...">
+              </mat-form-field>
+          </mat-step>         
+          <mat-step>
+              <ng-template matStepLabel>Add your fourth room (f.e. Nursery)</ng-template>
+              <mat-form-field class="room">
+                <input matInput id="fourthRoom" [(ngModel)]="fourthRoom" placeholder="Fourth room name...">
+              </mat-form-field>
+          </mat-step>
+          <mat-step>
+              <ng-template matStepLabel>Add you fifth room (f.e. Bathroom)</ng-template>
+              <mat-form-field class="room">
+                <input matInput id="fifthRoom" [(ngModel)]="fifthRoom" placeholder="Fifth room name...">
+              </mat-form-field>
+          </mat-step>
+          <mat-step class="for-hide">
+              <ng-template matStepLabel>Mattress type and water type</ng-template>
+              <mat-form-field class="mattress-type">
+                  <mat-select placeholder="Mattress type">
+                      <mat-option *ngFor="let mattressType of mattressTypes" [value]="mattressType.id">
+                        {{mattressType.name}}
+                      </mat-option>
+                    </mat-select>
+              </mat-form-field>
+              <mat-form-field class="water-type">
+                  <mat-select placeholder="Water type">
+                      <mat-option *ngFor="let waterType of waterTypes" [value]="waterType.id">
+                        {{waterType.name}}
+                      </mat-option>
+                    </mat-select>
+              </mat-form-field>
+          </mat-step>
+        </mat-vertical-stepper>   
+        <p id="continue" (click)="onFinish()">FINISH</p>   
+    </div>
+  </div>
+</div>
+
+

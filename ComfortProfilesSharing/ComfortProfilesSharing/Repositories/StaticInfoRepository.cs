@@ -19,6 +19,26 @@ namespace ComfortProfilesSharing.Repositories
 
         public void AddStaticInfo(StaticInfo staticInfo)
         {
+            if (_dbContext.StaticInfos.FirstOrDefault(st => st.AppUserId == staticInfo.AppUserId) != null)
+            {
+
+            }
+            if (staticInfo.ChairTypeId == 0)
+            {
+                staticInfo.ChairTypeId = 4;
+            }
+            if (staticInfo.TableTypeId == 0)
+            {
+                staticInfo.TableTypeId = 4;
+            }
+            if (staticInfo.MattressTypeId == 0)
+            {
+                staticInfo.MattressTypeId = 4;
+            }
+            if (staticInfo.WaterTypeId == 0)
+            {
+                staticInfo.WaterTypeId = 4;
+            }
             _dbContext.StaticInfos.Add(staticInfo);
             _dbContext.SaveChanges();
         }

@@ -493,7 +493,8 @@ namespace ComfortProfilesSharing.Migrations
                 {
                     { 1, "Type1", null },
                     { 2, "Type2", null },
-                    { 3, "Type3", null }
+                    { 3, "Type3", null },
+                    { 4, "Not Selected", null }
                 });
 
             migrationBuilder.InsertData(
@@ -501,14 +502,14 @@ namespace ComfortProfilesSharing.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("ed0c5443-df60-42db-82a0-3a0d61d13051"), "Americano" },
-                    { new Guid("377126ea-6497-4451-9efd-3520d81f23e0"), "Latte" },
-                    { new Guid("2b249754-8876-4339-a6b8-213c1788b8ca"), "Cappuccino" },
-                    { new Guid("714717b9-f3fe-49a2-98f2-cd3194b668bc"), "Espresso" },
-                    { new Guid("3de38b46-4a9e-489f-9dfa-f6fcc45af7bc"), "Macchiato" },
-                    { new Guid("074c7f0d-2e6c-4aa4-ae47-eeb11c82fc87"), "Mochaccino" },
-                    { new Guid("37c4d568-a2e7-4281-88cb-00db855cfd02"), "Flat White" },
-                    { new Guid("96c22fe9-b353-41cc-9c44-18c0b3e926be"), "Vienna" }
+                    { new Guid("76913715-09ec-42f7-b53a-4e97dc59e255"), "Vienna" },
+                    { new Guid("b8898be2-8bad-4afd-99b2-a928b4619b3f"), "Flat White" },
+                    { new Guid("97529393-b5fa-44c0-a588-7815973634e3"), "Mochaccino" },
+                    { new Guid("beb2a177-dea9-455a-884e-83f19d8d05c7"), "Macchiato" },
+                    { new Guid("cfc7d85e-3515-4939-b9c3-d47eba7cb5b5"), "Cappuccino" },
+                    { new Guid("e872aef3-36b7-48dd-8871-19289e69b145"), "Latte" },
+                    { new Guid("8abe1178-fee2-49a6-952a-1d8d338bbb49"), "Americano" },
+                    { new Guid("94a7a25c-4be6-4182-8485-c4279a97cb53"), "Espresso" }
                 });
 
             migrationBuilder.InsertData(
@@ -516,13 +517,13 @@ namespace ComfortProfilesSharing.Migrations
                 columns: new[] { "Id", "Explanation" },
                 values: new object[,]
                 {
+                    { 8, "Every Saturday" },
                     { 11, "Every Weekend" },
                     { 10, "Every Weekday" },
                     { 9, "Every Sunday" },
-                    { 8, "Every Saturday" },
                     { 7, "Every Friday" },
-                    { 4, "Every Tuesday" },
                     { 5, "Every Wednesday" },
+                    { 4, "Every Tuesday" },
                     { 3, "Every Monday" },
                     { 2, "Every Day" },
                     { 1, "Never" },
@@ -536,7 +537,8 @@ namespace ComfortProfilesSharing.Migrations
                 {
                     { 1, "Type1", null },
                     { 2, "Type2", null },
-                    { 3, "Type3", null }
+                    { 3, "Type3", null },
+                    { 4, "Not Selected", null }
                 });
 
             migrationBuilder.InsertData(
@@ -546,7 +548,8 @@ namespace ComfortProfilesSharing.Migrations
                 {
                     { 1, "Type1", null },
                     { 2, "Type2", null },
-                    { 3, "Type3", null }
+                    { 3, "Type3", null },
+                    { 4, "Not Selected", null }
                 });
 
             migrationBuilder.InsertData(
@@ -554,8 +557,9 @@ namespace ComfortProfilesSharing.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
+                    { 2, "Not carbonated" },
                     { 1, "Carbonated" },
-                    { 2, "Not carbonated" }
+                    { 4, "Not Selected" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -105,7 +105,7 @@ export class ApiTestComponent implements OnInit {
   }
 
   addRoomTest(){
-    this.service.addRoom("test").subscribe(res => console.log(res));
+    this.service.addRoom("test", "123").subscribe(res => console.log(res));
   }
 
   getCoffeDeviceStateTest(){
