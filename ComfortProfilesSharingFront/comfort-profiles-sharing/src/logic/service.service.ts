@@ -62,8 +62,8 @@ export class Service {
         return this.http.get<HowOften[]>(environment.apiUrl + "/api/Coffee/GetHowOftens");
     }
 
-    getUserRooms() : Observable<RoomState[]>{
-        return this.http.get<RoomState[]>(environment.apiUrl + "/api/Room/GetUserRooms?appUserId=" + this.appUserId);
+    getUserRooms(appUserId : string) : Observable<RoomState[]>{
+        return this.http.get<RoomState[]>(environment.apiUrl + "/api/Room/GetUserRooms?appUserId=" + appUserId);
     }
 
     addStaticInfo(staticInfo : StaticInfo) : Observable<Object> {

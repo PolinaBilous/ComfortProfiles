@@ -63,6 +63,7 @@ export class AddRoomsComponent implements OnInit {
     setTimeout(() => 
     {
         dialogRef.close();
+        this.router.navigate(['/rooms', this.appUserId]);
     },
     7000);
   }

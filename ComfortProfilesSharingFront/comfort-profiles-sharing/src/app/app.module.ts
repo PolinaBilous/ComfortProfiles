@@ -21,6 +21,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 import { AddRoomsComponent, LoadingDialog } from './add-rooms/add-rooms.component';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material';
 import {MatProgressSpinnerModule, MatProgressSpinner} from '@angular/material/progress-spinner';
+import { RoomsComponent } from './rooms/rooms.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import {MatProgressSpinnerModule, MatProgressSpinner} from '@angular/material/pr
     SignUpComponent,
     StaticInfoComponent,
     AddRoomsComponent, 
-    LoadingDialog
+    LoadingDialog, RoomsComponent
   ],
   imports: [
     BrowserModule,

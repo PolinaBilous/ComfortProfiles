@@ -1,0 +1,91 @@
+<nav id="main-header">
+  <a id="main-logo">
+      <span class="logo-container">
+          <span class="in">In</span>
+          <span class="comfort">Comfort</span>
+      </span>
+  </a>
+  <a id="rooms" style="color: rgb(245, 245, 7);">Rooms</a>
+  <a id="coffee">Coffee Machine and Teapot</a>
+  <a id="info">Your information</a>
+  <a id="comfort-profile">Comfort Profile</a> 
+  <a id="instructions">Instructions</a>
+  <a id="sign-out">Sign out</a>
+</nav>
+<ul>
+    <li *ngFor="let room of rooms" class="{{room.id}}">
+        <p id="room-name">{{room.name}}</p>
+        <div id="left">
+            <div id="temperature">
+                <div id="temperature-icon"></div>
+                <div><p id="temperature-text">Current temperature: {{room.currentTemperature}} °C</p></div>
+            </div>
+            <div id="air">
+                <div id="air-icon"></div>
+                <div><p id="air-text">Current air humidity: {{room.currentAirHumidity}}%</p></div>
+            </div>
+            <div id="temperature">
+                <div id="light-icon"></div>
+                <div><p *ngIf="room.currentIsLight; else off" id="temperature-text">Light is on</p></div>
+                <ng-template #off><div><p id="temperature-text">Light is off</p></div></ng-template>
+            </div>
+            <div id="temperature">
+                <div id="light-intencity-icon"></div>
+                <div><p id="air-text">Light intensity: {{room.currentLightIntensity}}%</p></div>
+            </div>
+        </div>
+        <div id="right">
+            <div id="change-temperature">Change something</div>
+            <div id="change-light">Change something</div>
+        </div>
+    </li>
+</ul>
+<!-- <ul>
+    <li id="kitchen">
+        <p id="room-name">Kitchen</p>
+        <div id="left">
+            <div id="temperature">
+                <div id="temperature-icon"></div>
+                <div><p id="temperature-text">Current temperature: 30 °C</p></div>
+            </div>
+            <div id="air">
+                <div id="air-icon"></div>
+                <div><p id="air-text">Current air humidity: 55%</p></div>
+            </div>
+            <div id="temperature">
+                <div id="light-icon"></div>
+                <div><p id="temperature-text">Light is on</p></div>
+            </div>
+            <div id="temperature">
+                <div id="light-intencity-icon"></div>
+                <div><p id="air-text">Light intensity: 55%</p></div>
+            </div>
+        </div>
+        <div id="right">
+            <div id="change-temperature">Change something</div>
+            <div id="change-light">Change something</div>
+        </div>
+    </li>
+    <li id="bedroom">
+        <p id="room-name">Kitchen</p>
+        <div id="left">
+            <div id="temperature">
+                <div id="temperature-icon"></div>
+                <div><p id="temperature-text">Current temperature: 30 °C</p></div>
+            </div>
+            <div id="air">
+                <div id="air-icon"></div>
+                <div><p id="air-text">Current air humidity: 55%</p></div>
+            </div>
+        </div>
+        <div id="right">
+
+        </div>
+    </li>
+    <li id="living">
+
+    </li>
+    <li id="bathroom">
+
+    </li>
+</ul> -->
