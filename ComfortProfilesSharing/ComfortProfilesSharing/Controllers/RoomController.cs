@@ -120,11 +120,11 @@ namespace ComfortProfilesSharing.Controllers
                 bool isClimatChangesNeeded = _roomRepository.ChangeClimatIfNeeded(room.AppUserId, DateTime.Now, roomId);
                 if (isClimatChangesNeeded)
                 {
-                    return new JsonResult(new { message = "ok", coffeDeviceState = RoomStateById(roomId) });
+                    return new JsonResult(new { message = "ok", roomDeviceState = RoomStateById(roomId) });
                 }
                 else
                 {
-                    return new JsonResult(new { message = "isn't needed", coffeDeviceState = RoomStateById(roomId) });
+                    return new JsonResult(new { message = "isn't needed", roomDeviceState = RoomStateById(roomId) });
                 }
             }
             else
@@ -145,11 +145,11 @@ namespace ComfortProfilesSharing.Controllers
                 bool isClimatChangesNeeded = _roomRepository.ChangeClimatIfNeeded(room.AppUserId, DateTime.Now, roomId);
                 if (isClimatChangesNeeded)
                 {
-                    return new JsonResult(new { message = "ok", coffeDeviceState = RoomStateById(roomId) });
+                    return new JsonResult(new { message = "ok", roomDeviceState = RoomStateById(roomId) });
                 }
                 else
                 {
-                    return new JsonResult(new { message = "isn't needed", coffeDeviceState = RoomStateById(roomId) });
+                    return new JsonResult(new { message = "isn't needed", roomDeviceState = RoomStateById(roomId) });
                 }
             }
             else
@@ -182,7 +182,7 @@ namespace ComfortProfilesSharing.Controllers
             return new ClimatLog()
             {
                 Id = Guid.NewGuid(),
-                Date = requestClimatLog.Date,
+                Date = requestClimatLog.Date.AddHours(3),
                 AirHumidity = requestClimatLog.AirHumidity,
                 HowOftenId = requestClimatLog.HowOftenId,
                 IsRepeatable = requestClimatLog.HowOftenId == 1 ? false : true,
@@ -196,7 +196,7 @@ namespace ComfortProfilesSharing.Controllers
             return new IlluminationLog()
             {
                 Id = Guid.NewGuid(),
-                Date = requestIlluminationLog.Date,
+                Date = requestIlluminationLog.Date.AddHours(3),
                 HowOftenId = requestIlluminationLog.HowOftenId,
                 IsRepeatable = requestIlluminationLog.HowOftenId == 1 ? false : true,
                 RoomId = requestIlluminationLog.RoomId,

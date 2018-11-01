@@ -142,9 +142,8 @@ namespace ComfortProfilesSharing.Repositories
 
         public void UpdateRoomClimatState(ClimatLog climatLog)
         {
-            Room room = _dbContext.Rooms.FirstOrDefault(r => r.Id == climatLog.RoomId);
-            room.CurrentTemperature = climatLog.Temperature;
-            room.CurrentAirHumidity = climatLog.AirHumidity;
+            _dbContext.Rooms.FirstOrDefault(r => r.Id == climatLog.RoomId).CurrentTemperature = climatLog.Temperature;
+            _dbContext.Rooms.FirstOrDefault(r => r.Id == climatLog.RoomId).CurrentAirHumidity = climatLog.AirHumidity;
 
             _dbContext.SaveChanges();
         }

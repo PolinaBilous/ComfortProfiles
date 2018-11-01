@@ -5,6 +5,8 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
 $mat-black: (
   50: black,
   100: black,

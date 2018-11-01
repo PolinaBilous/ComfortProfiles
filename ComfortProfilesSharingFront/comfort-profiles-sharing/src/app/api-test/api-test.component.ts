@@ -112,9 +112,9 @@ export class ApiTestComponent implements OnInit {
     this.service.getCoffeeDeviceState().subscribe(res => console.log(res));
   }
 
-  getUserRoomsTest(){
-    this.service.getUserRooms().subscribe(res => console.log(res));
-  }
+  // getUserRoomsTest(){
+  //   this.service.getUserRooms().subscribe(res => console.log(res));
+  // }
 
   getTeapotStateTest(){
     this.service.getTeapotState().subscribe(res => console.log(res));

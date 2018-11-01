@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/logic/service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,7 +11,7 @@ export class SignInComponent implements OnInit {
   email : string = "";
   password : string = "";
 
-  constructor(private service: Service) { }
+  constructor(private service: Service, private router : Router) { }
 
   ngOnInit() {
   }
@@ -18,7 +19,8 @@ export class SignInComponent implements OnInit {
   signInHandler(){
     this.service.loginUser(this.email, this.password).subscribe(result => {
       if (result.message == "ok"){
-        alert("ok, id: " + result.appUser["id"] + ", name: " + result.appUser["name"]);
+        // alert("ok, id: " + result.appUser["id"] + ", name: " + result.appUser["name"]);
+        this.router.navigate(['/rooms', result.appUser["id"]]);
       }
       else {
         alert("error");

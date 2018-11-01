@@ -22,6 +22,18 @@ import { AddRoomsComponent, LoadingDialog } from './add-rooms/add-rooms.componen
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material';
 import {MatProgressSpinnerModule, MatProgressSpinner} from '@angular/material/progress-spinner';
 import { RoomsComponent } from './rooms/rooms.component';
+import { ChangeClimatComponent } from './change-climat/change-climat.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_FORMATS } from 'ng-pick-datetime';
+
+export const MY_NATIVE_FORMATS = {
+  parseInput: 'l LT',
+  fullPickerInput: 'l LT',
+  datePickerInput: 'l',
+  timePickerInput: 'LT',
+  monthYearLabel: 'MMM YYYY',
+  dateA11yLabel: 'LL',
+  monthYearA11yLabel: 'MMMM YYYY',
+};
 
 @NgModule({
   declarations: [
@@ -32,7 +44,9 @@ import { RoomsComponent } from './rooms/rooms.component';
     SignUpComponent,
     StaticInfoComponent,
     AddRoomsComponent, 
-    LoadingDialog, RoomsComponent
+    LoadingDialog, 
+    RoomsComponent, 
+    ChangeClimatComponent
   ],
   imports: [
     BrowserModule,
@@ -46,12 +60,16 @@ import { RoomsComponent } from './rooms/rooms.component';
     MatStepperModule,
     MatSelectModule, 
     MatDialogModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule, 
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   exports: [
   ],
-  providers: [Service],
+  providers: [
+    Service
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [LoadingDialog]
+  entryComponents: [LoadingDialog, ChangeClimatComponent]
 })
 export class AppModule { }
