@@ -69,6 +69,10 @@ export class StaticInfoComponent implements OnInit {
       $(".mat-vertical-content-container.mat-stepper-vertical-line").css("margin-left", "12px")
       $("#cdk-step-label-1-6").hide()
       $("#cdk-step-label-0-6").hide()
+      $("#cdk-step-label-2-6").hide()
+      $("#cdk-step-label-3-6").hide()
+      $("#cdk-step-label-4-6").hide()
+      $("#cdk-step-label-5-6").hide()
     });
   }
 

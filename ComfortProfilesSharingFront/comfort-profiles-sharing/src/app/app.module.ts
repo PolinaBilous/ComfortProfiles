@@ -24,6 +24,9 @@ import {MatProgressSpinnerModule, MatProgressSpinner} from '@angular/material/pr
 import { RoomsComponent } from './rooms/rooms.component';
 import { ChangeClimatComponent } from './change-climat/change-climat.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_FORMATS } from 'ng-pick-datetime';
+import { ChangeLightComponent } from './change-light/change-light.component';
+import { InfoComponent } from './info/info.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 export const MY_NATIVE_FORMATS = {
   parseInput: 'l LT',
@@ -46,7 +49,9 @@ export const MY_NATIVE_FORMATS = {
     AddRoomsComponent, 
     LoadingDialog, 
     RoomsComponent, 
-    ChangeClimatComponent
+    ChangeClimatComponent, 
+    ChangeLightComponent, 
+    InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +67,8 @@ export const MY_NATIVE_FORMATS = {
     MatDialogModule,
     MatProgressSpinnerModule, 
     OwlDateTimeModule,
-    OwlNativeDateTimeModule
+    OwlNativeDateTimeModule,
+    MatSnackBarModule
   ],
   exports: [
   ],
@@ -70,6 +76,6 @@ export const MY_NATIVE_FORMATS = {
     Service
   ],
   bootstrap: [AppComponent],
-  entryComponents: [LoadingDialog, ChangeClimatComponent]
+  entryComponents: [LoadingDialog, ChangeClimatComponent, ChangeLightComponent]
 })
 export class AppModule { }

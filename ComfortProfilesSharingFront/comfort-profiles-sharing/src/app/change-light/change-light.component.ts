@@ -2,45 +2,39 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 import { Service } from 'src/logic/service.service';
-import * as $ from 'jquery';
 import { HowOften } from 'src/logic/how-often.model';
-import { ClimatLog } from 'src/logic/climat-log.model';
-import * as moment from 'moment';
+import * as $ from 'jquery';
+import { IlluminationLog } from 'src/logic/illumination-log.model';
 
 @Component({
-  selector: 'app-change-climat',
-  templateUrl: './change-climat.component.html',
-  styleUrls: ['./change-climat.component.css']
+  selector: 'app-change-light',
+  templateUrl: './change-light.component.html',
+  styleUrls: ['./change-light.component.css']
 })
-export class ChangeClimatComponent implements OnInit {
+export class ChangeLightComponent implements OnInit {
 
-  roomId = "";
   howOftens : HowOften[] = [];
-  temperatureValues = [];
-  airHumidityValues = [];
-  temperature;
-  airHumidity;
+  lightIntensities = [];
+  roomId;
+  isLight;
+  lightIntensity;
   date;
   howOftenId;
   result;
-  
+
   constructor(
-    public dialogRef: MatDialogRef<ChangeClimatComponent>,
+    public dialogRef: MatDialogRef<ChangeLightComponent>,
     @Inject(MAT_DIALOG_DATA) public data: string, private service : Service) {
       this.roomId = data;
       this.service.getHowOftens().subscribe(result => {
         this.howOftens = result;
       });
 
-      for (let i = 15; i <= 35; i++){
-        this.temperatureValues.push(i);
-      }
-
-      for (let i = 15; i < 60; i+=5){
-        this.airHumidityValues.push(i);
+      for (let i = 5; i < 100; i+=5){
+       this.lightIntensities.push(i);
       }
     }
-
+  
   ngOnInit() {
     $(document).ready(function(){
       $(".mat-step-label").css("font-size", "15px");
@@ -59,19 +53,38 @@ export class ChangeClimatComponent implements OnInit {
   }
 
   submitHandler(){
-    let climatLog : ClimatLog = new ClimatLog();
-    climatLog.howOftenId = this.howOftenId;
-    climatLog.airHumidity = (Number)(JSON.stringify(this.airHumidity).substring(0, 2));
-    climatLog.temperature = (Number)(JSON.stringify(this.temperature).substring(0, 2));
-    climatLog.roomId = this.roomId;
-    climatLog.date = JSON.stringify(this.date).substring(1, 25);
+    let illuminationLog : IlluminationLog = new IlluminationLog();
+    illuminationLog.howOftenId = this.howOftenId;
+    if (this.isLight == 0)
+      illuminationLog.isLight = false;
+    if (this.isLight == 1)
+      illuminationLog.isLight = true;
+    if (this.lightIntensity !== undefined){
+      illuminationLog.lightIntensity = (Number)(JSON.stringify(this.lightIntensity).substring(0, 2));
+    }
+    else {
+      illuminationLog.lightIntensity = 0;
+    }
+    illuminationLog.roomId = this.roomId;
+    illuminationLog.date = JSON.stringify(this.date).substring(1, 25);
 
-    console.log(climatLog);
-    this.service.changeClimat(climatLog).subscribe(result => {
+    console.log(illuminationLog);
+    this.service.changeIllumination(illuminationLog).subscribe(result => {
       console.log(result);
       this.dialogRef.componentInstance.result = result; 
       this.dialogRef.close();
     });
+  }
+
+  hideShowLightIntensity(e){
+    if (this.isLight == 0){
+      $("mat-vertical-stepper").children().first().next().hide();
+      $("#cdk-overlay-0").css("height", "460px");
+    }
+    else {
+      $("mat-vertical-stepper").children().first().next().show();
+      $("#cdk-overlay-0").css("height", "520px");
+    }
   }
 
 }

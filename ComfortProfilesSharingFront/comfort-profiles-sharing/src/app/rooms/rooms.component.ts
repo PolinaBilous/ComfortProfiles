@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/logic/service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RoomState } from 'src/logic/room-state.model';
 import * as $ from 'jquery';
 import { MatDialog } from '@angular/material';
 import { ChangeClimatComponent } from '../change-climat/change-climat.component';
+import { ChangeLightComponent } from '../change-light/change-light.component';
 
 @Component({
   selector: 'app-rooms',
@@ -16,7 +17,7 @@ export class RoomsComponent implements OnInit {
   rooms : RoomState[] = [];
   roomIds = ["room1", "room2", "room3", "room4", "room5", "room7", "room8"];
 
-  constructor(private service : Service, private activeRoute : ActivatedRoute, public dialog : MatDialog) {     
+  constructor(private service : Service, private activeRoute : ActivatedRoute, public dialog : MatDialog, private router: Router) {     
     this.activeRoute.queryParams.subscribe(params => {
       this.appUserId = this.activeRoute.snapshot.params.id;
       this.service.getUserRooms(this.activeRoute.snapshot.params.id).subscribe(result => {
@@ -46,6 +47,25 @@ export class RoomsComponent implements OnInit {
         location.reload();
       });
     });
+  }
+
+  OpenlightningDialog(roomId){
+    const dialogRef = this.dialog.open(ChangeLightComponent, {
+      width: '600px',
+      height: '520px',
+      data: roomId
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(dialogRef.componentInstance.result);
+      this.service.getUserRooms(this.appUserId).subscribe(result => {
+        location.reload();
+      });
+    });
+  }
+
+  moveToInfo(){
+    this.router.navigate(['/user-info', this.appUserId]);
   }
 
 }

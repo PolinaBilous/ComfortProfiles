@@ -18,9 +18,9 @@ export class ApiTestComponent implements OnInit {
   ngOnInit() {
   }
 
-  getStaticInfoTest() {
-    this.service.getStaticInfo().subscribe(res => console.log(res));
-  }
+  // getStaticInfoTest() {
+  //   this.service.getStaticInfo().subscribe(res => console.log(res));
+  // }
 
   getChairTypesTest() {
     this.service.getChairTypes().subscribe(res => console.log(res));

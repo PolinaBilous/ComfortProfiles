@@ -33,7 +33,11 @@ export class AddRoomsComponent implements OnInit {
       $(".mat-vertical-stepper-header.mat-step-header").css("padding-left", "0px");
       $(".mat-vertical-content-container.mat-stepper-vertical-line").css("margin-left", "12px")
       $("#cdk-step-label-0-5").hide();
-      $("#cdk-step-label-1-5").hide()
+      $("#cdk-step-label-1-5").hide();
+      $("#cdk-step-label-2-5").hide()
+      $("#cdk-step-label-3-5").hide()
+      $("#cdk-step-label-4-5").hide()
+      $("#cdk-step-label-5-5").hide()
     });
   }
 

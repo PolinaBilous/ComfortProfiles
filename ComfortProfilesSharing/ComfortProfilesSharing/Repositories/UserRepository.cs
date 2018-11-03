@@ -17,6 +17,11 @@ namespace ComfortProfilesSharing.Repositories
             _dbContext = dbContext;
         }
 
+        public AppUser GetUserById(string userId)
+        {
+            return _dbContext.AppUsers.FirstOrDefault(u => u.Id == userId);
+        }
+
         public AppUser Login(AppUser appUser)
         {
             if (_dbContext.AppUsers.FirstOrDefault(u => u.Email == appUser.Email) != null)

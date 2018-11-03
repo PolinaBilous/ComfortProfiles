@@ -10,5 +10,6 @@ namespace ComfortProfilesSharing.Interfaces
     {
         AppUser RegisterUser(AppUser appUser);
         AppUser Login(AppUser appUser);
+        AppUser GetUserById(string userId);
     }
 }

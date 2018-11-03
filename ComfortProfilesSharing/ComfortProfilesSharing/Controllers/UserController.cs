@@ -40,6 +40,22 @@ namespace ComfortProfilesSharing.Controllers
             }
         }
 
+        [HttpGet]
+        public JsonResult GetUser(string appUserId)
+        {
+            AppUser appUser = _userRepository.GetUserById(appUserId);
+
+            if (appUser != null)
+            {
+                return new JsonResult(new { message = "ok", appUser = ConvertToRequestUser(appUser) });
+            }
+            else
+            {
+                return new JsonResult(new { message = "error", appUser = appUser != null ? ConvertToRequestUser(appUser) : null });
+            }
+
+        }
+
         [HttpPost]
         public JsonResult Login(string email, string password)
         {
@@ -66,5 +82,7 @@ namespace ComfortProfilesSharing.Controllers
                 Name = appUser.Name
             };
         }
+
+
     }
 }

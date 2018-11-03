@@ -1,0 +1,65 @@
+<p id="main-header">Seems that it's time to change something.</p>
+<p id="sub-header">Enter details below and click submit button.</p>
+<mat-vertical-stepper [linear]="isLinear" style="margin-top: 10px;" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+      <ng-template matStepLabel>Choose if light should be on or off</ng-template>
+      <mat-form-field class="light">
+        <mat-select [(ngModel)]="this.isLight" placeholder="Light on or off" (selectionChange)="hideShowLightIntensity($event)">
+            <mat-option [value]="1">
+              On
+            </mat-option>
+            <mat-option [value]="0">
+              Off
+            </mat-option>
+          </mat-select>
+    </mat-form-field>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" id="lightIntensityStep">
+      <ng-template matStepLabel>Choose light intensity value</ng-template>
+      <mat-form-field class="light-intensity">
+      <mat-select [(ngModel)]="this.lightIntensity" placeholder="Light Intensity">
+        <mat-option *ngFor="let lightInt of lightIntensities" [value]="lightInt">
+          {{lightInt}}%
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-step>
+  <mat-step>
+      <ng-template matStepLabel>Choose date</ng-template>
+      <mat-form-field>
+        <input matInput id="date" placeholder="Date Time:" [(ngModel)]="this.date"
+          [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3">
+          <owl-date-time [pickerMode]="'dialog'" #dt3></owl-date-time>
+      </mat-form-field>
+  </mat-step>         
+  <mat-step>
+      <ng-template matStepLabel>Select if it should be repeatable</ng-template>
+      <mat-form-field class="how-often">
+        <mat-select [(ngModel)]="this.howOftenId" placeholder="Repeat">
+          <mat-option *ngFor="let howOften of howOftens" [value]="howOften.id">
+            {{howOften.explanation}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </mat-step>
+  <mat-step class="for-hide">
+      <ng-template matStepLabel>Mattress type and water type</ng-template>
+      <mat-form-field class="mattress-type">
+          <mat-select placeholder="Mattress type">
+              <mat-option *ngFor="let mattressType of mattressTypes" [value]="mattressType.id">
+                {{mattressType.name}}
+              </mat-option>
+            </mat-select>
+      </mat-form-field>
+      <mat-form-field class="water-type">
+          <mat-select placeholder="Water type">
+              <mat-option *ngFor="let waterType of waterTypes" [value]="waterType.id">
+                {{waterType.name}}
+              </mat-option>
+            </mat-select>
+      </mat-form-field>
+  </mat-step>
+</mat-vertical-stepper>  
+<div class="submit-container">
+  <a id="submit" (click)="submitHandler()">SUBMIT</a> 
+</div>

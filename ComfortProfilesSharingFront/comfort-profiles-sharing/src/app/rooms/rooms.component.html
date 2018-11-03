@@ -7,7 +7,7 @@
   </a>
   <a id="rooms" style="color: rgb(245, 245, 7);">Climat</a>
   <a id="coffee">Coffee Machine and Teapot</a>
-  <a id="info">Your information</a>
+  <a id="info" (click)="moveToInfo()">Your information</a>
   <a id="comfort-profile">Comfort Profile</a> 
   <a id="instructions">Instructions</a>
   <a id="sign-out">Sign out</a>
@@ -36,7 +36,7 @@
         </div>
         <div id="right">
             <div id="change-temperature" (click)="OpenTemperatureDialog(room.id)">Change something</div>
-            <div id="change-light">Change something</div>
+            <div id="change-light" (click)="OpenlightningDialog(room.id)">Change something</div>
         </div>
     </li>
 </ul>

@@ -34,8 +34,8 @@ export class Service {
         })
       };
 
-    getStaticInfo() : Observable<StaticInfo>{
-        return this.http.get<StaticInfo>(environment.apiUrl + "/api/StaticInfo/GetStaticInfoForCurrentUser?userId=" + this.appUserId).pipe(map(response => new StaticInfo(response)));
+    getStaticInfo(userId:string) : Observable<StaticInfo>{
+        return this.http.get<StaticInfo>(environment.apiUrl + "/api/StaticInfo/GetStaticInfoForCurrentUser?userId=" + userId).pipe(map(response => new StaticInfo(response)));
     }
 
     getTableTypes() : Observable<TableType[]> {
@@ -77,6 +77,21 @@ export class Service {
     registerUser(email : string, name : string, password : string) : Observable<UserResponse>{
         let request : string = environment.apiUrl + "/api/User/Register?email=" + email + "&password=" + password + "&name=" + name;
         return this.http.post(request, null, this.httpOptions).pipe(map(response => {
+            let userResponse : UserResponse = new UserResponse();
+            
+            userResponse.message = JSON.parse(JSON.stringify(response)).message;
+            userResponse.appUser = JSON.parse(JSON.stringify(response)).appUser;
+
+            if (userResponse.appUser != null)
+                this.appUserId = userResponse.appUser.Id;
+
+            return userResponse;
+        }));
+    }
+
+    getUser(appUserId:string) : Observable<UserResponse> {
+        let request : string = environment.apiUrl + "/api/User/GetUser?appUserId=" + appUserId;
+        return this.http.get(request).pipe(map(response => {
             let userResponse : UserResponse = new UserResponse();
             
             userResponse.message = JSON.parse(JSON.stringify(response)).message;
