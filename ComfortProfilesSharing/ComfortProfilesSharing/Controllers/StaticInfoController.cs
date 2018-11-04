@@ -43,7 +43,14 @@ namespace ComfortProfilesSharing.Controllers
         public JsonResult GetStaticInfoForCurrentUser(string userId)
         {
             StaticInfo staticInfo = _staticInfoRepository.GetStaticInfoByUserId(userId);
-            return new JsonResult(ConvertToRequestStaticInfo(staticInfo));
+            if (staticInfo != null)
+            {
+                return new JsonResult(ConvertToRequestStaticInfo(staticInfo));
+            }
+            else
+            {
+                return new JsonResult("error");
+            }
         }
 
         [HttpGet]

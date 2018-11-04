@@ -98,6 +98,15 @@ namespace ComfortProfilesSharing.Repositories
             return teapot;
         }
 
+        public Teapot UpdateTeapotState(string appUserId)
+        {
+            Teapot teapot = GetTeapotByUserId(appUserId);
+            teapot.CurrentWaterAmount = 100;
+
+            _dbContext.SaveChanges();
+            return teapot;
+        }
+
         private TeapotLog CheckIfBoilWaterNeeded(List<TeapotLog> teapotLogs, DateTime dateTime)
         {
             TeapotLog result = null;

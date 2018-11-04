@@ -104,6 +104,12 @@
                     </mat-select>
               </mat-form-field>
           </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Water temperature in teapot</ng-template>
+            <mat-form-field class="teapot" style="width: 50%;">
+                <input matInput [(ngModel)]="this.temperature" placeholder="Temperature for teapot (f.e. 30)">
+            </mat-form-field>
+        </mat-step>
           <mat-step class="for-hide">
               <ng-template matStepLabel>Mattress type and water type</ng-template>
               <mat-form-field class="mattress-type">

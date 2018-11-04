@@ -101,6 +101,18 @@ namespace ComfortProfilesSharing.Repositories
             return coffeeDevice;
         }
 
+        public CoffeeDevice UpdateCoffeSeviceState(string appUserId)
+        {
+            CoffeeDevice coffeeDevice = GetCoffeeDeviceByUserId(appUserId);
+            coffeeDevice.CurrentCoffeeAmount = 100;
+            coffeeDevice.CurrentMilkAmount = 100;
+            coffeeDevice.CurrentWaterAmount = 100;
+
+            _dbContext.SaveChanges();
+
+            return coffeeDevice;
+        }
+
         private CoffeeLog IsCupOfCoffeeNeeded(List<CoffeeLog> coffeeLogs, DateTime dateTime)
         {
             CoffeeLog result = null;

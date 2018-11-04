@@ -119,8 +119,8 @@ export class Service {
         }));
     }
 
-    addCoffeDevice() : Observable<CoffeeDeviceResponse>{
-        let request : string = environment.apiUrl + "/api/Coffee/AddCoffeeDevice?appUserId=" + this.appUserId;
+    addCoffeDevice(appUserId:string) : Observable<CoffeeDeviceResponse>{
+        let request : string = environment.apiUrl + "/api/Coffee/AddCoffeeDevice?appUserId=" + appUserId;
         return this.http.post(request, null, this.httpOptions).pipe(map(response => {
             let coffeDeviceResponse: CoffeeDeviceResponse = new CoffeeDeviceResponse();
 
@@ -131,8 +131,8 @@ export class Service {
         }));
     }
 
-    addTeapot(comfortTemperature : number) : Observable<TeapotResponse> {
-        let request : string = environment.apiUrl + "/api/Teapot/AddTeapot?comfortTemperature= " + comfortTemperature + "&appUserId=" + this.appUserId;
+    addTeapot(comfortTemperature : number, appUserId:string) : Observable<TeapotResponse> {
+        let request : string = environment.apiUrl + "/api/Teapot/AddTeapot?comfortTemperature= " + comfortTemperature + "&appUserId=" + appUserId;
         return this.http.post(request, null, this.httpOptions).pipe(map(response => {
             let teapotResponse: TeapotResponse = new TeapotResponse();
 
@@ -154,6 +154,19 @@ export class Service {
             return roomResponse;
         }));
     }
+
+    getRoom(roomId : string) : Observable<RoomResponse> {
+        let request : string = environment.apiUrl + "api/Room/GetRoomById?roomId=" + roomId;
+        return this.http.get(request).pipe(map(response => {
+            let roomResponse: RoomResponse = new RoomResponse();
+
+            roomResponse.message = JSON.parse(JSON.stringify(response)).message;
+            roomResponse.roomState = JSON.parse(JSON.stringify(response)).roomState;
+
+            return roomResponse;
+        }));
+    }
+
     makeCupOfCoffeeIfNeeded() : Observable<CoffeeDeviceResponse>{
         let request : string = environment.apiUrl + "/api/Coffee/MakeCupOfCoffeeIfNeeded?appUserId=" + this.appUserId;
         return this.http.post(request, null, this.httpOptions).pipe(map(response => {
@@ -178,16 +191,15 @@ export class Service {
         }));
     }
 
-    getCoffeeDeviceState() : Observable<CoffeeDeviceState>{
-        return this.http.get<CoffeeDeviceState>(environment.apiUrl + "/api/Coffee/GetCoffeeDeviceState?appUserId=" + this.appUserId);
+    getCoffeeDeviceState(appUserId : string) : Observable<CoffeeDeviceState>{
+        return this.http.get<CoffeeDeviceState>(environment.apiUrl + "/api/Coffee/GetCoffeeDeviceState?appUserId=" + appUserId);
     }
 
-    getTeapotState() : Observable<TeapotState> {
-        return this.http.get<TeapotState>(environment.apiUrl + "/api/Teapot/GetTeapotState?appUserId=" + this.appUserId);
+    getTeapotState(appUserId : string) : Observable<TeapotState> {
+        return this.http.get<TeapotState>(environment.apiUrl + "/api/Teapot/GetTeapotState?appUserId=" + appUserId);
     }
 
     makeCupOfCoffee(coffeeLog : CoffeeLog) : Observable<CoffeeDeviceResponse> {
-        coffeeLog.AppUserId = this.appUserId;
         return this.http.post(environment.apiUrl + "/api/Coffee/MakeCupOfCoffee", coffeeLog, this.httpOptions).pipe(map(response => {
             let coffeDeviceResponse: CoffeeDeviceResponse = new CoffeeDeviceResponse();
 
@@ -215,7 +227,6 @@ export class Service {
     }
 
     boilWater(teapotLog : TeapotLog) : Observable<TeapotResponse>{
-        teapotLog.appUserId = this.appUserId;
         return this.http.post(environment.apiUrl + "/api/Teapot/BoilWater", teapotLog, this.httpOptions).pipe(map(response => {
             let teapotResponse: TeapotResponse = new TeapotResponse();
 

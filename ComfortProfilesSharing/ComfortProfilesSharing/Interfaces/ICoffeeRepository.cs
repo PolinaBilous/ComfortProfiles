@@ -22,5 +22,6 @@ namespace ComfortProfilesSharing.Interfaces
         List<CoffeeType> GetCoffeeTypes();
         List<CoffeeType> GetFavouriteCoffeeTypes(string appUserId);
         List<CoffeeLog> GetPreferableCoffeeTimes(string appUserId);
+        CoffeeDevice UpdateCoffeSeviceState(string appUserId);
     }
 }

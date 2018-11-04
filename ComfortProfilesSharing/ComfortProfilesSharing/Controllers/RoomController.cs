@@ -58,6 +58,23 @@ namespace ComfortProfilesSharing.Controllers
             return new JsonResult(rooms.Select(r => new { r.Id, r.Name, r.CurrentAirHumidity, r.CurrentIsLight, r.CurrentLightIntensity, r.CurrentTemperature }));
         }
 
+        [HttpGet]
+        public JsonResult GetRoomById(Guid roomId)
+        {
+            Room room = _roomRepository.GetRoomById(roomId);
+            if (room != null)
+            {
+                return new JsonResult(new { message = "ok", roomState = RoomStateById(roomId) });
+            }
+            else
+            {
+                return new JsonResult(new
+                {
+                    message = "error",
+                });
+            }
+        }
+
         [HttpPost]
         public JsonResult RefreshRoomState(Guid roomId, int temperature, int airHumidity, int lightIntensity)
         {

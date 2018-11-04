@@ -17,5 +17,6 @@ namespace ComfortProfilesSharing.Interfaces
         bool IsBoilWaterNeeded(string appUserId, DateTime dateTime);
         List<HowOften> GetHowOftens();
         List<TeapotLog> GetPreferableTeaTimes(string appUserId);
+        Teapot UpdateTeapotState(string appUserId);
     }
 }

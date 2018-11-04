@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StaticInfo } from 'src/logic/static-info.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Service } from 'src/logic/service.service';
 import { UserResponse } from 'src/logic/user-response.model';
 import * as $ from 'jquery';
@@ -40,7 +40,7 @@ export class InfoComponent implements OnInit {
   currentMattress : any;
   currentWater : any;
 
-  constructor(private activeRoute : ActivatedRoute, private service: Service, public snackBar: MatSnackBar) { 
+  constructor(private activeRoute : ActivatedRoute, private service: Service, public snackBar: MatSnackBar, private router: Router) { 
     this.activeRoute.queryParams.subscribe(params => {
       this.appUserId = this.activeRoute.snapshot.params.id;
       this.service.getUser(this.appUserId).subscribe(result => {
@@ -74,9 +74,11 @@ export class InfoComponent implements OnInit {
         this.currentWater = (result as any).waterTypeId;
         this.currentFruits = (result as any).fruitPreferences;
         this.currentMusic = [];
-        (result as any).musicalPreferences.substring(23).split(',').forEach(element => {
-          this.currentMusic.push(element);
-        });
+        if ((result as any).musicalPreferences !== undefined) {
+          (result as any).musicalPreferences.substring(23).split(',').forEach(element => {
+            this.currentMusic.push(element);
+          });
+        }
 
         $(document).ready(function(){
           $(".mat-step-label").css("font-size", "15px");
@@ -95,7 +97,12 @@ export class InfoComponent implements OnInit {
   ngOnInit() {
   }
 
-  onUpdate(){    let staticInfo: StaticInfo = new StaticInfo();
+  MoveToCoffeeAndTea(){
+    this.router.navigate(['/coffee-and-tea', this.appUserId]);
+  }
+
+  onUpdate(){    
+    let staticInfo: StaticInfo = new StaticInfo();
     if (this.currentShoeSize !== undefined)
       staticInfo.ShoeSize = this.currentShoeSize;
     if (this.currentClothingSize !== undefined)

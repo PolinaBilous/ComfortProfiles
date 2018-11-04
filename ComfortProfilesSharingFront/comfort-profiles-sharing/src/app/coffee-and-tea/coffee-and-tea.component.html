@@ -1,0 +1,41 @@
+<nav id="main-header">
+  <a id="main-logo">
+      <span class="logo-container">
+          <span class="in">In</span>
+          <span class="comfort">Comfort</span>
+      </span>
+  </a>
+  <a id="rooms">Home climat</a>
+  <a id="coffee" style="color: rgb(245, 245, 7);"> Coffee Machine and Teapot</a>
+  <a id="info">Your information</a>
+  <a id="comfort-profile">Comfort Profile</a> 
+  <a id="instructions">Instructions</a>
+  <a id="sign-out">Sign out</a>
+</nav>
+<div id="left">
+  <img src="./assets/coffee-machine.png" id="coffee-img">
+  <div id=coffee-info>
+    <p>Current coffee amount</p>
+    <mat-progress-bar mode="determinate" value="{{coffeeDeviceState.currentCoffeeAmount}}" matTooltipClass="tooltip" [matTooltipPosition]="position.value" #tooltip="matTooltip" matTooltip="{{coffeeDeviceState.currentCoffeeAmount}}%">      
+    </mat-progress-bar>
+    <p>Current water amount</p>
+    <mat-progress-bar mode="determinate" value="{{coffeeDeviceState.currentWaterAmount}}" matTooltipClass="tooltip" [matTooltipPosition]="position.value" #tooltip="matTooltip" matTooltip="{{coffeeDeviceState.currentWaterAmount}}%"></mat-progress-bar>
+    <p>Current milk amount</p>
+    <mat-progress-bar mode="determinate" value="{{coffeeDeviceState.currentMilkAmount}}" matTooltipClass="tooltip" [matTooltipPosition]="position.value" #tooltip="matTooltip" matTooltip="{{coffeeDeviceState.currentMilkAmount}}%"></mat-progress-bar>
+    <p id="link">
+      <a id="coffee-button" (click)="makeCoffeeHandler()">MAKE COFFEE</a>
+    </p>
+  </div>
+</div>
+<div id="right">
+  <img src="./assets/boiling.png" id="teapot-img">
+  <div id=tea-info>
+    <p>Current water amount</p>
+    <mat-progress-bar mode="determinate" value="{{teapotState.currentWaterAmount}}" matTooltipClass="tooltip" [matTooltipPosition]="position.value" #tooltip="matTooltip" matTooltip="{{teapotState.currentWaterAmount}}%"></mat-progress-bar>
+    <p>Current temperature</p>
+    <mat-progress-bar mode="determinate" value="{{teapotState.currentTemperature}}" matTooltipClass="tooltip" [matTooltipPosition]="position.value" #tooltip="matTooltip" matTooltip="{{teapotState.currentTemperature}}°C"></mat-progress-bar>
+    <p id="link">
+      <a id="teapot-button" (click)="boilWaterHandler()">BOIL WATER</a>
+    </p>
+  </div>
+</div>

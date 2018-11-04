@@ -81,6 +81,7 @@ namespace ComfortProfilesSharing.Controllers
                 }
                 else
                 {
+                    _coffeeRepository.UpdateCoffeSeviceState(requestCoffeeLog.AppUserId);
                     return new JsonResult(new { message = "error", coffeDeviceState = GetCurrentUserCoffeeDeviceState(requestCoffeeLog.AppUserId) });
                 }
             }
@@ -113,6 +114,7 @@ namespace ComfortProfilesSharing.Controllers
                 }
                 else
                 {
+                    _coffeeRepository.UpdateCoffeSeviceState(appUserId);
                     return new JsonResult(new { message = "error", coffeDeviceState = GetCurrentUserCoffeeDeviceState(appUserId) });
                 }
             }
@@ -155,7 +157,7 @@ namespace ComfortProfilesSharing.Controllers
                 Id = Guid.NewGuid(),
                 CoffeeDeviceId = _coffeeRepository.GetCoffeeDeviceByUserId(requestCoffeeLog.AppUserId).Id,
                 CoffeeTypeId = requestCoffeeLog.CoffeeTypeId,
-                Date = requestCoffeeLog.DateTime,
+                Date = requestCoffeeLog.DateTime.AddHours(3),
                 HowOftenId = requestCoffeeLog.HowOftenId,
                 IsRepeatable = requestCoffeeLog.HowOftenId == 1 ? false : true
             };

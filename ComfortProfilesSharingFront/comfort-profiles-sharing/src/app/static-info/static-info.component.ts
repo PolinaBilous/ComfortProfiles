@@ -36,6 +36,7 @@ export class StaticInfoComponent implements OnInit {
   currentMusic : any;
   currentMattress : any;
   currentWater : any;
+  temperature : any;
 
   constructor(private service: Service, private activeRoute: ActivatedRoute, private router: Router) { 
     this.activeRoute.queryParams.subscribe(params => {
@@ -67,12 +68,7 @@ export class StaticInfoComponent implements OnInit {
       $(".mat-vertical-stepper-header.mat-step-header").css("padding", "18px");
       $(".mat-vertical-stepper-header.mat-step-header").css("padding-left", "0px");
       $(".mat-vertical-content-container.mat-stepper-vertical-line").css("margin-left", "12px")
-      $("#cdk-step-label-1-6").hide()
-      $("#cdk-step-label-0-6").hide()
-      $("#cdk-step-label-2-6").hide()
-      $("#cdk-step-label-3-6").hide()
-      $("#cdk-step-label-4-6").hide()
-      $("#cdk-step-label-5-6").hide()
+      $("mat-vertical-stepper").children().last().hide();
     });
   }
 
@@ -103,6 +99,9 @@ export class StaticInfoComponent implements OnInit {
     staticInfo.UserId = this.appUserId;
 
     console.log(staticInfo.WaterTypeId);
+
+    this.service.addCoffeDevice(this.appUserId).subscribe(result => console.log(result));
+    this.service.addTeapot(this.temperature, this.appUserId).subscribe(result => console.log(result));
 
     this.service.addStaticInfo(staticInfo).subscribe(result => {
       this.router.navigate(['/add-rooms', this.appUserId]);

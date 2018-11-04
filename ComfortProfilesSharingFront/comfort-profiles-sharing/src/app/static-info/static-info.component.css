@@ -53,7 +53,7 @@
 
 .main-header {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-top: 1.2em;
+    margin-top: 0.5em;
     font-size: 30px;
     margin-bottom: 0;
     color: rgb(95, 93, 93);
@@ -63,7 +63,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 17px;
     margin-top: 8px;
-    margin-bottom: 2em;
+    /* margin-bottom: 1em; */
     color: rgb(95, 93, 93);
 }
 

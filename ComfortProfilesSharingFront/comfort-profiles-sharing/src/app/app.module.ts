@@ -27,6 +27,11 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_FORMATS } fro
 import { ChangeLightComponent } from './change-light/change-light.component';
 import { InfoComponent } from './info/info.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CoffeeAndTeaComponent } from './coffee-and-tea/coffee-and-tea.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { MakeCoffeeComponent } from './make-coffee/make-coffee.component';
+import { BoilWaterComponent } from './boil-water/boil-water.component'
 
 export const MY_NATIVE_FORMATS = {
   parseInput: 'l LT',
@@ -51,7 +56,7 @@ export const MY_NATIVE_FORMATS = {
     RoomsComponent, 
     ChangeClimatComponent, 
     ChangeLightComponent, 
-    InfoComponent
+    InfoComponent, CoffeeAndTeaComponent, MakeCoffeeComponent, BoilWaterComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,9 @@ export const MY_NATIVE_FORMATS = {
     MatProgressSpinnerModule, 
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    MatSnackBarModule
+    MatSnackBarModule, 
+    MatProgressBarModule,
+    MatTooltipModule
   ],
   exports: [
   ],
@@ -76,6 +83,12 @@ export const MY_NATIVE_FORMATS = {
     Service
   ],
   bootstrap: [AppComponent],
-  entryComponents: [LoadingDialog, ChangeClimatComponent, ChangeLightComponent]
+  entryComponents: [
+    LoadingDialog, 
+    ChangeClimatComponent, 
+    ChangeLightComponent, 
+    MakeCoffeeComponent, 
+    BoilWaterComponent
+  ]
 })
 export class AppModule { }
