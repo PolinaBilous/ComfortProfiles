@@ -5,12 +5,12 @@
           <span class="comfort">Comfort</span>
       </span>
   </a>
-  <a id="rooms">Home climat</a>
+  <a id="rooms" (click)="moveToRooms()">Rooms climat and illuminations</a>
   <a id="coffee" (click)="MoveToCoffeeAndTea()"> Coffee Machine and Teapot</a>
-  <a id="info" style="color: rgb(245, 245, 7);">Your information</a>
-  <a id="comfort-profile">Comfort Profile</a> 
-  <a id="instructions">Instructions</a>
-  <a id="sign-out">Sign out</a>
+  <a id="info" (click)="moveToInfo()" style="color: rgb(245, 245, 7);">Your information</a>
+  <a id="comfort-profile" (click)="moveToComfortProfile()">Comfort Profile</a> 
+  <a id="instructions" (click)="moveToInstructions()">Instructions</a>
+  <a id="sign-out" (click)="signOut()">Sign out</a>
 </nav>
 <div class="container">
     <div class="left">

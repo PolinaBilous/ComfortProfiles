@@ -74,7 +74,9 @@ export class InfoComponent implements OnInit {
         this.currentWater = (result as any).waterTypeId;
         this.currentFruits = (result as any).fruitPreferences;
         this.currentMusic = [];
-        if ((result as any).musicalPreferences !== undefined) {
+        console.log(result);
+        console.log((result as any).musicalPreferences);
+        if ((result as any).musicalPreferences !== undefined && (result as any).musicalPreferences !== null) {
           (result as any).musicalPreferences.substring(23).split(',').forEach(element => {
             this.currentMusic.push(element);
           });
@@ -88,7 +90,6 @@ export class InfoComponent implements OnInit {
           $(".mat-vertical-stepper-header.mat-step-header").css("padding-left", "0px");
           $(".mat-vertical-content-container.mat-stepper-vertical-line").css("margin-left", "12px");
           $("mat-vertical-stepper").children().last().hide();
-          $(".mat-vertical-content").css("padding-bottom",  "10px");
         });
       });
     });
@@ -136,4 +137,23 @@ export class InfoComponent implements OnInit {
     });
   }
 
+  moveToInfo(){
+    this.router.navigate(['/user-info', this.appUserId]);
+  }
+
+  moveToRooms(){
+    this.router.navigate(['/rooms', this.appUserId]);
+  }
+
+  moveToComfortProfile(){
+    this.router.navigate(['/comfort-profile', this.appUserId]);
+  }
+
+  moveToInstructions() {
+    this.router.navigate(['/instructions', this.appUserId]);
+  }
+
+  signOut(){
+    this.router.navigate(['/home']);
+  }
 }

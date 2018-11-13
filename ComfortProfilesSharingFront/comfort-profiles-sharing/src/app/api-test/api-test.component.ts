@@ -97,11 +97,11 @@ export class ApiTestComponent implements OnInit {
   }
 
   addCoffeDeviceTest() {
-    this.service.addCoffeDevice().subscribe(res => console.log(res));
+    this.service.addCoffeDevice("as").subscribe(res => console.log(res));
   }
 
   addTeapotTest() {
-    this.service.addTeapot(50).subscribe(res => console.log(res));
+    this.service.addTeapot(50, "as").subscribe(res => console.log(res));
   }
 
   addRoomTest(){
@@ -109,7 +109,7 @@ export class ApiTestComponent implements OnInit {
   }
 
   getCoffeDeviceStateTest(){
-    this.service.getCoffeeDeviceState().subscribe(res => console.log(res));
+    this.service.getCoffeeDeviceState("as").subscribe(res => console.log(res));
   }
 
   // getUserRoomsTest(){
@@ -117,7 +117,7 @@ export class ApiTestComponent implements OnInit {
   // }
 
   getTeapotStateTest(){
-    this.service.getTeapotState().subscribe(res => console.log(res));
+    this.service.getTeapotState("as").subscribe(res => console.log(res));
   }
 
   makeCupOfCoffeeTest(){

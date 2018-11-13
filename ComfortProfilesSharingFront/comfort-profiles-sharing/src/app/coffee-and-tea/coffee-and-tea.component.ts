@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Service } from 'src/logic/service.service';
 import { CoffeeDeviceState } from 'src/logic/coffee-device-state.model';
 import { TeapotState } from 'src/logic/teapot-state.model';
@@ -21,7 +21,7 @@ export class CoffeeAndTeaComponent implements OnInit {
   coffeeDeviceState:any;
   teapotState:any; 
   
-  constructor(private activeRoute : ActivatedRoute, private service : Service, public dialog : MatDialog, public snackBar: MatSnackBar) { 
+  constructor(private activeRoute : ActivatedRoute, private router : Router, private service : Service, public dialog : MatDialog, public snackBar: MatSnackBar) { 
     this.activeRoute.queryParams.subscribe(params => {
       this.appUserId = this.activeRoute.snapshot.params.id;
       this.service.getCoffeeDeviceState(this.appUserId).subscribe(result => {
@@ -90,5 +90,28 @@ export class CoffeeAndTeaComponent implements OnInit {
         }
       });
     });
+  }
+
+  moveToInfo(){
+    this.router.navigate(['/user-info', this.appUserId]);
+  }
+
+  MoveToCoffeeAndTea(){
+    this.router.navigate(['/coffee-and-tea', this.appUserId]);
+  }
+
+  moveToRooms(){
+    this.router.navigate(['/rooms', this.appUserId]);
+  }
+  moveToComfortProfile(){
+    this.router.navigate(['/comfort-profile', this.appUserId]);
+  }
+
+  moveToInstructions() {
+    this.router.navigate(['/instructions', this.appUserId]);
+  }
+
+  signOut(){
+    this.router.navigate(['/home']);
   }
 }

@@ -107,4 +107,8 @@ export class StaticInfoComponent implements OnInit {
       this.router.navigate(['/add-rooms', this.appUserId]);
     });
   }
+
+  moveToInfo(){
+    this.router.navigate(['/user-info', this.appUserId]);
+  }
 }

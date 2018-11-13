@@ -68,4 +68,23 @@ export class RoomsComponent implements OnInit {
     this.router.navigate(['/user-info', this.appUserId]);
   }
 
+  MoveToCoffeeAndTea(){
+    this.router.navigate(['/coffee-and-tea', this.appUserId]);
+  }
+
+  moveToRooms(){
+    this.router.navigate(['/rooms', this.appUserId]);
+  }
+
+  moveToComfortProfile(){
+    this.router.navigate(['/comfort-profile', this.appUserId]);
+  }
+
+  moveToInstructions() {
+    this.router.navigate(['/instructions', this.appUserId]);
+  }
+
+  signOut(){
+    this.router.navigate(['/home']);
+  }
 }

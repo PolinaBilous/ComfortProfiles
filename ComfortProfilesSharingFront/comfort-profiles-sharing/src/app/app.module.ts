@@ -31,7 +31,9 @@ import { CoffeeAndTeaComponent } from './coffee-and-tea/coffee-and-tea.component
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MakeCoffeeComponent } from './make-coffee/make-coffee.component';
-import { BoilWaterComponent } from './boil-water/boil-water.component'
+import { BoilWaterComponent } from './boil-water/boil-water.component';
+import { ComfortProfileComponent } from './comfort-profile/comfort-profile.component';
+import { InstructionsComponent } from './instructions/instructions.component'
 
 export const MY_NATIVE_FORMATS = {
   parseInput: 'l LT',
@@ -56,7 +58,7 @@ export const MY_NATIVE_FORMATS = {
     RoomsComponent, 
     ChangeClimatComponent, 
     ChangeLightComponent, 
-    InfoComponent, CoffeeAndTeaComponent, MakeCoffeeComponent, BoilWaterComponent
+    InfoComponent, CoffeeAndTeaComponent, MakeCoffeeComponent, BoilWaterComponent, ComfortProfileComponent, InstructionsComponent
   ],
   imports: [
     BrowserModule,
