@@ -22,6 +22,7 @@ import { RoomResponse } from "./room-response.model";
 import { RoomState } from "./room-state.model";
 import { ClimatLog } from "./climat-log.model";
 import { IlluminationLog } from "./illumination-log.model";
+import { ComfortProfileResponse } from "./comfort-profile-response.model";
 
 @Injectable()
 export class Service {
@@ -235,6 +236,10 @@ export class Service {
 
             return teapotResponse;
         }));
+    }
+
+    getComfortProfile(appUserId : string) : Observable<ComfortProfileResponse> {
+        return this.http.get<ComfortProfileResponse>(environment.apiUrl + "/api/ComfortProfile?userId=" + appUserId);
     }
 
 }

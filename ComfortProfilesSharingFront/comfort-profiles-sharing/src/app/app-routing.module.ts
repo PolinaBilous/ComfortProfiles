@@ -8,6 +8,8 @@ import { AddRoomsComponent } from './add-rooms/add-rooms.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { InfoComponent } from './info/info.component';
 import { CoffeeAndTeaComponent } from './coffee-and-tea/coffee-and-tea.component';
+import { ComfortProfileComponent } from './comfort-profile/comfort-profile.component';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 const routes: Routes = [
   {path: "sign-in", component: SignInComponent}, 
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path: "add-rooms/:id", component: AddRoomsComponent},
   {path: "rooms/:id", component: RoomsComponent},
   {path: "user-info/:id", component: InfoComponent},
-  {path: "coffee-and-tea/:id", component: CoffeeAndTeaComponent}
+  {path: "coffee-and-tea/:id", component: CoffeeAndTeaComponent},
+  {path: "comfort-profile/:id", component: ComfortProfileComponent},
+  {path: "instructions/:id", component: InstructionsComponent}
 ];
 
 @NgModule({
