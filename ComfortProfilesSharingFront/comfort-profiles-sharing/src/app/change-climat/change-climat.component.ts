@@ -91,8 +91,8 @@ export class ChangeClimatComponent implements OnInit {
     console.log(climatLog);
     this.service.changeClimat(climatLog).subscribe(result => {
       console.log(result);
-      // this.dialogRef.componentInstance.result = result; 
-      // this.dialogRef.close();
+      this.dialogRef.componentInstance.result = result; 
+      this.dialogRef.close();
     });
   }
 

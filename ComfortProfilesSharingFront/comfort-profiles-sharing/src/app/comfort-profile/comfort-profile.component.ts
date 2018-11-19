@@ -10,11 +10,14 @@ import { Service } from 'src/logic/service.service';
 export class ComfortProfileComponent implements OnInit {
 
   appUserId;
+  comfortProfile;
   
   constructor(private activeRoute : ActivatedRoute, private router : Router, private service : Service) { 
     this.activeRoute.queryParams.subscribe(params => {
       this.appUserId = this.activeRoute.snapshot.params.id;
     });
+
+    this.service.getComfortProfile(this.appUserId).subscribe(result => console.log(result));
     }
 
   ngOnInit() {
