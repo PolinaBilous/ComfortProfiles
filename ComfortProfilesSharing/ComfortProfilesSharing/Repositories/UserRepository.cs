@@ -24,7 +24,7 @@ namespace ComfortProfilesSharing.Repositories
 
         public AppUser Login(AppUser appUser)
         {
-            if (_dbContext.AppUsers.FirstOrDefault(u => u.Email == appUser.Email) != null)
+            if (_dbContext.AppUsers.FirstOrDefault(u => u.Email == appUser.Email && u.Password == appUser.Password) != null)
             {
                 return _dbContext.AppUsers.FirstOrDefault(u => u.Email == appUser.Email);
             }

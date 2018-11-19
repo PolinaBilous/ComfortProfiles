@@ -1,0 +1,13 @@
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\Debug\netstandard2.0\CPSMobile.deps.json
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\Debug\netstandard2.0\CPSMobile.dll
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\Debug\netstandard2.0\CPSMobile.pdb
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.csprojAssemblyReference.cache
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.csproj.CoreCompileInputs.cache
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.AssemblyInfoInputs.cache
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.AssemblyInfo.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.dll
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.pdb
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\SignIn.xaml.g.cs

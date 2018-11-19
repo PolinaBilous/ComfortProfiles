@@ -92,15 +92,6 @@ export class ApiTestComponent implements OnInit {
   //   this.service.registerUser("test134", "test134", "test134").subscribe(result => console.log(result));
   // }
 
-<<<<<<< HEAD
-  // loginUser(){
-  //   this.service.loginUser("polina.bilous@nure.ua", "Polina99").subscribe(result => console.log(result));
-  // }
-
-  // addCoffeDeviceTest() {
-  //   this.service.addCoffeDevice().subscribe(res => console.log(res));
-  // }
-=======
   addCoffeDeviceTest() {
     this.service.addCoffeDevice("as").subscribe(res => console.log(res));
   }
@@ -108,35 +99,22 @@ export class ApiTestComponent implements OnInit {
   addTeapotTest() {
     this.service.addTeapot(50, "as").subscribe(res => console.log(res));
   }
->>>>>>> 0aae63a48504d27a3fb329ac94869cceaeec25a1
 
   // addTeapotTest() {
   //   this.service.addTeapot(50).subscribe(res => console.log(res));
   // }
 
-<<<<<<< HEAD
-  // addRoomTest(){
-  //   this.service.addRoom("test", "123").subscribe(res => console.log(res));
-  // }
-=======
   getCoffeDeviceStateTest(){
     this.service.getCoffeeDeviceState("as").subscribe(res => console.log(res));
   }
->>>>>>> 0aae63a48504d27a3fb329ac94869cceaeec25a1
 
   // getCoffeDeviceStateTest(){
   //   this.service.getCoffeeDeviceState().subscribe(res => console.log(res));
   // }
 
-<<<<<<< HEAD
-  // // getUserRoomsTest(){
-  // //   this.service.getUserRooms().subscribe(res => console.log(res));
-  // // }
-=======
   getTeapotStateTest(){
     this.service.getTeapotState("as").subscribe(res => console.log(res));
   }
->>>>>>> 0aae63a48504d27a3fb329ac94869cceaeec25a1
 
   // getTeapotStateTest(){
   //   this.service.getTeapotState().subscribe(res => console.log(res));
