@@ -24,9 +24,9 @@ namespace ComfortProfilesSharing.Controllers
         }
 
         [HttpGet]
-        public JsonResult GetComfortProfile()
+        public JsonResult GetComfortProfile(string userId)
         {
-            ComfortProfile comfortProfile = _comfortProfileRepository.GetComfortProfile(this.User.FindFirstValue(ClaimTypes.NameIdentifier));
+            ComfortProfile comfortProfile = _comfortProfileRepository.GetComfortProfile(userId);
             
             if (comfortProfile != null)
             {

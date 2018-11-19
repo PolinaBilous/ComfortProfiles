@@ -28,11 +28,11 @@ namespace ComfortProfilesSharing.RequestModels
         public List<PreferableRoomIndicators> PreferableRoomsIndicators { get; set; }
 
         // Coffee
-        public List<Guid> FavoriteCoffeeTypes { get; set; }
-        public List<CoffeeLog> PreferableCoffeeTimes { get; set; } 
+        public List<object> FavoriteCoffeeTypes { get; set; }
+        public List<object> PreferableCoffeeTimes { get; set; } 
 
         // Teapot
         public Nullable<int> ComfortTeapotTemperature { get; set; }
-        public List<TeapotLog> PreferableTeaTimes { get; set; }
+        public List<object> PreferableTeaTimes { get; set; }
     }
 }

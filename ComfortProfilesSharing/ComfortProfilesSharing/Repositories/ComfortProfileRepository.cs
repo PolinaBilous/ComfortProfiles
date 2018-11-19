@@ -53,10 +53,10 @@ namespace ComfortProfilesSharing.Repositories
                     TableTypeId = staticInfo.TableTypeId,
                     WaterTypeId = staticInfo.WaterTypeId,
                     PreferableRoomsIndicators = _roomRepository.GetPreferableRoomsIndicators(appUserId),
-                    FavoriteCoffeeTypes = _coffeeRepository.GetFavouriteCoffeeTypes(appUserId).Select(ct => ct.Id).ToList(),
+                    FavoriteCoffeeTypes = _coffeeRepository.GetFavouriteCoffeeTypes(appUserId).Select(ct => (object) new { ct.Id, ct.Name }).ToList(),
                     ComfortTeapotTemperature = comfortTeapotTemperature,
-                    PreferableCoffeeTimes = _coffeeRepository.GetPreferableCoffeeTimes(appUserId),
-                    PreferableTeaTimes = _teapotRepository.GetPreferableTeaTimes(appUserId)
+                    PreferableCoffeeTimes = _coffeeRepository.GetPreferableCoffeeTimes(appUserId).Select(cl => (object)new { cl.CoffeeTypeId, cl.Date}).ToList(),
+                    PreferableTeaTimes = _teapotRepository.GetPreferableTeaTimes(appUserId).Select(cl => (object)new { cl.Temperature, cl.Date }).ToList()
                 };
             }
             else

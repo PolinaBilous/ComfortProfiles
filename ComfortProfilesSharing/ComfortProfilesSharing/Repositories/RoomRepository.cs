@@ -189,6 +189,7 @@ namespace ComfortProfilesSharing.Repositories
                 result.Add(new PreferableRoomIndicators()
                 {
                     RoomId = room.Id,
+                    Name = room.Name,
                     PreferableAirHumidity = preferableRoomAirHumidity,
                     PreferableLightIntencity = preferableLightIntencity,
                     PreferableTemperature = preferableRoomTemperature

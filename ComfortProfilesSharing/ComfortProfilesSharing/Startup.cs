@@ -64,7 +64,7 @@ namespace ComfortProfilesSharing
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "TestApi", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "Comfort Profiles Sharing Api", Version = "v1" });
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);         

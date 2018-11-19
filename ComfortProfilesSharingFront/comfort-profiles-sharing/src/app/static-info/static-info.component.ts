@@ -62,6 +62,7 @@ export class StaticInfoComponent implements OnInit {
 
   ngOnInit() {
     $(document).ready(function(){
+      alert(123);
       $(".mat-step-label").css("font-size", "15px");
       $(".mat-step-label").css("font-family", "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif");
       $(".mat-vertical-stepper-header.mat-step-header").css("height", "20px");
