@@ -11,3 +11,16 @@ C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\D
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.pdb
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\SignIn.xaml.g.cs
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\Debug\netstandard2.0\CPSMobile.deps.json
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\Debug\netstandard2.0\CPSMobile.dll
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\Debug\netstandard2.0\CPSMobile.pdb
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.csprojAssemblyReference.cache
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\SignIn.xaml.g.cs
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.csproj.CoreCompileInputs.cache
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.AssemblyInfoInputs.cache
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.AssemblyInfo.cs
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\XamlC.stamp
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.dll
+D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.pdb

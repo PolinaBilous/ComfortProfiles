@@ -10,6 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\logo.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\logo.PNG" />
+    <Content Include="logo.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="RestSharp" Version="106.5.4" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
   </ItemGroup>

@@ -14,14 +14,16 @@ namespace CPSMobile
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SignIn : ContentPage
 	{
-		public SignIn ()
+        private readonly string clientURL = "http://abd38c4e.ngrok.io";
+
+        public SignIn ()
 		{
 			InitializeComponent ();
 		}
 
         void SignInAction(object sender, EventArgs args)
         {
-            var client = new RestClient("http://4ee717be.ngrok.io/");
+            var client = new RestClient(clientURL);
 
             var request = new RestRequest("api/User/Login?email=" + Email.Text + "&password=" + Password.Text, Method.POST);
 
