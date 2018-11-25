@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CPSMobile.ChangeClimat"
+             Title="Change climat in your room">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Select temperature" FontSize="Medium"/>
+            <Picker Title="Select temperature" 
+                    x:Name="Temperature"
+                    ItemDisplayBinding="{Binding StringValue}"/>
+            
+            <Label Text="Select air humidity" FontSize="Medium"/>
+            <Picker Title="Select air humidity" 
+                    x:Name="AirHumidity"
+                    ItemDisplayBinding="{Binding StringValue}"/>
+            
+            <Label Text="Select date" FontSize="Medium"/>
+            <DatePicker x:Name ="Date" MinimumDate="{Binding minimumDate}"></DatePicker>
+            
+            <Label Text="Select time" FontSize="Medium"/>
+            <TimePicker x:Name="Time"></TimePicker>
+            
+            <Label Text="Is action repeatable?" FontSize="Medium"/>
+            <Picker Title="Is repeatable?" 
+                    x:Name="IsRepeatable"
+                    ItemDisplayBinding="{Binding Explanation}"/>
+
+            <Button Text="Submit" Clicked="SubmitChangeClimat"></Button>
+
+            <Label></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

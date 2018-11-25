@@ -667,7 +667,7 @@
       ]
     },
     "Xamarin.Android.Support.v4/27.0.2.1": {
-      "sha512": "cK4ixeeIPSF1xl371Rb2CiEMrSCXa5kXaehsSkeAFGtgpAQvbt6FbEKk501fzVi/HzNkETzajEtsQ9PMttZi9A==",
+      "sha512": "UlLIbPj1aOMANtP7eKPaD5Nktl58C2+fb8tTuSJeo8TW4wTdhebbNx1LLnIlA5AsDTSCI4TTRJQo8OF5V9IXQg==",
       "type": "package",
       "path": "xamarin.android.support.v4/27.0.2.1",
       "files": [
@@ -695,7 +695,7 @@
       ]
     },
     "Xamarin.Android.Support.v7.CardView/27.0.2.1": {
-      "sha512": "nxNiwRl+ALOoXD3tT+jo3yoTr/oTY6aPKbJnAPpA/qqB/Uq+HqbQeWwwMXjLiTCytTpOOpwmIRJQnuq1uu4xIQ==",
+      "sha512": "+XkyezmEz25kB6zzRkinozceKWjoOJa400FmdT7wVqqpijJkanS4lO/2+//dLvSrV2qTpfijVOhvHeGpGi4Z6g==",
       "type": "package",
       "path": "xamarin.android.support.v7.cardview/27.0.2.1",
       "files": [
@@ -709,7 +709,7 @@
       ]
     },
     "Xamarin.Android.Support.v7.MediaRouter/27.0.2.1": {
-      "sha512": "2k9ocolcyaxqzLInOEbzW+VjgJL7ruv9WFaKSj4OMnChw8ih53skPyun2q/9lnQV/c+/qNq8cvYipPtYr9bFCg==",
+      "sha512": "P2dwA6mUYSFM7y+LhYQ1mluhNyNev0k+A5n/6XydExXkv7GTrOownvj2TsgOjb7iXV2Oz/KhR8YhJuxSdLeEjw==",
       "type": "package",
       "path": "xamarin.android.support.v7.mediarouter/27.0.2.1",
       "files": [
@@ -723,7 +723,7 @@
       ]
     },
     "Xamarin.Android.Support.v7.Palette/27.0.2.1": {
-      "sha512": "vlcBuVGg3uQL/RBqUEXAqjUNCPt3ougteZWSASUKqDg8BobI8dVrf7wEpOexKLW8eqUblAPjnfJMCF2F3Gcj3g==",
+      "sha512": "zhwsIL2jTYQ+hjOgfi1n+5YgAUR7xbp7h90PJya9D4bShM5At2whnFmB6ljb0otqqzPYmVyWMxBag5sxskQzjw==",
       "type": "package",
       "path": "xamarin.android.support.v7.palette/27.0.2.1",
       "files": [
@@ -980,20 +980,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\Polina\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile.Android\\CPSMobile.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Polina\\source\\repos\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile.Android\\CPSMobile.Android.csproj",
       "projectName": "CPSMobile.Android",
-      "projectPath": "D:\\GitHub\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile.Android\\CPSMobile.Android.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile.Android\\obj\\",
+      "projectPath": "C:\\Users\\Polina\\source\\repos\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile.Android\\CPSMobile.Android.csproj",
+      "packagesPath": "C:\\Users\\Polina\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Polina\\source\\repos\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Polina\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1006,8 +1006,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "D:\\GitHub\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\CPSMobile.csproj": {
-              "projectPath": "D:\\GitHub\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\CPSMobile.csproj"
+            "C:\\Users\\Polina\\source\\repos\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\CPSMobile.csproj": {
+              "projectPath": "C:\\Users\\Polina\\source\\repos\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\CPSMobile.csproj"
             }
           }
         }

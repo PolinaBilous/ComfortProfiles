@@ -214,7 +214,7 @@
       ]
     },
     "Xamarin.Forms/3.4.0.1008975": {
-      "sha512": "036/h8HtzRFgTrfhY57IeHoYRsPTO2XTA6uUFdmZzw2QR1sdszfofhI9HrCJTRx6fCzmjPg5Cxk5chYrjKarNw==",
+      "sha512": "tM9syeev45u92OFENGjq+Zw8WiEwLJFiXe317XpL9SY2RRk9sm2fc1lDVjzwz0da+5ZP5fi24NAPsPQdxBdMwQ==",
       "type": "package",
       "path": "xamarin.forms/3.4.0.1008975",
       "files": [
@@ -368,23 +368,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\Polina\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\CPSMobile.csproj",
+      "projectUniqueName": "C:\\Users\\Polina\\source\\repos\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\CPSMobile.csproj",
       "projectName": "CPSMobile",
-      "projectPath": "D:\\GitHub\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\CPSMobile.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\obj\\",
+      "projectPath": "C:\\Users\\Polina\\source\\repos\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\CPSMobile.csproj",
+      "packagesPath": "C:\\Users\\Polina\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Polina\\source\\repos\\ComfortProfiles\\CPSMobile\\CPSMobile\\CPSMobile\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Polina\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

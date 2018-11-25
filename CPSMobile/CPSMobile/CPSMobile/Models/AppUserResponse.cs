@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CPSMobile.Models
 {
-    class AppUserResponse
+    public class AppUserResponse
     {
         public string Message { get; set; }
         public AppUser appUser { get; set; }

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CPSMobile.MakeCoffee"
+             Title="Make cup of coffee">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Select type of coffee" FontSize="Medium"/>
+            <Picker Title="Type of coffee" 
+                    x:Name="CoffeTypeSelector"
+                    ItemDisplayBinding="{Binding Name}"/>
+            
+            <Label Text="Select date" FontSize="Medium"/>
+            <DatePicker x:Name ="Date" MinimumDate="{Binding minimumDate}"></DatePicker>
+
+            <Label Text="Select time" FontSize="Medium"/>
+            <TimePicker x:Name="Time"></TimePicker>
+
+            <Label Text="Is action repeatable?" FontSize="Medium"/>
+            <Picker Title="Is repeatable?" 
+                    x:Name="IsRepeatable"
+                    ItemDisplayBinding="{Binding Explanation}"/>
+
+            <Button Text="Submit" Clicked="Submit"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

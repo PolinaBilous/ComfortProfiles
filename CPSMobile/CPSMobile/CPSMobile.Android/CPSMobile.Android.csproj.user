@@ -3,6 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>HTC One X</SelectedDevice>
     <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
-    <AndroidDesignerPreferredTheme>Theme.DeviceDefault.NoActionBar.Fullscreen</AndroidDesignerPreferredTheme>
+    <AndroidDesignerPreferredTheme>Theme.Material</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>

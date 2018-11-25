@@ -3,7 +3,6 @@ C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\D
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\Debug\netstandard2.0\CPSMobile.pdb
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.csprojAssemblyReference.cache
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\App.xaml.g.cs
-C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.csproj.CoreCompileInputs.cache
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.AssemblyInfoInputs.cache
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.AssemblyInfo.cs
@@ -24,3 +23,10 @@ D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0
 D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\XamlC.stamp
 D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.dll
 D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.pdb
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\Rooms.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\RoomsDetail.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\RoomsMaster.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CoffeeMachineDetails.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\ChangeClimat.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\ChangeIllumination.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\MakeCoffee.xaml.g.cs

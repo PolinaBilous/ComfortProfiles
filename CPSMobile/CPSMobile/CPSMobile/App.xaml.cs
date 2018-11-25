@@ -11,7 +11,7 @@ namespace CPSMobile
         {
             InitializeComponent();
 
-            MainPage = new SignIn();
+            MainPage = new NavigationPage(new SignIn());
         }
 
         protected override void OnStart()

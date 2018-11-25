@@ -14,7 +14,6 @@ namespace CPSMobile
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SignIn : ContentPage
 	{
-        private readonly string clientURL = "http://abd38c4e.ngrok.io";
 
         public SignIn ()
 		{
@@ -23,15 +22,12 @@ namespace CPSMobile
 
         void SignInAction(object sender, EventArgs args)
         {
-            var client = new RestClient(clientURL);
+            AppUserResponse userResponse = Logic.SignIn(Email.Text, Password.Text);
 
-            var request = new RestRequest("api/User/Login?email=" + Email.Text + "&password=" + Password.Text, Method.POST);
-
-            IRestResponse<AppUserResponse> response = client.Execute<AppUserResponse>(request);
-
-            if (response.Data.Message == "ok")
+            if (userResponse.Message == "ok")
             {
-                DisplayAlert("Notification", "You have been successfuly signed in!", "OK");
+                //DisplayAlert("Notification", "You have been successfuly signed in!", "OK");
+                Navigation.PushModalAsync(new NavigationPage(new Rooms()));
             }
             else
             {
@@ -39,13 +35,9 @@ namespace CPSMobile
             }
         }
 
-        void OpenSignIn(object sender, EventArgs args)
+        async void OpenSignUp(object sender, EventArgs args)
         {
-        }
-
-        void OpenSignUp(object sender, EventArgs args)
-        {
-
+            await Navigation.PushModalAsync(new NavigationPage(new Rooms()));
         }
     }
 }
