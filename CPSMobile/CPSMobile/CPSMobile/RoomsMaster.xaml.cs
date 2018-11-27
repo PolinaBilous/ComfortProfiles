@@ -34,10 +34,9 @@ namespace CPSMobile
                 MenuItems = new ObservableCollection<object>(new object[]
                 {
                     new RoomsMenuItem { Id = 0, Title = "Rooms climat and illumination", TargetType=typeof(RoomsDetail) },
-                    new RoomsMenuItem { Id = 1, Title = "Coffee Machine", TargetType=typeof(CoffeeMachineDetails) }
-                    //new RoomsMenuItem { Id = 2, Title = "Teapot" },
-                    //new RoomsMenuItem { Id = 3, Title = "Your information" },
-                    //new RoomsMenuItem { Id = 4, Title = "Comfort Profile" },
+                    new RoomsMenuItem { Id = 1, Title = "Coffee Machine", TargetType=typeof(CoffeeMachineDetails) },
+                    new RoomsMenuItem { Id = 2, Title = "Teapot", TargetType = typeof(TeapotDetails) },
+                    new RoomsMenuItem { Id = 3, Title = "Your information", TargetType = typeof(StaticInfoDetails) }
                 });
             }
             

@@ -24,6 +24,22 @@ namespace CPSMobile
             Milk.Value = coffeeDevice.currentMilkAmount;
 		}
 
+        void OnAppearing(object sender, EventArgs args)
+        {
+            CoffeeDeviceState coffeeDevice = Logic.GetCoffeeDeviceState();
+            Coffee.Value = coffeeDevice.currentCoffeeAmount;
+            Water.Value = coffeeDevice.currentWaterAmount;
+            Milk.Value = coffeeDevice.currentMilkAmount;
+        }
+
+        protected override void OnAppearing()
+        {
+            CoffeeDeviceState coffeeDevice = Logic.GetCoffeeDeviceState();
+            Coffee.Value = coffeeDevice.currentCoffeeAmount;
+            Water.Value = coffeeDevice.currentWaterAmount;
+            Milk.Value = coffeeDevice.currentMilkAmount;
+        }
+
         private void MakeCoffee(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new NavigationPage(new MakeCoffee()));

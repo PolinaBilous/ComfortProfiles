@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CPSMobile.TeapotDetails"
+             Title="Teapot">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Current temperature: "></Label>
+            <Slider Minimum="0" 
+                Maximum="100"
+                x:Name="Temperature"
+                ThumbColor="Brown"
+                IsEnabled="False"></Slider>
+            <Label Text="Current water amount: "></Label>
+            <Slider Minimum="0" 
+                Maximum="100"
+                x:Name="Water"
+                HeightRequest="30"
+                IsEnabled="False"
+                ThumbColor="#B3D4E5"></Slider>
+
+            <Button Text="Boil water"
+                Clicked="BoilWater"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

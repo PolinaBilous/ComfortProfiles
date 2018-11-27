@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Type = CPSMobile.Models.Type;
 
 namespace CPSMobile
 {
@@ -15,7 +16,7 @@ namespace CPSMobile
 	{
 		public MakeCoffee ()
 		{
-            List<CoffeeType> coffeeTypes = Logic.GetCoffeeTypes();
+            List<Type> coffeeTypes = Logic.GetCoffeeTypes();
             List<HowOften> howOftens = Logic.GetHowOftens();
 
             DateTime minimumDate = DateTime.Now;
@@ -31,7 +32,7 @@ namespace CPSMobile
 
         async private void Submit(object sender, EventArgs e)
         {
-            string coffeeType = (CoffeTypeSelector.SelectedItem as CoffeeType).Id;
+            string coffeeType = (CoffeTypeSelector.SelectedItem as Type).Id;
             int howOftenId = (IsRepeatable.SelectedItem as HowOften).Id;
             DateTime date = Date.Date.Add(Time.Time).AddHours(-3);
 
@@ -41,13 +42,13 @@ namespace CPSMobile
 
             if (message == "ok")
             {
-                await Navigation.PushModalAsync(new NavigationPage(new CoffeeMachineDetails()));
+                await Navigation.PopModalAsync();
             }
             else
             {
                 await ShowMessage("Opps! You don't have enough milk, water or coffee.", "Notification:", "Ok", async() =>
                 {
-                    await Navigation.PushModalAsync(new NavigationPage(new CoffeeMachineDetails()));
+                    await Navigation.PopModalAsync();
                 });
             }
         }

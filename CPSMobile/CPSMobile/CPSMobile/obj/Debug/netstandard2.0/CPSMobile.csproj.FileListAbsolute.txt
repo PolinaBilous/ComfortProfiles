@@ -30,3 +30,6 @@ C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\D
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\ChangeClimat.xaml.g.cs
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\ChangeIllumination.xaml.g.cs
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\MakeCoffee.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\BoilWater.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\TeapotDetails.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\StaticInfoDetails.xaml.g.cs

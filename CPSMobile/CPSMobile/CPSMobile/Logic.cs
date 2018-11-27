@@ -3,13 +3,14 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Type = CPSMobile.Models.Type;
 
 namespace CPSMobile
 {
     public static class Logic
     {
         private static string userId;
-        private static readonly string clientURL = "https://08f4a653.ngrok.io";
+        private static readonly string clientURL = "http://0ade8ce0.ngrok.io";
 
         public static string getCurrentUserId()
         {
@@ -45,11 +46,44 @@ namespace CPSMobile
             return response.Data;
         }
 
-        public static List<CoffeeType> GetCoffeeTypes()
+        public static List<Type> GetCoffeeTypes()
         {
             var client = new RestClient(clientURL);
             var request = new RestRequest("api/Coffee/GetCoffeeTypes", Method.GET);
-            IRestResponse<List<CoffeeType>> response = client.Execute<List<CoffeeType>>(request);
+            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
+
+            return response.Data;
+        }
+
+        public static List<Type> GetWaterTypes()
+        {
+            var client = new RestClient(clientURL);
+            var request = new RestRequest("api/StaticInfo/GetWaterTypes", Method.GET);
+            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
+
+            return response.Data;
+        }
+        public static List<Type> GetTableTypes()
+        {
+            var client = new RestClient(clientURL);
+            var request = new RestRequest("api/StaticInfo/GetTableTypes", Method.GET);
+            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
+
+            return response.Data;
+        }
+        public static List<Type> GetChairTypes()
+        {
+            var client = new RestClient(clientURL);
+            var request = new RestRequest("api/StaticInfo/GetChairTypes", Method.GET);
+            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
+
+            return response.Data;
+        }
+        public static List<Type> GetMattressTypes()
+        {
+            var client = new RestClient(clientURL);
+            var request = new RestRequest("api/StaticInfo/GetMattressTypes", Method.GET);
+            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
 
             return response.Data;
         }
@@ -74,11 +108,49 @@ namespace CPSMobile
             return response.Data.Message;
         }
 
+        public static string BoilWater(int temperature, string dateTime, int howOftenId)
+        {
+            var client = new RestClient(clientURL);
+            var request = new RestRequest("api/Teapot/BoilWater", Method.POST);
+            string appUserId = userId;
+            request.AddHeader("Content-type", "application/json");
+            request.AddJsonBody(
+                new
+                {
+                    appUserId,
+                    temperature,
+                    dateTime,
+                    howOftenId
+                });
+
+            IRestResponse<CoffeeDeviceResponse> response = client.Execute<CoffeeDeviceResponse>(request);
+
+            return response.Data.Message;
+        }
+
         public static CoffeeDeviceState GetCoffeeDeviceState()
         {
             var client = new RestClient(clientURL);
             var request = new RestRequest("api/Coffee/GetCoffeeDeviceState?appUserId=" + userId, Method.GET);
             IRestResponse<CoffeeDeviceState> response = client.Execute<CoffeeDeviceState>(request);
+
+            return response.Data;
+        }
+
+        public static StaticInfo GetStaticInfo()
+        {
+            var client = new RestClient(clientURL);
+            var request = new RestRequest("api/StaticInfo/GetStaticInfoForCurrentUser?userId=" + userId, Method.GET);
+            IRestResponse<StaticInfo> response = client.Execute<StaticInfo>(request);
+
+            return response.Data;
+        }
+
+        public static TeapotState GetTeapotState()
+        {
+            var client = new RestClient(clientURL);
+            var request = new RestRequest("api/Teapot/GetTeapotState?appUserId=" + userId, Method.GET);
+            IRestResponse<TeapotState> response = client.Execute<TeapotState>(request);
 
             return response.Data;
         }
