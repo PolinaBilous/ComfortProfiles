@@ -23,62 +23,112 @@ namespace CPSMobile
             {
                 var frame = new Frame()
                 {
-                    BorderColor = Color.Gray,
+                    BorderColor = Color.White,
                     CornerRadius = 10,
                     HasShadow = true,
-                    Margin = new Thickness(10, 5)
+                    Margin = new Thickness(0, 4, 0, 4),
+                    HeightRequest = 250
                 };
+
+                var image = new Image()
+                {
+                    Source = "test.jpg",
+                    Aspect = Aspect.Fill
+                };
+                var grid = new Grid();
                 var roomCard = new StackLayout();
 
                 roomCard.Children.Add(new Label()
                 {
                     Text = room.Name,
                     FontAttributes = FontAttributes.Bold,
-                    FontSize = 20
+                    FontSize = 29,
+                    FontFamily = "Raleway-Bold.ttf#Raleway",
+                    TextColor = Color.White,
+                    Margin = new Thickness(20, 10, 0, 2)
                 });
                 roomCard.Children.Add(new Label()
                 {
-                    Text = "Current Temperature: " + room.currentTemperature,
-                    FontSize = 17
-                });
-
-                roomCard.Children.Add(new Label()
-                {
-                    Text = "Current Air Humidity: " + room.CurrentAirHumidity,
-                    FontSize = 17
-                });
-
-                roomCard.Children.Add(new Label()
-                {
-                    Text = "Is Light: " + room.currentIsLight.ToString(),
-                    FontSize = 17
+                    Text = "Current Temperature: " + room.currentTemperature + "°C",
+                    FontSize = 18,
+                    FontFamily = "Raleway-Medium.ttf#Raleway",
+                    TextColor = Color.White,
+                    Margin = new Thickness(20, 2)
                 });
 
                 roomCard.Children.Add(new Label()
                 {
-                    Text = "Current Light Intensity: " + room.currentLightIntensity,
-                    FontSize = 17
+                    Text = "Current Air Humidity: " + room.CurrentAirHumidity + "%",
+                    FontSize = 18,
+                    FontFamily = "Raleway-Medium.ttf#Raleway",
+                    TextColor = Color.White,
+                    Margin = new Thickness(20, 2)
+                });
+
+                var light = new Label()
+                {
+                    FontSize = 18,
+                    FontFamily = "Raleway-Medium.ttf#Raleway",
+                    TextColor = Color.White,
+                    Margin = new Thickness(20, 2)
+                };
+
+                if (room.currentIsLight)
+                {
+                    light.Text = "Light is on";
+                }
+                else
+                {
+                    light.Text = "Light is off";
+                }
+
+                roomCard.Children.Add(light);
+
+                roomCard.Children.Add(new Label()
+                {
+                    Text = "Current Light Intensity: " + room.currentLightIntensity + "%",
+                    FontSize = 18,
+                    FontFamily = "Raleway-Medium.ttf#Raleway",
+                    TextColor = Color.White,
+                    Margin = new Thickness(20, 2)
                 });
 
                 var changeClimatButton = new Button()
                 {
                     Text = "Change climat",
-                    AutomationId = room.Id
+                    AutomationId = room.Id,
+                    WidthRequest = 135,
+                    Margin = new Thickness(20, 4, 0, 0),
+                    TextColor = Color.Black,
+                    FontFamily = "Raleway-Bold.ttf#Raleway"
 
                 };
                 changeClimatButton.Clicked += ChangeClimat;
-                roomCard.Children.Add(changeClimatButton);
 
                 var changeLightButton = new Button()
                 {
                     
-                    Text = "Change light",
-                    AutomationId = room.Id
+                    Text = "Change illumination",
+                    AutomationId = room.Id, 
+                    WidthRequest = 135,
+                    Margin = new Thickness(7, 4, 0, 0),
+                    TextColor = Color.Black,
+                    FontFamily = "Raleway-Bold.ttf#Raleway"
                 };
                 changeLightButton.Clicked += ChangeLight;
-                roomCard.Children.Add(changeLightButton);
 
-                frame.Content = roomCard;
+                roomCard.Children.Add(new StackLayout()
+                {
+                    Orientation = StackOrientation.Horizontal,
+                    VerticalOptions = LayoutOptions.Center,
+                    HorizontalOptions = LayoutOptions.StartAndExpand,
+                    Children = { changeClimatButton, changeLightButton }
+                });
+                
+
+                grid.Children.Add(image);
+                grid.Children.Add(roomCard);
+                frame.Content = grid;
                 Body.Children.Add(frame);
             }
         }

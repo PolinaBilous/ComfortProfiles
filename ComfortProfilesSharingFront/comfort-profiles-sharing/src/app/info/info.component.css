@@ -1,20 +1,20 @@
 nav {
     position: relative;
     padding: 1%;
-    background-color: white;
+    background-color: #5f697a;
     padding-bottom: 1.75%;
 }
 
 .in{
-    border: 1px solid  rgb(170, 189, 202);
+    border: 1px solid  rgb(245, 245, 7);
     border-radius: 7px;
     padding-left: 0.75%;
     padding-right: 0.75%;
-    background-color: #557A95;
+    background-color: rgb(245, 245, 7);
     color: white;
 }
 .comfort {
-    color: #557A95;
+    color: rgb(245, 245, 7);
 }
 
 .logo-container {

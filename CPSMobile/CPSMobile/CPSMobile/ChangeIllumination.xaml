@@ -5,28 +5,62 @@
              Title="Change illumination in your room">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Select light state" FontSize="Medium"/>
+            <Label Text="Just enter details below and click submit button to change illumination in the room."
+                   TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="19"
+                   VerticalTextAlignment="Center"
+                   VerticalOptions="Start"
+                   HorizontalOptions="StartAndExpand"
+                   Margin="20, 10, 20, 0"/>
+
+            <Label Text="Select light state" TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="17"
+                   Margin="20, 10, 20, 0"/>
             <Picker Title="Select light state" 
                     x:Name="IsLight"
-                    ItemDisplayBinding="{Binding StringValue}"/>
+                    ItemDisplayBinding="{Binding StringValue}"                    
+                    Margin="16, 0, 20, 0"/>
 
-            <Label Text="Select light intensity" FontSize="Medium"/>
+            <Label Text="Select light intensity" TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="17"
+                   Margin="20, 10, 20, 0"/>
             <Picker Title="Select light intensity" 
                     x:Name="LightIntensity"
-                    ItemDisplayBinding="{Binding StringValue}"/>
+                    ItemDisplayBinding="{Binding StringValue}"                    
+                    Margin="16, 0, 20, 0"/>
 
-            <Label Text="Select date" FontSize="Medium"/>
-            <DatePicker x:Name ="Date" MinimumDate="{Binding minimumDate}"></DatePicker>
+            <Label Text="Select date" TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="17"
+                   Margin="20, 10, 20, 0"/>
+            <DatePicker x:Name ="Date" MinimumDate="{Binding minimumDate}"
+                        Margin="16, 0, 20, 0"/>
 
             <Label Text="Select time" FontSize="Medium"/>
-            <TimePicker x:Name="Time"></TimePicker>
+            <TimePicker x:Name="Time"                    
+                        Margin="16, 0, 20, 0"/>
 
-            <Label Text="Is action repeatable?" FontSize="Medium"/>
+            <Label Text="Is action repeatable?" TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="17"
+                   Margin="20, 10, 20, 0"/>
             <Picker Title="Is repeatable?" 
                     x:Name="IsRepeatable"
-                    ItemDisplayBinding="{Binding Explanation}"/>
+                    ItemDisplayBinding="{Binding Explanation}"                    
+                    Margin="16, 0, 20, 0"/>
 
-            <Button Text="Submit" Clicked="SubmitChangeIllumination"></Button>
+            <Button Text="Submit" Clicked="SubmitChangeIllumination"                   
+                    BackgroundColor="#7395AE" 
+                    FontAttributes="Bold" 
+                    TextColor="White"
+                    FontSize="18"
+                    FontFamily="Raleway-Bold.ttf#Raleway"
+                    VerticalOptions="End"
+                    HeightRequest="40"
+                    Margin="20, 10, 20, 0"></Button>
 
             <Label></Label>
         </StackLayout>

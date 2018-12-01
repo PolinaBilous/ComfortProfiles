@@ -4,20 +4,30 @@
              x:Class="CPSMobile.CoffeeMachineDetails"
              Title="Coffee Machine">
     <StackLayout>
-        <Label Text="Current coffee amount: "></Label>
+        <Image Source="coffee.jpg" Margin="0, 0, 0, 40"></Image>
+        <Label Text="Current coffee amount: "
+               TextColor="Black"
+               FontFamily="Raleway-Medium.ttf#Raleway"
+               FontSize="17"></Label>
         <Slider Minimum="0" 
                 Maximum="100"
                 x:Name="Coffee"
                 ThumbColor="Brown"
                 IsEnabled="False"></Slider>
-        <Label Text="Current water amount: "></Label>
+        <Label Text="Current water amount: "
+               TextColor="Black"
+               FontFamily="Raleway-Medium.ttf#Raleway"
+               FontSize="17"></Label>
         <Slider Minimum="0" 
                 Maximum="100"
                 x:Name="Water"
                 HeightRequest="30"
                 IsEnabled="False"
                 ThumbColor="#B3D4E5"></Slider>
-        <Label Text="Current milk amount: "></Label>
+        <Label Text="Current milk amount: "
+               TextColor="Black"
+               FontFamily="Raleway-Medium.ttf#Raleway"
+               FontSize="17"></Label>
         <Slider Minimum="0" 
                 Maximum="100"
                 x:Name="Milk"
@@ -26,6 +36,14 @@
                 IsEnabled="False"></Slider>
 
         <Button Text="Make coffee"
-                Clicked="MakeCoffee"></Button>
+                Clicked="MakeCoffee"
+                BackgroundColor="#7395AE" 
+                FontAttributes="Bold" 
+                TextColor="White"
+                FontSize="18"
+                FontFamily="Raleway-Bold.ttf#Raleway"
+                VerticalOptions="End" 
+                HorizontalOptions="FillAndExpand"
+                Margin="0, 40, 0, 0"></Button>
     </StackLayout>
 </ContentPage>

@@ -5,23 +5,61 @@
              Title="Make cup of coffee">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Select type of coffee" FontSize="Medium"/>
+            <Label Text="Just enter details below and click submit button to make cup of coffee."
+                   TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="19"
+                   VerticalTextAlignment="Center"
+                   VerticalOptions="Start"
+                   HorizontalOptions="StartAndExpand"
+                   Margin="20, 26, 20, 0"/>
+            
+            <Label Text="Select type of coffee" 
+                   TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="17"
+                   Margin="20, 20, 20, 0"/>
             <Picker Title="Type of coffee" 
                     x:Name="CoffeTypeSelector"
-                    ItemDisplayBinding="{Binding Name}"/>
+                    ItemDisplayBinding="{Binding Name}"
+                    Margin="16, 0, 20, 0"/>
             
-            <Label Text="Select date" FontSize="Medium"/>
-            <DatePicker x:Name ="Date" MinimumDate="{Binding minimumDate}"></DatePicker>
+            <Label Text="Select date" 
+                   TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="17"
+                   Margin="20, 20, 20, 0"/>
+            <DatePicker x:Name ="Date" 
+                        MinimumDate="{Binding minimumDate}"
+                        Margin="16, 0, 20, 0"/>
 
-            <Label Text="Select time" FontSize="Medium"/>
-            <TimePicker x:Name="Time"></TimePicker>
+            <Label Text="Select time" 
+                   TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="17"
+                   Margin="20, 20, 20, 0"/>
+            <TimePicker x:Name="Time"
+                        Margin="16, 0, 20, 0"/>
 
-            <Label Text="Is action repeatable?" FontSize="Medium"/>
+            <Label Text="Is action repeatable?" TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="17"
+                   Margin="20, 20, 20, 0"/>
             <Picker Title="Is repeatable?" 
                     x:Name="IsRepeatable"
-                    ItemDisplayBinding="{Binding Explanation}"/>
+                    ItemDisplayBinding="{Binding Explanation}"
+                    Margin="16, 0, 20, 0"/>
 
-            <Button Text="Submit" Clicked="Submit"></Button>
+            <Button Text="Submit" 
+                    Clicked="Submit"
+                    BackgroundColor="#7395AE" 
+                    FontAttributes="Bold" 
+                    TextColor="White"
+                    FontSize="18"
+                    FontFamily="Raleway-Bold.ttf#Raleway"
+                    VerticalOptions="End"
+                    HeightRequest="40"
+                    Margin="20, 20, 20, 0"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

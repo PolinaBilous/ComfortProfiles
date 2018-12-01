@@ -5,13 +5,28 @@
              Title="Teapot">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Current temperature: "></Label>
+            <Image Source="teapot.jpg" Margin="0, 0, 0, 28"></Image>
+
+            <Label Text="Information about your teapot:"
+                   TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="20"
+                   Margin="0, 0, 0, 35"></Label>
+
+            <Label Text="Current temperature: "
+                   TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="19"></Label>
             <Slider Minimum="0" 
                 Maximum="100"
                 x:Name="Temperature"
                 ThumbColor="Brown"
                 IsEnabled="False"></Slider>
-            <Label Text="Current water amount: "></Label>
+            
+            <Label Text="Current water amount: "                   
+                   TextColor="Black"
+                   FontFamily="Raleway-Medium.ttf#Raleway"
+                   FontSize="19"></Label>
             <Slider Minimum="0" 
                 Maximum="100"
                 x:Name="Water"
@@ -20,7 +35,15 @@
                 ThumbColor="#B3D4E5"></Slider>
 
             <Button Text="Boil water"
-                Clicked="BoilWater"></Button>
+                Clicked="BoilWater"
+                BackgroundColor="#7395AE" 
+                FontAttributes="Bold" 
+                TextColor="White"
+                FontSize="18"
+                FontFamily="Raleway-Bold.ttf#Raleway"
+                VerticalOptions="End" 
+                HorizontalOptions="FillAndExpand"
+                Margin="0, 40, 0, 0"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
