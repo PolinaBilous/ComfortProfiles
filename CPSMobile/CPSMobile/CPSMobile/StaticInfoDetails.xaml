@@ -2,9 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CPSMobile.StaticInfoDetails"
-             Title="Your information">
+             Title="ComfortProfile" 
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms">
     <ContentPage.Content>
-        <StackLayout x:Name="Body">
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout x:Name="Body">
+                </StackLayout>
+                <StackLayout x:Name="CoffeeTypes">
+                    <microcharts:ChartView x:Name="FavouriteCoffeeChart" HeightRequest="200" Margin="20, 5, 20, 5"/>
+                </StackLayout>
+                <StackLayout x:Name="ContinueBody" Margin="0, 0, 0, 30">
+                </StackLayout>
+                <StackLayout>
+                    <Button Text="Share" Clicked="Share"
+                    BackgroundColor="#7395AE" 
+                    FontAttributes="Bold" 
+                    TextColor="White"
+                    FontSize="18"
+                    FontFamily="Raleway-Bold.ttf#Raleway"
+                    VerticalOptions="End"
+                    HeightRequest="40"
+                    Margin="20, 0, 20, 20"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

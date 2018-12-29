@@ -37,7 +37,7 @@ namespace CPSMobile
 
         async void OpenSignUp(object sender, EventArgs args)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new Rooms()));
+            await Navigation.PushModalAsync(new NavigationPage(new SignUp()));
         }
     }
 }

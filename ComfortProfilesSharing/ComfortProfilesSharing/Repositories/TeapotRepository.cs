@@ -90,7 +90,7 @@ namespace ComfortProfilesSharing.Repositories
                 result = _dbContext.TeapotLogs.Where(tl => tl.TeapotId == teapot.Id && tl.IsRepeatable == true).ToList();
 
             else if (teapot != null)
-                result = _dbContext.TeapotLogs.Where(tl => tl.TeapotId == teapot.Id).ToList();
+                result = null;
 
             return result;
         }

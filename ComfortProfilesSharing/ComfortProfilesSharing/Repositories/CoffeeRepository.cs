@@ -174,7 +174,7 @@ namespace ComfortProfilesSharing.Repositories
                 result = _dbContext.CoffeeLogs.Where(cl => cl.CoffeeDeviceId == coffeeDevice.Id && cl.IsRepeatable == true).ToList();
 
             else if (coffeeDevice != null)
-                result = _dbContext.CoffeeLogs.Where(cl => cl.CoffeeDeviceId == coffeeDevice.Id).ToList();
+                result = null;
             
             return result;
         }

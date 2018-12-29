@@ -36,7 +36,7 @@ namespace CPSMobile
                     new RoomsMenuItem { Id = 0, Title = "Rooms climat and illumination", TargetType=typeof(RoomsDetail) },
                     new RoomsMenuItem { Id = 1, Title = "Coffee Machine", TargetType=typeof(CoffeeMachineDetails) },
                     new RoomsMenuItem { Id = 2, Title = "Teapot", TargetType = typeof(TeapotDetails) },
-                    new RoomsMenuItem { Id = 3, Title = "Your information", TargetType = typeof(StaticInfoDetails) }
+                    new RoomsMenuItem { Id = 3, Title = "Comfort profile", TargetType = typeof(StaticInfoDetails) }
                 });
             }
             

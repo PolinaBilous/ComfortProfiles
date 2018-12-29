@@ -38,7 +38,7 @@ namespace ComfortProfilesSharing.Repositories
 
             if (staticInfo != null)
             {
-                return new ComfortProfile()
+                ComfortProfile comfortProfile = new ComfortProfile()
                 {
                     UserId = appUserId,
                     ShoeSize = staticInfo.ShoeSize,
@@ -54,10 +54,28 @@ namespace ComfortProfilesSharing.Repositories
                     WaterTypeId = staticInfo.WaterTypeId,
                     PreferableRoomsIndicators = _roomRepository.GetPreferableRoomsIndicators(appUserId),
                     FavoriteCoffeeTypes = _coffeeRepository.GetFavouriteCoffeeTypes(appUserId).Select(ct => (object) new { ct.Id, ct.Name }).ToList(),
-                    ComfortTeapotTemperature = comfortTeapotTemperature,
-                    PreferableCoffeeTimes = _coffeeRepository.GetPreferableCoffeeTimes(appUserId).Select(cl => (object)new { cl.CoffeeTypeId, cl.Date}).ToList(),
-                    PreferableTeaTimes = _teapotRepository.GetPreferableTeaTimes(appUserId).Select(cl => (object)new { cl.Temperature, cl.Date }).ToList()
+                    ComfortTeapotTemperature = comfortTeapotTemperature
                 };
+
+                if (_coffeeRepository.GetPreferableCoffeeTimes(appUserId) != null)
+                {
+                    comfortProfile.PreferableCoffeeTimes = _coffeeRepository.GetPreferableCoffeeTimes(appUserId).Select(cl => (object)new { cl.CoffeeTypeId, cl.Date, cl.HowOftenId }).ToList();
+                }
+                else
+                {
+                    comfortProfile.PreferableCoffeeTimes = null;
+                }
+
+                if (_teapotRepository.GetPreferableTeaTimes(appUserId) != null)
+                {
+                    comfortProfile.PreferableTeaTimes = _teapotRepository.GetPreferableTeaTimes(appUserId).Select(cl => (object)new { cl.Temperature, cl.Date, cl.HowOftenId }).ToList();
+                }
+                else
+                {
+                    comfortProfile.PreferableTeaTimes = null;
+                }
+
+                return comfortProfile;
             }
             else
             {

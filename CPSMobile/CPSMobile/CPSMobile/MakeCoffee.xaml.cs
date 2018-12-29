@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Type = CPSMobile.Models.Type;
+using CoffeeType = CPSMobile.Models.CoffeeType;
 
 namespace CPSMobile
 {
@@ -16,7 +16,7 @@ namespace CPSMobile
 	{
 		public MakeCoffee ()
 		{
-            List<Type> coffeeTypes = Logic.GetCoffeeTypes();
+            List<CoffeeType> coffeeTypes = Logic.GetCoffeeTypes();
             List<HowOften> howOftens = Logic.GetHowOftens();
 
             DateTime minimumDate = DateTime.Now;
@@ -32,7 +32,7 @@ namespace CPSMobile
 
         async private void Submit(object sender, EventArgs e)
         {
-            string coffeeType = (CoffeTypeSelector.SelectedItem as Type).Id;
+            string coffeeType = (CoffeTypeSelector.SelectedItem as CoffeeType).Id;
             int howOftenId = (IsRepeatable.SelectedItem as HowOften).Id;
             DateTime date = Date.Date.Add(Time.Time).AddHours(-3);
 

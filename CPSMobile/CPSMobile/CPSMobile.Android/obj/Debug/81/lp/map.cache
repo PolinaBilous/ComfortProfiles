@@ -1,9 +1,13 @@
 CPSMobile
 FormsViewGroup
+Microcharts.Forms
 ModernHttpClient
 Newtonsoft.Json
 OkHttp
 RestSharp
+SkiaSharp
+SkiaSharp.Views.Android
+SkiaSharp.Views.Forms
 System.Runtime
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Lifecycle.Common

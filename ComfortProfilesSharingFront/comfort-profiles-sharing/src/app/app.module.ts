@@ -33,7 +33,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { MakeCoffeeComponent } from './make-coffee/make-coffee.component';
 import { BoilWaterComponent } from './boil-water/boil-water.component';
 import { ComfortProfileComponent } from './comfort-profile/comfort-profile.component';
-import { InstructionsComponent } from './instructions/instructions.component'
+import { InstructionsComponent } from './instructions/instructions.component';
+import {MatCardModule} from '@angular/material/card';
+import { ChartModule } from 'angular2-highcharts';
+import { Ng2HighchartsModule } from 'ng2-highcharts';
 
 export const MY_NATIVE_FORMATS = {
   parseInput: 'l LT',
@@ -77,7 +80,10 @@ export const MY_NATIVE_FORMATS = {
     OwlNativeDateTimeModule,
     MatSnackBarModule, 
     MatProgressBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule,
+    ChartModule.forRoot(require('highcharts')),
+    Ng2HighchartsModule
   ],
   exports: [
   ],

@@ -3,14 +3,14 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Type = CPSMobile.Models.Type;
+using CoffeeType = CPSMobile.Models.CoffeeType;
 
 namespace CPSMobile
 {
     public static class Logic
     {
         private static string userId;
-        private static readonly string clientURL = "http://574e7a47.ngrok.io";
+        private static readonly string clientURL = "http://f7d1d5df.ngrok.io";
 
         public static string getCurrentUserId()
         {
@@ -46,46 +46,55 @@ namespace CPSMobile
             return response.Data;
         }
 
-        public static List<Type> GetCoffeeTypes()
+        public static List<CoffeeType> GetCoffeeTypes()
         {
             var client = new RestClient(clientURL);
             var request = new RestRequest("api/Coffee/GetCoffeeTypes", Method.GET);
-            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
+            IRestResponse<List<CoffeeType>> response = client.Execute<List<CoffeeType>>(request);
 
             return response.Data;
         }
 
-        public static List<Type> GetWaterTypes()
+        public static List<CoffeeType> GetWaterTypes()
         {
             var client = new RestClient(clientURL);
             var request = new RestRequest("api/StaticInfo/GetWaterTypes", Method.GET);
-            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
+            IRestResponse<List<CoffeeType>> response = client.Execute<List<CoffeeType>>(request);
 
             return response.Data;
         }
-        public static List<Type> GetTableTypes()
+        public static List<CoffeeType> GetTableTypes()
         {
             var client = new RestClient(clientURL);
             var request = new RestRequest("api/StaticInfo/GetTableTypes", Method.GET);
-            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
+            IRestResponse<List<CoffeeType>> response = client.Execute<List<CoffeeType>>(request);
 
             return response.Data;
         }
-        public static List<Type> GetChairTypes()
+        public static List<CoffeeType> GetChairTypes()
         {
             var client = new RestClient(clientURL);
             var request = new RestRequest("api/StaticInfo/GetChairTypes", Method.GET);
-            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
+            IRestResponse<List<CoffeeType>> response = client.Execute<List<CoffeeType>>(request);
 
             return response.Data;
         }
-        public static List<Type> GetMattressTypes()
+        public static List<CoffeeType> GetMattressTypes()
         {
             var client = new RestClient(clientURL);
             var request = new RestRequest("api/StaticInfo/GetMattressTypes", Method.GET);
-            IRestResponse<List<Type>> response = client.Execute<List<Type>>(request);
+            IRestResponse<List<CoffeeType>> response = client.Execute<List<CoffeeType>>(request);
 
             return response.Data;
+        }
+
+        public static ComfortProfile GetComfortProfile()
+        {
+            var client = new RestClient(clientURL);
+            var request = new RestRequest("api/ComfortProfile?userId=" + userId, Method.GET);
+            IRestResponse<ComfortProfileResponse> response = client.Execute<ComfortProfileResponse>(request);
+            
+            return response.Data.comfortProfile;
         }
 
         public static string MakeCupOfCoffee(string coffeeTypeId, string dateTime, int howOftenId)

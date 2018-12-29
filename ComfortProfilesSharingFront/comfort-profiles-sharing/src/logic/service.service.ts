@@ -168,8 +168,8 @@ export class Service {
         }));
     }
 
-    makeCupOfCoffeeIfNeeded() : Observable<CoffeeDeviceResponse>{
-        let request : string = environment.apiUrl + "/api/Coffee/MakeCupOfCoffeeIfNeeded?appUserId=" + this.appUserId;
+    makeCupOfCoffeeIfNeeded(userId : string) : Observable<CoffeeDeviceResponse>{
+        let request : string = environment.apiUrl + "/api/Coffee/MakeCupOfCoffeeIfNeeded?appUserId=" + userId;
         return this.http.post(request, null, this.httpOptions).pipe(map(response => {
             let coffeDeviceResponse: CoffeeDeviceResponse = new CoffeeDeviceResponse();
 

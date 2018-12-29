@@ -8,7 +8,6 @@ C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\D
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.AssemblyInfo.cs
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.dll
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\CPSMobile.pdb
-C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\SignIn.xaml.g.cs
 D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\Debug\netstandard2.0\CPSMobile.deps.json
 D:\GitHub\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\bin\Debug\netstandard2.0\CPSMobile.dll
@@ -33,3 +32,5 @@ C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\D
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\BoilWater.xaml.g.cs
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\TeapotDetails.xaml.g.cs
 C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\StaticInfoDetails.xaml.g.cs
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Polina\source\repos\ComfortProfiles\CPSMobile\CPSMobile\CPSMobile\obj\Debug\netstandard2.0\SignUp.xaml.g.cs

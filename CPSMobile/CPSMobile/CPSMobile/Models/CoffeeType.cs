@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CPSMobile.Models
 {
-    public class Type
+    public class CoffeeType
     {
         public string Id { get; set; }
         public string Name { get; set; }
