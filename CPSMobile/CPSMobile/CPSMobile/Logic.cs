@@ -10,7 +10,7 @@ namespace CPSMobile
     public static class Logic
     {
         private static string userId;
-        private static readonly string clientURL = "http://f7d1d5df.ngrok.io";
+        private static readonly string clientURL = "http://53ac95ec.ngrok.io";
 
         public static string getCurrentUserId()
         {

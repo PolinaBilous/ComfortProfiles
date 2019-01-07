@@ -18,6 +18,7 @@ export class MakeCoffeeComponent implements OnInit {
   date;
   howOftenId;
   coffeeTypeId;
+  result: import("c:/Users/Polina/source/repos/ComfortProfiles/ComfortProfilesSharingFront/comfort-profiles-sharing/src/logic/coffee-device-response.model").CoffeeDeviceResponse;
 
   constructor(
     public dialogRef: MatDialogRef<MakeCoffeeComponent>,

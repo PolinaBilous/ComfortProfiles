@@ -1,0 +1,496 @@
+nav {
+    position: relative;
+    padding: 1%;
+    background-color: #5f697a;
+    padding-bottom: 1.75%;
+}
+
+.in{
+    border: 1px solid  rgb(245, 245, 7);
+    border-radius: 7px;
+    padding-left: 0.75%;
+    padding-right: 0.75%;
+    background-color: rgb(245, 245, 7);
+    color: white;
+}
+.comfort {
+    color: rgb(245, 245, 7);
+}
+
+.logo-container {
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#main-logo {
+    margin-left:  3%;
+}
+
+#rooms, #coffee, #info, #comfort-profile, #instructions{
+    margin-left: 1.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#rooms {
+    margin-left: 3%;
+}
+
+#sign-out:hover {
+    transition: 0.5s;
+	-webkit-box-shadow:0 0 15px rgba(241, 236, 236, 0.5);
+	-moz-box-shadow:0 0 15px rgba(241, 236, 236, 0.5);
+	box-shadow:0 0 15px rgba(241, 236, 236, 0.5);
+}
+#rooms:hover {
+    color: rgb(245, 245, 7);
+}
+#coffee:hover {
+    color: rgb(245, 245, 7);
+} 
+#info:hover {
+    color: rgb(245, 245, 7);
+}
+#comfort-profile:hover{
+    color: rgb(245, 245, 7);
+}
+#instructions:hover {
+    color: rgb(245, 245, 7);
+}
+
+#sign-out {
+    float: right;
+    margin-right: 3%;
+    margin-left: 1.5%;
+    margin-top: 0.1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 500;
+    border: 1px solid rgb(245, 245, 7);
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 7);
+    cursor: pointer;
+    text-decoration: none;
+}
+#content {
+    margin-left: 17%;
+    margin-right: 19%;
+    margin-top: 2em;
+}
+
+#header-left {
+    height: 7em;
+    width: 70%;
+    float: left;
+}
+
+#header-right {
+    float: left;
+    width: 30%;
+    height: 7em;
+}
+
+#personal {
+    margin-top: 1em;
+}
+#house {
+    margin-top: 2em;
+}
+
+.main-header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0.5em;
+    font-size: 30px;
+    margin-bottom: 0;
+    color: rgb(95, 93, 93);
+}
+
+.sub-header {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    margin-top: 8px;
+    margin-bottom: 1em;
+    color: rgb(95, 93, 93);
+}
+
+#personal-header {
+    border: 1px solid lightgrey;
+    width: 100%;
+    background-color: #5f697a;
+}
+
+#header{
+    height: 130px;
+}
+
+#personal-content {
+    border: 1px solid lightgrey;
+    width: 100%;
+}
+
+#personal-header-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 23px;
+    font-weight: 400;
+    margin-left: 20px;
+    color: white;
+}
+
+#share {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid rgb(238, 238, 14);
+    font-weight: 700;
+    background-color: rgb(248, 248, 4);
+    color: white;
+    border-color: rgb(248, 248, 4);
+    padding: 13px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 25%;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s;
+    letter-spacing: 2px;
+    margin-top: 1.75em;
+    float: right;
+}
+
+#share:hover{
+    transition: 0.5s;
+	-webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#clothing {
+    width: 65%;
+    padding-left: 35%;
+}
+#clothing-icon {
+    background-image: url("/assets/clothes.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#clothing-text {
+    line-height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    padding-left: 60px;
+    letter-spacing: 1px;
+}
+
+#personal-table {
+    width: 100%;
+}
+
+#left-column {
+    width: 49%;
+}
+#allergens {
+    width: 65%;
+    padding-left: 35%;
+}
+#allergens-icon {
+    background-image: url("/assets/allergens.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#allergens-text1 {
+    line-height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    padding-left: 60px;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+#allergens-text2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding-left: 60px;
+    letter-spacing: 1px;
+    margin-top: 1px;
+}
+
+#music {
+    width: 65%;
+    padding-left: 35%;
+}
+#music-icon {
+    background-image: url("/assets/allergens.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#music-text1 {
+    line-height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    padding-left: 60px;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+#coffee-text1 {
+    line-height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+#music-text2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding-left: 60px;
+    letter-spacing: 1px;
+    margin-top: 1px;
+}
+
+#tea-text2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 1px;
+}
+
+#fruit {
+    width: 65%;
+    padding-left: 20%;
+}
+#fruit-icon {
+    background-image: url("/assets/fruit.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+#water-icon {
+    background-image: url("/assets/water.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+#chair-icon {
+    background-image: url("/assets/chair.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+#table-icon {
+    background-image: url("/assets/table.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#mattress-icon {
+    background-image: url("/assets/mattress.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#fruit-text1 {
+    line-height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    padding-left: 60px;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+#fruit-text2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding-left: 60px;
+    letter-spacing: 1px;
+    margin-top: 1px;
+}
+
+#shoes {
+    width: 70%;
+    padding-left: 20%;
+    margin-right: 10%;
+}
+
+#shoes-icon {
+    background-image: url("/assets/shoe.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#shoes-text {
+    line-height: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    padding-left: 60px;
+    letter-spacing: 1px;
+}
+
+
+#right-column {
+    width: 49%;
+}
+
+
+
+#room1 {
+    background-image: url("/assets/kitchen.jpg");
+    height: 12em;
+    width: 45%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 3.5%;
+    margin-bottom: 3.5%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    -webkit-box-shadow:0 0 20px black;
+	-moz-box-shadow:0 0 20px black;
+    box-shadow:0 0 20px black;
+    list-style-type: none;
+    display: inline-block;
+}
+
+
+#room-name {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 25px;
+    text-align: right;
+    margin-right: 10%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    -webkit-text-shadow:0 0 2px white;
+	-moz-text-shadow:0 0 2px white;
+	text-shadow:0 0 2px white;
+}
+
+#temperature {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#temperature-icon {
+    background-image: url("/assets/thermometer.svg");
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#temperature-text {
+    line-height: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 17px;
+    padding-left: 12%;
+    letter-spacing: 1px;
+}
+#air {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#air-icon {
+    background-image: url("/assets/air.svg");
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#temp-icon {
+    background-image: url("/assets/temperature.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#tea-icon {
+    background-image: url("/assets/tea.png");
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#light-icon {
+    background-image: url("/assets/light.svg");
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+#light-intencity-icon{
+    background-image: url("/assets/light-intensity.svg");
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+
+#air-text {
+    line-height: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: 17px;
+    padding-left: 12%;
+    letter-spacing: 1px;
+}
+
+ul {
+    padding-left: 2%;
+}

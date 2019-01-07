@@ -37,6 +37,10 @@ import { InstructionsComponent } from './instructions/instructions.component';
 import {MatCardModule} from '@angular/material/card';
 import { ChartModule } from 'angular2-highcharts';
 import { Ng2HighchartsModule } from 'ng2-highcharts';
+import { ComfortProfileSharedComponent } from './comfort-profile-shared/comfort-profile-shared.component';
+import { ShareProfilePopupComponent } from './share-profile-popup/share-profile-popup.component';
+import {MatBottomSheetModule, MAT_BOTTOM_SHEET_DEFAULT_OPTIONS} from '@angular/material/bottom-sheet';
+import {MAT_BOTTOM_SHEET_DATA} from '@angular/material';
 
 export const MY_NATIVE_FORMATS = {
   parseInput: 'l LT',
@@ -61,7 +65,7 @@ export const MY_NATIVE_FORMATS = {
     RoomsComponent, 
     ChangeClimatComponent, 
     ChangeLightComponent, 
-    InfoComponent, CoffeeAndTeaComponent, MakeCoffeeComponent, BoilWaterComponent, ComfortProfileComponent, InstructionsComponent
+    InfoComponent, CoffeeAndTeaComponent, MakeCoffeeComponent, BoilWaterComponent, ComfortProfileComponent, InstructionsComponent, ComfortProfileSharedComponent, ShareProfilePopupComponent
   ],
   imports: [
     BrowserModule,
@@ -82,13 +86,13 @@ export const MY_NATIVE_FORMATS = {
     MatProgressBarModule,
     MatTooltipModule,
     MatCardModule,
-    ChartModule.forRoot(require('highcharts')),
-    Ng2HighchartsModule
-  ],
+    Ng2HighchartsModule,
+    MatBottomSheetModule  ],
   exports: [
   ],
   providers: [
-    Service
+    Service,
+    {provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
   ],
   bootstrap: [AppComponent],
   entryComponents: [
@@ -96,7 +100,8 @@ export const MY_NATIVE_FORMATS = {
     ChangeClimatComponent, 
     ChangeLightComponent, 
     MakeCoffeeComponent, 
-    BoilWaterComponent
+    BoilWaterComponent,
+    ShareProfilePopupComponent
   ]
 })
 export class AppModule { }

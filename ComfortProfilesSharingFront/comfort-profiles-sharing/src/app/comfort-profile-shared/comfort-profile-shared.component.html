@@ -1,0 +1,179 @@
+<nav id="main-header">
+  <a id="main-logo">
+      <span class="logo-container">
+          <span class="in">In</span>
+          <span class="comfort">Comfort</span>
+      </span>
+  </a>
+</nav>
+<div id="content">
+    <div id="header">
+        <div id="header-left">
+            <p class="main-header">It's Comfort Profile.</p>
+            <p class="sub-header">Try to make this user time better, please.</p>
+        </div>
+    </div>
+   <div id="personal">
+        <div id="personal-header">
+            <p id="personal-header-text">Personal: </p>
+        </div>      
+        <div id="personal-content">
+            <table id="personal-table">
+                <tr>
+                    <td id="left-column">
+                        <div id="clothing">
+                            <div id="clothing-icon"></div>
+                            <div><p id="clothing-text"><b>Clothing size:</b> {{currentClothingSize}} </p></div>
+                        </div>                       
+                    </td>
+                    <td id="right-column">
+                        <div id="shoes">
+                            <div id="shoes-icon"></div>
+                            <div><p id="shoes-text"><b>Shoes size:</b> {{currentShoeSize}} </p></div>
+                        </div>                       
+                    </td>
+                </tr>
+                <tr>
+                    <td id="left-column">
+                        <div id="allergens">
+                            <div id="allergens-icon"></div>
+                            <div><p id="allergens-text1"><b>Allergens:</b></p></div>
+                            <div><p id="allergens-text2">{{allergens}} </p></div>
+                        </div>                       
+                    </td>
+                    <td id="right-column">
+                        <div id="fruit">
+                            <div id="fruit-icon"></div>
+                            <div><p id="fruit-text1"><b>Fruit preferences:</b></p></div>
+                            <div><p id="fruit-text2">{{fruitPreferences}} </p></div>
+                        </div>                       
+                    </td>
+                </tr>
+                <tr>
+                    <td id="left-column">
+                        <div id="music">
+                            <div id="music-icon"></div>
+                            <div><p id="music-text1"><b>{{musicalPreferencesTitle}}:</b></p></div>
+                            <div><p id="music-text2">{{musicalPreferences}} </p></div>
+                        </div>                       
+                    </td>
+                    <td id="right-column">
+                        <div id="fruit">
+                            <div id="water-icon"></div>
+                            <div><p id="fruit-text1"><b>Preferable water type:</b></p></div>
+                            <div><p id="fruit-text2">{{preferableWaterType}} </p></div>
+                        </div>                       
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="house">
+            <div id="personal-header">
+                    <p id="personal-header-text">House: </p>
+                </div>  
+            <div id="personal-content">
+                    <table id="personal-table">
+                        <tr>
+                            <td id="left-column">
+                                <div id="clothing">
+                                    <div id="chair-icon"></div>
+                                    <div><p id="music-text1"><b>Preferable chair type:</b></p></div>
+                                    <div><p id="music-text2">{{preferableChairType}} </p></div>
+                                </div>                       
+                            </td>
+                            <td id="right-column">
+                                <div id="shoes">
+                                    <div id="table-icon"></div>                                
+                                    <div><p id="music-text1"><b>Preferable table type:</b></p></div>
+                                    <div><p id="music-text2">{{preferableTableType}} </p></div>
+                                </div>                       
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="left-column">
+                                <div id="allergens">
+                                    <div id="mattress-icon"></div>
+                                    <div><p id="music-text1"><b>Mattress type:</b></p></div>
+                                    <div><p id="music-text2">{{preferableMattressType}} </p></div>
+                                </div>                       
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+    </div>
+    <div id="house">
+        <div id="personal-header">
+            <p id="personal-header-text">Rooms: </p>
+        </div>  
+        <div id="personal-content">
+            <ul>
+                <li *ngFor="let room of preferableRoomsIndicators;" id="room1" class="{{room.roomId}}">
+                    <p id="room-name">{{room.name}}</p>
+                    <div id="temperature">
+                        <div id="temperature-icon"></div>
+                        <div><p id="temperature-text">Preferable temperature: {{room.preferableTemperature}} °C</p></div>
+                    </div>
+                    <div id="air">
+                        <div id="air-icon"></div>
+                        <div><p id="air-text">Preferable air humidity: {{room.preferableAirHumidity}}%</p></div>
+                    </div>
+                    <div id="temperature">
+                        <div id="light-intencity-icon"></div>
+                        <div><p id="air-text">Preferable ight intensity: {{room.preferableLightIntencity}}%</p></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="house" style="margin-bottom: 40px;">
+        <div id="personal-header">
+                <p id="personal-header-text">Other: </p>
+            </div>  
+        <div id="personal-content">
+            <table id="personal-table">
+                <tr>
+                    <td id="left-column">
+                        <div id="clothing">
+                            <div id="temp-icon"></div>
+                            <div><p id="clothing-text"><b>Preferable teapot's temperature:</b> {{comfortTeapotTemperature}} °C</p></div>
+                        </div>                       
+                    </td>
+                    <td id="right-column">
+                        <div id="shoes" style="padding-top: 45px;">                              
+                                <div><p id="tea-text2"><b>Times when water should be boiled up to specific temperature:</b></p></div>
+                                <p id="tea-text2" *ngFor="let teaTime of preferableTeaTimes;">
+                                    Boil water to {{teaTime.temperature}} °C {{teaTime.howOftenString}} at {{teaTime.date}}.
+                                </p>
+                        </div>                       
+                    </td>
+                </tr>
+                <tr>
+                    <td id="left-column">
+                        <div id="allergens">
+                            <div id="tea-icon"></div>
+                            <div><p id="music-text1"><b>Favourite kinds of tea:</b></p></div>
+                            <div><p id="music-text2">{{kindOfTea}} </p></div>
+                        </div>                       
+                    </td>
+                </tr>
+                <tr>
+                    <td id="left-column">
+                        <div id="clothing">
+                            <div><p id="coffee-text1"><b>Favourite coffee types:</b></p></div>
+                            <div [ng2-highcharts]="chartData"></div>   
+                        </div>         
+                    </td>
+                    <td id="right-column" style="vertical-align: top; padding-top: 25px;">
+                        <div id="shoes">                              
+                            <div><p id="tea-text2"><b>Times When coffee should be done:</b></p></div>
+                            <p id="tea-text2" *ngFor="let coffeeTime of preferableCoffeeTimes;">
+                                    Make {{coffeeTime.coffeeType}} {{coffeeTime.howOftenString}} at {{coffeeTime.date}}.
+                            </p>
+                        </div>                       
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

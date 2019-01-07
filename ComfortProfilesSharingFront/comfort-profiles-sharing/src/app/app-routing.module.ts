@@ -10,6 +10,7 @@ import { InfoComponent } from './info/info.component';
 import { CoffeeAndTeaComponent } from './coffee-and-tea/coffee-and-tea.component';
 import { ComfortProfileComponent } from './comfort-profile/comfort-profile.component';
 import { InstructionsComponent } from './instructions/instructions.component';
+import { ComfortProfileSharedComponent } from './comfort-profile-shared/comfort-profile-shared.component';
 
 const routes: Routes = [
   {path: "sign-in", component: SignInComponent}, 
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: "user-info/:id", component: InfoComponent},
   {path: "coffee-and-tea/:id", component: CoffeeAndTeaComponent},
   {path: "comfort-profile/:id", component: ComfortProfileComponent},
-  {path: "instructions/:id", component: InstructionsComponent}
+  {path: "instructions/:id", component: InstructionsComponent},
+  {path: "comfort-profilec34f7a729bcff10296a899190aee21859ff757e2e0bbcb99/:id", component: ComfortProfileSharedComponent}
 ];
 
 @NgModule({

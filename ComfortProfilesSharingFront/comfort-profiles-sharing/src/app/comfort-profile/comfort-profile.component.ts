@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Service } from 'src/logic/service.service';
 import { Ng2Highcharts } from 'ng2-highcharts';
 import * as Highcharts from "highcharts";
+import { MatBottomSheet } from '@angular/material';
+import { ComfortProfileSharedComponent } from '../comfort-profile-shared/comfort-profile-shared.component';
+import { ShareProfilePopupComponent } from '../share-profile-popup/share-profile-popup.component';
 window['Highcharts'] = Highcharts;
 
 @Component({
@@ -35,7 +38,7 @@ export class ComfortProfileComponent implements OnInit {
   chartData;
   preferableCoffeeTypes: any;
   preferableCoffeeTimes: any;
-  constructor(private activeRoute : ActivatedRoute, private router : Router, private service : Service) { 
+  constructor(private activeRoute : ActivatedRoute, private router : Router, private service : Service, private bottomSheet: MatBottomSheet) { 
     this.activeRoute.queryParams.subscribe(params => {
       this.appUserId = this.activeRoute.snapshot.params.id;
     });
@@ -164,5 +167,10 @@ export class ComfortProfileComponent implements OnInit {
 
   signOut(){
     this.router.navigate(['/home']);
+  }
+
+  openShareWindow(){
+      this.bottomSheet.open(ShareProfilePopupComponent, {
+        data: this.appUserId });
   }
 }
